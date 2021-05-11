@@ -1,0 +1,16 @@
+version: '3'
+services:
+  dev:
+    image: next
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    ports:
+      - '3000:3000'
+    container_name: next
+    tty: true
+    restart: 'always'
+    volumes:
+      - .:/app/
+      - /app/node_modules
+    command: pnpm dev
