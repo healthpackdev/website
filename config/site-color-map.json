@@ -1,0 +1,12 @@
+{
+  "index": {
+    "cardBg": ["gray.200", "gray.700"],
+    "mutedText": ["gray.800", "whiteAlpha.900"],
+    "hero": {
+      "headerJob": ["blue.500", "blue.500"]
+    },
+    "header": {
+      "linkHoverBg": ["blue.200", "blue.800"]
+    }
+  }
+}
