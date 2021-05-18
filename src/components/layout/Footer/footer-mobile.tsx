@@ -1,5 +1,6 @@
 import { Container, Flex, Text, Link, useColorModeValue as useColor } from '@chakra-ui/react';
-import { FontAwesomeIcon, IconProp } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import siteConfig from '@config/site-config.json';
 
 const FooterMobile: React.FC = () => {
