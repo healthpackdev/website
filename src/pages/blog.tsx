@@ -1,7 +1,6 @@
 import Link from '@components/common/link';
 import { Text, Box } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { css, Global } from '@emotion/react';
 
 function blog() {
@@ -12,7 +11,7 @@ function blog() {
           This page is work in progress.
         </Text>
         <Link href="/" textAlign="center" _hover={{ color: 'blue.500' }} display="block">
-          <FontAwesomeIcon icon={faArrowLeft} /> Go to Home
+          <FontAwesomeIcon icon={['fas', 'arrow-left']} /> Go to Home
         </Link>
       </Box>
 

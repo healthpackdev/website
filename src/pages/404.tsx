@@ -1,8 +1,11 @@
-import { useRouter } from 'next/router';
+import { Box } from '@chakra-ui/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function error() {
-  const Router = useRouter();
-  Router.push('/');
-
-  return <div>Page 404 you are redirecting to home.</div>;
+  return (
+    <Box>
+      404 | Page Not found
+      <FontAwesomeIcon icon={['fas', 'arrow-left']} /> Go to Home
+    </Box>
+  );
 }
