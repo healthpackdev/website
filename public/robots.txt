@@ -1,1 +1,5 @@
-allow='robot'
+User-agent: *
+Allow: /
+Disallow: /api/*
+Disallow: /admin/*
+sitemap: /sitemap.xml
