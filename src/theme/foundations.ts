@@ -7,7 +7,6 @@ export const fonts = {
   heading: `${site.font.name}, sans-serif`,
 };
 
-theme.shadows.outline = `0 0 1px 2.5px ${theme.colors.linkedin[500]}`;
 export const shadows = {
   ...theme.shadows,
 };

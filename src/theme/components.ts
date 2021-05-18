@@ -1,12 +1,7 @@
-// import { theme } from '@chakra-ui/react';
-
 const Link = {
   baseStyle: {
     _hover: {
       textDecoration: 'none',
-    },
-    _focus: {
-      boxShadow: 'none',
     },
   },
 };

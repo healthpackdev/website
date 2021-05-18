@@ -5,7 +5,7 @@ import components from '@theme/components';
 import React from 'react';
 
 const config = {
-  cssVarPrefix: 'theme', // if it changes some styles will break. <i /> etc.
+  cssVarPrefix: 'theme',
 };
 
 const Theme = extendTheme({

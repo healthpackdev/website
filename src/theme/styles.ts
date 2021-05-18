@@ -14,13 +14,19 @@ const scrollStyles = {
   },
   html: {
     scrollBehavior: 'smooth',
-    height: 'full',
   },
 };
+
 export default {
   global: (props) => ({
     body: {
-      bg: mode('rgb(241, 237, 237)', 'gray.800')(props),
+      bg: mode('gray.50', 'gray.800')(props),
+    },
+    '.card': {
+      bgColor: mode('white', 'gray.700')(props),
+    },
+    '.muted': {
+      color: mode('gray.800', 'whiteAlpha.900')(props),
     },
     ...scrollStyles,
   }),
