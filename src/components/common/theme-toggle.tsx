@@ -7,13 +7,14 @@ const ThemeToggle: React.FC = ({ ...props }) => {
   return (
     <IconButton
       onClick={toggleColorMode}
-      size="lg"
+      size="md"
       aria-label={`Toggle ${mode ? 'dark' : 'light'} mode`}
-      borderRadius="full"
+      borderRadius="lg"
       variant="ghost"
+      colorScheme="gray"
       {...props}
       icon={<FontAwesomeIcon icon={mode ? ['fas', 'moon'] : ['fas', 'sun']} />}
     />
   );
-}
+};
 export default ThemeToggle;

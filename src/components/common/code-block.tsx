@@ -3,7 +3,6 @@ import { Box, BoxProps, Code as ChakraCode } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import colors from '@theme/prism';
 import { Global, css } from '@emotion/react';
-
 import Prism from 'prismjs';
 import 'prismjs/components/prism-typescript.min';
 
@@ -36,7 +35,7 @@ const Code: React.FC<CodeBlockProps> = ({ lang, children, ...props }) => {
     Prism.highlightAll();
   }, []);
 
-  const Colored = () => <Global styles={css(styles)} />; // Make it better full performance
+  const Colored = () => <Global styles={css(styles)} />; // Make it better
 
   return (
     <Box className="Code">
