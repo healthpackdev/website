@@ -1,5 +1,6 @@
 {
-  "pages": [{ "text": "Projects", "href": "#projects", "section": "/" }],
+  "pages": [{ "text": "Projects", "href": "#projects" }],
+  "host_name": "healthpackdev.cf",
   "font": {
     "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
     "name": "Inter"
@@ -8,7 +9,7 @@
     "name": "healthpackdev",
     "github": "healthpackdev",
     "socials": [
-      { "href": "https://discord.com/users/healthpack#8248", "icon": ["fab", "discord"], "color": "#738ADB" },
+      { "href": "https://discord.com/users/573054368568311808", "icon": ["fab", "discord"], "color": "#738ADB" },
       { "href": "https://github.com/healthpackdev", "icon": ["fab", "github"], "color": "gray.500" },
       { "href": "https://twitter.com/healthpackdev", "icon": ["fab", "twitter"], "color": "twitter.500" },
       {
@@ -19,8 +20,8 @@
     ],
     "techs": [
       { "name": "Javascript" },
-      { "name": "HTML5" },
-      { "name": "CSS3" },
+      { "name": "HTML" },
+      { "name": "CSS" },
       { "name": "Typescript" },
       { "name": "Webpack" },
       { "name": "Bootstrap" },
@@ -30,15 +31,13 @@
       { "name": "Heroku" },
       { "name": "Linux" },
       { "name": "Mongodb" },
+      { "name": "tailwindcss" },
       { "name": "Nextjs" },
       { "name": "Nodejs" },
       { "name": "React" },
       { "name": "Sass" },
-      { "name": "yarn" }
+      { "name": "yarn" },
+      { "name": "pnpm" }
     ]
-  },
-  "seo": {
-    "title": "%t - Yasin Kadir",
-    "url": "https://healthpackdev.cf"
   }
 }
