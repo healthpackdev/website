@@ -2,6 +2,7 @@ import { Text, Box, Flex, useColorModeValue as useColor, Link } from '@chakra-ui
 import siteConfig from '@config/site-config.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useMotion from '@hooks/use-motion';
+import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 const HeroAbout: React.FC = () => {
   const green = useColor('green.500', 'green.400');
@@ -38,7 +39,7 @@ const HeroAbout: React.FC = () => {
             color={social.color}
             isExternal
           >
-            <FontAwesomeIcon icon={social.icon as any} />
+            <FontAwesomeIcon icon={social.icon as IconProp} />
           </MotionLink>
         ))}
       </Flex>
