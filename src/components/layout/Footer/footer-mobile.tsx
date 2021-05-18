@@ -1,5 +1,5 @@
-import { Container, Flex, Text, Link, useColorModeValue as useColor, IconProp } from '@chakra-ui/react';
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
+import { Container, Flex, Text, Link, useColorModeValue as useColor } from '@chakra-ui/react';
+import { FontAwesomeIcon, IconProp } from '@fortawesome/react-fontawesome';
 import siteConfig from '@config/site-config.json';
 
 const FooterMobile: React.FC = () => {
@@ -13,7 +13,7 @@ const FooterMobile: React.FC = () => {
       <Flex justifyContent="center">
         {siteConfig.author.socials.map((social, index) => (
           <Link href={social.href} mx="2" my="3" key={index.toString()} color={social.color}>
-            <Icon icon={social.icon as IconProp} color="white" />
+            <FontAwesomeIcon icon={social.icon as IconProp} color="white" />
           </Link>
         ))}
       </Flex>
