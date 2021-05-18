@@ -6,9 +6,9 @@ module.exports = withPlugins([
     jsconfigPaths: true,
     distDir: 'build',
     webpack(config, { isServer, dev }) {
-      if (isServer && !dev) {
+      if (isServer && process.env.NODE_ENV === "production") {
         require('./src/scripts/sitemap.js');
-        // generate a site map.
+        // require('./src/scripts/favicons.js'); depreceted
       }
       return config;
     },

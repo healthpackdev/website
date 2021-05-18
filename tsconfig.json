@@ -23,6 +23,6 @@
       "@config/*": ["./config/*"]
     }
   },
-  "include": ["next-env.d.ts", "src/**/*", "src/config/*.json"],
-  "exclude": ["node_modules", "src/scripts/sitemap.js", "build/"]
+  "include": ["next-env.d.ts", "src/**/*", "config/*"],
+  "exclude": ["src/scripts/sitemap.js"]
 }

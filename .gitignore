@@ -13,6 +13,7 @@ node_modules/
 .next/
 out/
 build/
+public/sitemap.xml
 
 # next.js
 next-env.d.ts

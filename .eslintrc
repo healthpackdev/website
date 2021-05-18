@@ -1,5 +1,5 @@
 {
-  "extends": ["plugin:prettier/recommended", "airbnb-typescript", "prettier"],
+  "extends": ["plugin:prettier/recommended", "airbnb-typescript", "prettier"], // build own eslint config
   "env": {
     "es6": true,
     "browser": true
@@ -9,7 +9,7 @@
     "project": "./tsconfig.json",
     "sourceType": "module"
   },
-  "ignorePatterns": ["*.config.js", "*.d.ts", "*.config.ts", "build/*", "./src/scripts/sitemap.js"],
+  "ignorePatterns": ["*.config.js", "*.d.ts", "*.config.ts", "build/*","src/scripts/sitemap.js"],
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": ["error"],
