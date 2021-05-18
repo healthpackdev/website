@@ -8,18 +8,18 @@ const NavbarImage = () => {
     <Box>
       <Link href="/">
         <MotionImg
-          whileHover={{ rotate: '180deg' }}
-          transition={{ duration: 0.5 }}
+          // whileHover={{ rotate: '180deg' }}
+          // transition={{ duration: 0.5 }}
           display="inline-block"
-          src="/images/profile.png"
+          src="/favicons/favicon.ico"
           alt="healthpack's profile"
           draggable={false}
           borderRadius="full"
-          boxSize="50px"
-          mx="2"
+          boxSize="30px"
+          mx="4"
         />
       </Link>
     </Box>
   );
-}
+};
 export default NavbarImage;

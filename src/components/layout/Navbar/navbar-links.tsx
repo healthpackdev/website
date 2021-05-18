@@ -1,13 +1,9 @@
-import { useContext } from 'react';
-import { Box, List, ListItem } from '@chakra-ui/react';
+import { Box, List, ListItem, useColorModeValue } from '@chakra-ui/react';
 import Link from '@components/common/link';
 import siteConfig from '@config/site-config.json';
 import useMotion from '@hooks/use-motion';
-import { Color } from '@hooks/use-color-map';
 
 const Navigate: React.FC = ({ ...props }) => {
-  const { header } = useContext(Color);
-
   const MotionLink = useMotion(Link);
 
   return (
@@ -18,12 +14,11 @@ const Navigate: React.FC = ({ ...props }) => {
             <MotionLink
               href={page.href}
               px="3"
-              py="1"
-              borderRadius="sm"
-              _hover={{
-                backgroundColor: header.linkHoverBg,
-              }}
+              _hover={{ backgroundColor: useColorModeValue('gray.50', 'gray.800') }}
+              py="2"
+              borderRadius="md"
               userSelect="none"
+              fontSize="lg"
             >
               {page.text}
             </MotionLink>

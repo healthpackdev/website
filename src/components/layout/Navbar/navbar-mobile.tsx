@@ -22,22 +22,23 @@ import siteConfig from '@config/site-config.json';
 
 const MobileNav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // const blackOrWhite = useColor('black', 'white');
   const menuLinkHoverBgColor = useColor('gray.700', 'gray.700');
   const mutedColor = 'gray.500';
   const whiteOrBlack = 'white';
   const [path, setPath] = useState('/');
   useEffect(() => {
-    const WindowPath = window.location.pathname + (window.location.hash ? window.location.hash : '');
+    const WindowPath = window.location.hash
+      ? window.location.pathname.replace(/\/*$/, '') + window.location.hash
+      : window.location.pathname;
     setPath(WindowPath);
   });
   return (
     <>
       <IconButton
         onClick={onOpen}
-        size="lg"
+        size="md"
         aria-label="open menu"
-        borderRadius="full"
+        borderRadius="lg"
         outline="none"
         variant="ghost"
         icon={<Icon icon={['fas', 'bars']} />}
@@ -58,7 +59,7 @@ const MobileNav = () => {
                     key={index.toString()}
                     href={page.href}
                     fontWeight="semibold"
-                    color={path === page.section + page.href ? whiteOrBlack : mutedColor}
+                    color={path === page.href ? whiteOrBlack : mutedColor}
                     position="relative"
                     _hover={{ backgroundColor: menuLinkHoverBgColor, color: whiteOrBlack }}
                     p="3"
