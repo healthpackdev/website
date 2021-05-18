@@ -1,14 +1,27 @@
-import { Container } from '@chakra-ui/react';
-import HeroAbout from '@components/containers/Hero/hero-about'; // @containers/Hero/hero-about or @containers/hero-about
+import { Container, Img } from '@chakra-ui/react';
+import HeroAbout from '@components/containers/Hero/hero-about';
+import useMotion from '@hooks/use-motion';
 
+const MotionImg = useMotion(Img);
 const Hero: React.FC = () => (
   <Container
     as="section"
     maxW="container.lg"
     borderRadius="md"
-    // px={{ base: '5', lg: '10' }}
-    py={{ base: '16', lg: '32' }}
+    display="flex"
+    alignItems="center"
+    flexDirection={['column', 'column', 'row']}
+    py={{ base: '16', lg: '20' }}
   >
+    <MotionImg
+      src="/avatar.png"
+      boxSize={125}
+      mx="5"
+      cursor="pointer"
+      boxShadow="lg"
+      whileHover={{ translateY: '-10px' }}
+      borderRadius="full"
+    />
     <HeroAbout />
   </Container>
 );
