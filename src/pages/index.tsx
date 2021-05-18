@@ -1,27 +1,42 @@
 import Hero from '@components/containers/Hero';
 import Techs from '@components/containers/Techs';
 import Projects from '@components/containers/Projects';
-import Journay from '@components/containers/Journay';
 import Layout from '@components/layout';
 import { GetStaticProps } from 'next';
 import { Octokit } from '@octokit/rest';
 import siteConfig from '@config/site-config.json';
-import useColorMap, { Color } from '@hooks/use-color-map';
 
-function Home({ projects }) {
-  const theme = useColorMap('index');
-
-  return (
-    <Color.Provider value={theme}>
-      <Layout>
-        <Hero />
-        <Techs />
-        <Projects value={projects} />
-        <Journay />
-      </Layout>
-    </Color.Provider>
-  );
+interface IRepo {
+  readonly fork_count: number;
+  readonly lang: string;
+  readonly link: string;
+  readonly name: string;
+  readonly star: number;
+  readonly desc: string;
 }
+interface IError {
+  readonly msg: string;
+  readonly error: Boolean;
+}
+export type ErrorOrRepo = Array<IRepo> & IError;
+interface HomeProps {
+  projects: ErrorOrRepo;
+}
+
+const Home: React.FC<HomeProps> = ({ projects }) => (
+  <Layout
+    seo={{
+      title: `Home`,
+      description:
+        'Young developer from Turkey. Interested in programming. recently started building simple websites. Javascript and Typescript lover',
+    }}
+  >
+    <Hero />
+    <Techs />
+    <Projects projects={projects} />
+  </Layout>
+);
+
 export const getStaticProps: GetStaticProps = async () => {
   const client = new Octokit();
   let projects;
@@ -32,9 +47,9 @@ export const getStaticProps: GetStaticProps = async () => {
     projects = data
       .sort((a, b) => b.stargazers_count - a.stargazers_count)
       .filter((project) => project.name !== siteConfig.author.github && !project.archived)
-      .slice(0, 6)
+      .slice(0, 12) // Get 12 max repo
       .map((project) => ({
-        fork: project.fork,
+        fork_count: project.forks_count,
         name: project.name,
         star: project.stargazers_count,
         lang: project.language,
