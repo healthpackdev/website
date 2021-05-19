@@ -11,7 +11,7 @@
  <a href="https://app.netlify.com/start/deploy?repository=https://github.com/healthpackdev/website"><img alt="deploy with netlify" src="https://www.netlify.com/img/deploy/button.svg"></a>
 </p>
 
-In a week, I published my new website although it wasn't completly finished. I planned more stuff but I can't build this with **chakra-ui**(`needs better performance`) and I got an idea to build a own `react ui` library. When I finish library I will add more features and pages.
+In a week, I published my new website although it wasn't completly finished. I planned more stuff but I can't build this with **chakra-ui**(`needs better performance`) and I got an idea to build a my own `react ui` library. When I finish library I will add more features and pages.
 
 # Overview and todos
 
