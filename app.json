@@ -6,5 +6,8 @@
   "scripts": {
     "postdeploy": "npm run build"
   },
+  "env": {
+    "NPM_CONFIG_PRODUCTION": false
+  },
   "buildpacks": [{ "url": "heroku/nodejs" }]
 }
