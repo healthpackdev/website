@@ -1,12 +1,13 @@
 {
-  "name": "blog-app",
+  "name": "healthpack-website",
+  "description": "✨ Source code of my portfolio website. Built with Next.js, Typescript and Chakra UI. Hosted by vercel",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --ext --fix ./src/**/*.ts",
+    "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx",
     "format": "prettier --write --check './src/**/*.{js,ts,tsx,jsx}'"
   },
   "dependencies": {
