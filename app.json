@@ -1,6 +1,10 @@
 {
-    "name": "healthpack-website",
-    "description": "✨ Source code of my portfolio website. Built with Next.js, Typescript and Chakra UI. Hosted with vercel, heroku and netlify",
-    "repository": "https://github.com/healthpackdev/website",
-    "keywords": ["node", "next", "serverless","react","portfolio"]
-  }
+  "name": "healthpack-website",
+  "description": "✨ Source code of my portfolio website. Built with Next.js, Typescript and Chakra UI. Hosted with vercel, heroku and netlify",
+  "repository": "https://github.com/healthpackdev/website",
+  "keywords": ["node", "next", "serverless", "react", "portfolio"],
+  "scripts": {
+    "postdeploy": "npm run build"
+  },
+  "buildpacks": [{ "url": "heroku/nodejs" }]
+}
