@@ -28,6 +28,7 @@ export default {
     '.muted': {
       color: mode('gray.800', 'whiteAlpha.900')(props),
     },
+    svg: { width: '16px', height: '16px', display: 'inline-block' },
     ...scrollStyles,
   }),
 };
