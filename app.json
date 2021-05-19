@@ -1,0 +1,6 @@
+{
+    "name": "healthpack-website",
+    "description": "✨ Source code of my portfolio website. Built with Next.js, Typescript and Chakra UI. Hosted by vercel",
+    "repository": "https://github.com/healthpackdev/website",
+    "keywords": ["node", "next", "serverless","react","portfolio"]
+  }
