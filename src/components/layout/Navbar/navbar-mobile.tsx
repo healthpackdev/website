@@ -18,8 +18,6 @@ import Footer from '@components/layout/Footer/footer-mobile';
 import Link from '@components/common/link';
 import siteConfig from '@config/site-config.json';
 
-// make it like eggsy.xyz
-
 const MobileNav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const menuLinkHoverBgColor = useColor('gray.700', 'gray.700');
