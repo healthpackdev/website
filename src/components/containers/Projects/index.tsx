@@ -10,7 +10,7 @@ interface ProjectsProps {
 const Projects: React.FC<ProjectsProps> = ({ projects }) => (
   <Container id="projects" header="My Github projects">
     <Grid templateColumns={['repeat(1, 1fr)', 'repeat(1,1fr)', 'repeat(2, 1fr)']} gap={4}>
-      {!projects.error ? (
+      {typeof projects !== 'string' ? (
         projects.map((proj, index) => (
           <Card hover={{ scale: 1.025 }} key={index.toString()}>
             <Link href={proj.link} isExternal>
@@ -27,7 +27,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => (
                 </Text>
                 <Spacer />
                 <Flex mt="4" alignItems="center">
-                  <Img boxSize="18px" src={`/logos/${proj.lang.toLowerCase()}.svg`} mr="2" display="inline-flex" />
+                  <Img boxSize="18px" src={`/logos/${proj.lang?.toLowerCase()}.svg`} mr="2" display="inline-flex" />
                   <Text>{proj.lang}</Text>
                   <Spacer />
                   {/* {proj.fork && <FontAwesomeIcon icon={['fas', 'code-branch']} />} */}
@@ -46,7 +46,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => (
           </Card>
         ))
       ) : (
-        <Box textAlign="center">{projects.msg}</Box>
+        <Box textAlign="center">{projects}</Box>
       )}
     </Grid>
   </Container>

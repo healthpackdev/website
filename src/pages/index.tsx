@@ -14,11 +14,8 @@ interface IRepo {
   readonly star: number;
   readonly desc: string;
 }
-interface IError {
-  readonly msg: string;
-  readonly error: Boolean;
-}
-export type ErrorOrRepo = Array<IRepo> & IError;
+
+export type ErrorOrRepo = Array<IRepo> | string;
 interface HomeProps {
   projects: ErrorOrRepo;
 }
@@ -39,30 +36,29 @@ const Home: React.FC<HomeProps> = ({ projects }) => (
 
 export const getStaticProps: GetStaticProps = async () => {
   const client = new Octokit();
-  let projects;
-  try {
-    const { data } = await client.request('GET /users/{username}/repos', {
+  let projects: ErrorOrRepo;
+
+  await client
+    .request('GET /users/{username}/repos', {
       username: siteConfig.author.github,
+    })
+    .then(({ data }) => {
+      projects = data
+        .sort((a, b) => b.stargazers_count - a.stargazers_count)
+        .filter((project) => project.name !== siteConfig.author.github && !project.archived)
+        .slice(0, 12) // Get 12 max repo
+        .map((project) => ({
+          fork_count: project.forks_count,
+          name: project.name,
+          star: project.stargazers_count,
+          lang: project.language,
+          desc: project.description || 'No Description Provided',
+          link: project.html_url,
+        }));
+    })
+    .catch(() => {
+      projects = 'Rate Limit Error';
     });
-    projects = data
-      .sort((a, b) => b.stargazers_count - a.stargazers_count)
-      .filter((project) => project.name !== siteConfig.author.github && !project.archived)
-      .slice(0, 12) // Get 12 max repo
-      .map((project) => ({
-        fork_count: project.forks_count,
-        name: project.name,
-        star: project.stargazers_count,
-        lang: project.language,
-        desc: project.description || 'No Description Provided',
-        link: project.html_url,
-      }));
-    // Get Only needs.
-  } catch {
-    projects = {
-      error: true,
-      msg: 'Error while fetching repos... revalidate in 5 min',
-    };
-  }
 
   return {
     props: {
