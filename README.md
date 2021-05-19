@@ -33,7 +33,7 @@ In a week, I published my new website although it wasn't completly finished. I p
 - if you don't have **node.js** in your system you should install it for local development
 (this repository definitely support node v14 and v15)
 
-- if you need better performance and version testing you should install **docker**and **docker-compose**
+- if you need better performance and version testing you should install **docker** and **docker-compose**
 
 - if you don't have **git cli** in your system you should install it for cloning repository or you can click ` Code > Download ZIP`:
 
