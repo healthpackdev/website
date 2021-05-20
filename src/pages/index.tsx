@@ -26,6 +26,7 @@ const Home: React.FC<HomeProps> = ({ projects }) => (
       title: `Home`,
       description:
         'Young developer from Turkey. Interested in programming. recently started building simple websites. Javascript and Typescript lover',
+      keywords: "healthpackdev,healthpack,yasin kadir,yasin portfolio"
     }}
   >
     <Hero />
