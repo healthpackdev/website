@@ -8,6 +8,12 @@ const SeoConfig: DefaultSeoProps = {
     type: 'website',
     locale: 'en_IE',
     url: `https://${site.host_name}`,
+    images: [
+      {
+        url: `https://${site.host_name}/favicons/favicon.ico`,
+        alt: 'favicon',
+      },
+    ],
     site_name: site.host_name, // .match(/[a-zA-Z0-9]+/)
   },
   additionalLinkTags: [
