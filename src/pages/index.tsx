@@ -25,8 +25,7 @@ const Home: React.FC<HomeProps> = ({ projects }) => (
     seo={{
       title: `Home`,
       description:
-        'Young developer from Turkey. Interested in programming. recently started building simple websites. Javascript and Typescript lover',
-      keywords: "healthpackdev,healthpack,yasin kadir,yasin portfolio"
+        'Young developer from Turkey. Interested in programming. recently started building simple websites. Javascript and Typescript lover'
     }}
   >
     <Hero />
