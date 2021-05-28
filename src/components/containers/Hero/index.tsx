@@ -15,6 +15,7 @@ const Hero: React.FC = () => (
   >
     <MotionImg
       src="/avatar.png"
+      alt="Profile photo"
       boxSize={125}
       mx="5"
       cursor="pointer"

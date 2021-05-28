@@ -5,8 +5,8 @@ import siteConfig from '@config/site-config.json';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 const Footer: React.FC = () => {
-  const whoamiColor = 'blue.400';
-  const chakraUIColor = 'teal.400';
+  const whoamiColor = 'blue.500';
+  const chakraUIColor = 'teal.500';
 
   return (
     <Box as="footer" py="2" mt="10" borderBottomWidth="5px" borderBottomColor="blue.500">

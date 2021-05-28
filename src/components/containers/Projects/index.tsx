@@ -27,7 +27,13 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => (
                 </Text>
                 <Spacer />
                 <Flex mt="4" alignItems="center">
-                  <Img boxSize="18px" src={`/logos/${proj.lang?.toLowerCase()}.svg`} mr="2" display="inline-flex" />
+                  <Img
+                    boxSize="18px"
+                    src={`/logos/${proj.lang?.toLowerCase()}.svg`}
+                    mr="2"
+                    display="inline-flex"
+                    alt={proj.lang?.toLowerCase()}
+                  />
                   <Text>{proj.lang}</Text>
                   <Spacer />
                   {/* {proj.fork && <FontAwesomeIcon icon={['fas', 'code-branch']} />} */}

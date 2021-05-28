@@ -18,6 +18,7 @@ const index: React.FC = () => (
         >
           <Img
             src={`/logos/${tech.name.toLowerCase()}.svg`}
+            alt={tech.name.toLowerCase()}
             boxSize="18px"
             display="inline-block"
             mr="2"

@@ -1,19 +1,22 @@
 {
   "name": "healthpackdev",
   "short_name": "healthpackdev.cf",
+  "description": "portfolio site of healthpack",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/favicons/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "/android-chrome-256x256.png",
+      "src": "/favicons/android-chrome-256x256.png",
       "sizes": "256x256",
       "type": "image/png"
     }
   ],
-  "start_url": "/?standalone=true",
+  "start_url": "/",
+  "scope": "/",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone",
