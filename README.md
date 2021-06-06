@@ -48,7 +48,7 @@ npm run start
 # pnpm start
 ```
 
-### deploy
+### Deploy
 You can deploy with `Netlify` and `Vercel`
 
  <a href="https://vercel.com/new/git/external?repository-url=https://github.com/healthpackdev/website"><img alt="deploy with vercel" src="https://vercel.com/button"></a>
