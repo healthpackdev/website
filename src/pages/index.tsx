@@ -4,7 +4,7 @@ import Projects from '@components/containers/Projects';
 import Layout from '@components/layout';
 import { GetStaticProps } from 'next';
 import { Octokit } from '@octokit/rest';
-import siteConfig from '@config/site-config.json';
+import author from '@config/author-meta.json';
 
 interface IRepo {
   readonly fork_count: number;
@@ -40,12 +40,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
   await client
     .request('GET /users/{username}/repos', {
-      username: siteConfig.author.github,
+      username: author.github,
     })
     .then(({ data }) => {
       projects = data
         .sort((a, b) => b.stargazers_count - a.stargazers_count)
-        .filter((project) => project.name !== siteConfig.author.github && !project.archived)
+        .filter((project) => project.name !== author.github && !project.archived)
         .slice(0, 12) // Get 12 max repo
         .map((project) => ({
           fork_count: project.forks_count,
