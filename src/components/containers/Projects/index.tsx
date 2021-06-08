@@ -1,6 +1,7 @@
-import { Text, Grid, Link, Flex, Spacer, Box, Heading, useColorModeValue, Img } from '@chakra-ui/react';
-import { Container, Card } from '@components/containers';
+import Link from 'next/link';
+import { Container } from '@components/containers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { motion } from 'framer-motion';
 import type { ErrorOrRepo } from '../../../pages/index';
 
 interface ProjectsProps {
@@ -9,52 +10,48 @@ interface ProjectsProps {
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => (
   <Container id="projects" header="My Github projects">
-    <Grid templateColumns={['repeat(1, 1fr)', 'repeat(1,1fr)', 'repeat(2, 1fr)']} gap={4}>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
       {typeof projects !== 'string' ? (
         projects.map((proj, index) => (
-          <Card hover={{ scale: 1.025 }} key={index.toString()}>
-            <Link href={proj.link} isExternal>
-              <Flex flexDirection="column" py="2" px="4">
-                <Flex alignItems="center">
-                  <Heading as="h3" fontSize="lg" color="blue.500" fontWeight="medium">
-                    {proj.name}
-                  </Heading>
-                  <Spacer />
+          <motion.div
+            className="cursor-pointer shadow-md rounded-md bg-white dark:bg-gray-700"
+            whileHover={{ y: -5 }}
+            key={index.toString()}
+          >
+            <Link href={proj.link}>
+              <div className="flex flex-col py-2 px-4 justify-between">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl text-blue-500 font-medium">{proj.name}</h3>
                   <FontAwesomeIcon icon={['fab', 'github']} />
-                </Flex>
-                <Text noOfLines={2} color={useColorModeValue('gray.600', 'gray.300')}>
-                  {proj.desc}
-                </Text>
-                <Spacer />
-                <Flex mt="4" alignItems="center">
-                  <Img
-                    boxSize="18px"
-                    src={`/logos/${proj.lang?.toLowerCase()}.svg`}
-                    mr="2"
-                    display="inline-flex"
-                    alt={proj.lang?.toLowerCase()}
-                  />
-                  <Text>{proj.lang}</Text>
-                  <Spacer />
-                  {/* {proj.fork && <FontAwesomeIcon icon={['fas', 'code-branch']} />} */}
-                  <Text as="span" display="inline-block" px="2">
-                    {proj.fork_count}
-                  </Text>
-                  <FontAwesomeIcon icon={['fas', 'code-branch']} />
-
-                  <Text as="span" display="inline-block" px="2">
-                    {proj.star}
-                  </Text>
-                  <FontAwesomeIcon icon={['fas', 'star']} />
-                </Flex>
-              </Flex>
+                </div>
+                <p className="text-gray-800 dark:text-blueGray-50 line-clamp-2" /* noOfLines={2}> */>{proj.desc}</p>
+                <div className="flex mt-4 justify-between">
+                  <div className="flex">
+                    <img
+                      width={18}
+                      height={18}
+                      className="mr-2 inline-block"
+                      src={`/icons/${proj.lang?.toLowerCase()}.svg`}
+                      alt={proj.lang?.toLowerCase()}
+                    />
+                    <span>{proj.lang}</span>
+                  </div>
+                  <div className="flex items-center">
+                    {/* flex items-center is more powerfull */}
+                    <span className="inline-block px-2">{proj.fork_count}</span>
+                    <FontAwesomeIcon icon={['fas', 'code-branch']} />
+                    <span className="inline-block px-2">{proj.star}</span>
+                    <FontAwesomeIcon icon={['fas', 'star']} />
+                  </div>
+                </div>
+              </div>
             </Link>
-          </Card>
+          </motion.div>
         ))
       ) : (
-        <Box textAlign="center">{projects}</Box>
+        <div className="text-center">{projects}</div>
       )}
-    </Grid>
+    </div>
   </Container>
 );
 
