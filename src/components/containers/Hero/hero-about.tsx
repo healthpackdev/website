@@ -1,49 +1,34 @@
-import { Text, Box, Flex, useColorModeValue as useColor, Link } from '@chakra-ui/react';
-import siteConfig from '@config/site-config.json';
+import author from '@config/author-meta.json';
+import AboutText from '@config/about-text';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import useMotion from '@hooks/use-motion';
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { motion } from 'framer-motion';
 
-const HeroAbout: React.FC = () => {
-  const green = useColor('green.500', 'green.400');
-  const MotionLink = useMotion(Link);
+const HeroAbout: React.FC = () => (
+  <div className="w-full lg:pr-[300px]">
+    <header className="text-blue-500 text-3xl md:text-4xl font-semibold text-center lg:text-left font-luckiest-guy">
+      Web developer
+    </header>
+    <p className="text-md text-md text-gray-800 dark:text-blueGray-50 text-center lg:text-left">
+      <AboutText />
+    </p>
 
-  return (
-    <Box w="full" pr={['0', '0', '300px']}>
-      <Text
-        as="header"
-        color="blue.500"
-        fontSize={['2xl', '4xl']}
-        fontWeight="semibold"
-        textAlign={['center', 'center', 'left']}
-      >
-        Web developer
-      </Text>
-      <Text fontSize="md" className="muted" textAlign={['center', 'center', 'left']}>
-        Hi my name is{' '}
-        <Text as="strong" fontWeight="semibold" color={green}>
-          Yasin Kadir
-        </Text>
-        . I am young full-stack web developer from turkey 🇹🇷. I recently started building simple websites and you are
-        here in my website!
-      </Text>
-      <Flex justifyContent={['center', 'center', 'left']}>
-        {siteConfig.author.socials.map((social, index) => (
-          <MotionLink
-            // whileHover={{ scale: 1.5 }}
-            whileHover={{ y: '-2px' }}
-            href={social.href}
-            mx="2"
-            my="3"
-            key={index.toString()}
-            color={social.color}
-            isExternal
-          >
-            <FontAwesomeIcon icon={social.icon as IconProp} />
-          </MotionLink>
-        ))}
-      </Flex>
-    </Box>
-  );
-};
+    <div className="flex justify-center lg:justify-start">
+      {author.socials.map((social, index) => (
+        <motion.a
+          // whileHover={{ scale: 1.5 }}
+          whileHover={{ y: '-2px' }}
+          href={`/${social.icon[1]}`}
+          className="mx-2 my-3"
+          key={index.toString()}
+          style={{ color: social.color }}
+          target="_blank"
+        >
+          <FontAwesomeIcon icon={social.icon as IconProp} />
+        </motion.a>
+      ))}
+    </div>
+  </div>
+);
+
 export default HeroAbout;
