@@ -1,35 +1,27 @@
-import { Text, Grid, Img } from '@chakra-ui/react';
-import siteConfig from '@config/site-config.json';
-import { Container, Card } from '@components/containers';
+import author from '@config/author-meta.json';
+import { Container } from '@components/containers';
+import { motion } from 'framer-motion';
 
 const index: React.FC = () => (
-  <Container header="Technologies I use">
-    <Grid templateColumns={['repeat(2,1fr)', 'repeat(3,1fr)', 'repeat(5,1fr)']} gap={4}>
-      {siteConfig.author.techs.map((tech, index) => (
-        <Card
-          display="flex"
-          alignItems="center"
-          py="2"
-          px="4"
-          hover={{ scale: 1.05 }}
-          minW="120px"
-          userSelect="none"
+  <Container id="technologies" header="Technologies I use">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-1">
+      {author.techs.map((tech, index) => (
+        <motion.div
+          className="flex my-2 items-center py-2 px-4 min-w-[120px] select-none cursor-pointer shadow-md rounded-md bg-white dark:bg-gray-700"
+          whileHover={{ y: -5 }}
           key={index.toString()}
         >
-          <Img
-            src={`/logos/${tech.name.toLowerCase()}.svg`}
-            alt={tech.name.toLowerCase()}
-            boxSize="18px"
-            display="inline-block"
-            mr="2"
-            alignSelf="center"
+          <img
+            src={`/icons/${tech.toLowerCase()}.svg`}
+            alt={tech.toLowerCase()}
+            width={18}
+            height={18}
+            className="inline-block mr-2 self-center"
           />
-          <Text as="span" textAlign="center" fontWeight="semibold">
-            {tech.name}
-          </Text>
-        </Card>
+          <span className="text-center font-semibold">{tech}</span>
+        </motion.div>
       ))}
-    </Grid>
+    </div>
   </Container>
 );
 
