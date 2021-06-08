@@ -1,41 +1,37 @@
-import { Container, Text, Link, Box } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import siteConfig from '@config/site-config.json';
+import author from '@config/author-meta.json';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import Link from 'next/link';
 
-const Footer: React.FC = () => {
-  const whoamiColor = 'blue.500';
-  const chakraUIColor = 'teal.500';
-
-  return (
-    <Box as="footer" py="2" mt="10" borderBottomWidth="5px" borderBottomColor="blue.500">
-      <Container
-        maxW="container.lg"
-        textAlign={['center', 'center', 'left']}
-        display="flex"
-        justifyContent="space-between"
-        flexDirection={['column', 'column', 'row']}
-      >
-        <Text className="muted" fontSize="sm" as="p">
-          © {new Date().getFullYear()} all rights reserved. Made with <FontAwesomeIcon icon={faHeart} color="red" /> by{' '}
-          <Link href="https://github.com/healthpackdev" isExternal color={whoamiColor}>
+const Footer: React.FC = () => (
+  <footer className="py-2 mt-10 border-b-4 border-blue-500">
+    <div className="flex container justify-between flex-col lg:flex-row text-center lg:text-left">
+      <p className="text-gray-400 text-sm order-10 lg:!order-1">
+        © {new Date().getFullYear()} all rights reserved. Made with <FontAwesomeIcon icon={faHeart} color="red" /> by{' '}
+        <Link href="https://github.com/healthpackdev">
+          <a target="_blank" className="text-blue-500">
             healthpack
-          </Link>{' '}
-          using{' '}
-          <Link isExternal href="https://chakra-ui.com" color={chakraUIColor}>
-            Chakra UI
-          </Link>
-        </Text>
-        <Box order={[-1, -1, 0]}>
-          {siteConfig.author.socials.map((social, index) => (
-            <Link href={social.href} mx="2" my="3" key={index.toString()} color={social.color}>
+          </a>
+        </Link>{' '}
+        using{' '}
+        <Link href="https://chakra-ui.com">
+          <a target="_blank" className="text-blue-700">
+            TailwindCSS
+          </a>
+        </Link>
+      </p>
+      <div className="flex justify-center">
+        {author.socials.map((social, index) => (
+          <Link href={social.href} key={index.toString()}>
+            <a className="mx-2 my-3" style={{ color: social.color }}>
               <FontAwesomeIcon icon={social.icon as IconProp} />
-            </Link>
-          ))}
-        </Box>
-      </Container>
-    </Box>
-  );
-};
+            </a>
+          </Link>
+        ))}
+      </div>
+    </div>
+  </footer>
+);
+
 export default Footer;
