@@ -1,5 +1,5 @@
 {
-  "extends": ["plugin:prettier/recommended", "airbnb-typescript", "prettier"], // build own eslint config
+  "extends": ["plugin:prettier/recommended", "airbnb-typescript", "prettier"],
   "env": {
     "es6": true,
     "browser": true
