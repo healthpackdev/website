@@ -1,28 +1,12 @@
-import { ContainerProps, Container as ChakraContainer, Text, GridItem } from '@chakra-ui/react';
-import useMotion, { MotionElementProps } from '@hooks/use-motion';
-import { VariantLabels, TargetAndTransition } from 'framer-motion';
-
-interface ContainerExtendedProps extends ContainerProps {
+interface ContainerProps extends React.HTMLProps<HTMLDivElement> {
   header: string;
 }
-const Container: React.FC<ContainerExtendedProps> = ({ header, children, ...props }) => (
-  <ChakraContainer maxW="container.lg" py="10" as="section" {...props}>
-    <Text as="header" fontSize="3xl" textAlign="center" my="7" fontWeight="semibold">
-      {header}
-    </Text>
+const Container: React.FC<ContainerProps> = ({ header, children, ...props }) => (
+  <section className="container px-4 py-10" {...props}>
+    <header className="text-4xl text-center my-7 font-semibold">{header}</header>
     {children}
-  </ChakraContainer>
+  </section>
 );
 
+// eslint-disable-next-line import/prefer-default-export
 export { Container };
-
-interface CardProps extends MotionElementProps {
-  hover?: VariantLabels | TargetAndTransition;
-}
-const MotionGridItem = useMotion(GridItem);
-const Card: React.FC<CardProps> = ({ children, hover, ...props }) => (
-  <MotionGridItem whileHover={hover} className="card" cursor="pointer" boxShadow="md" borderRadius="md" {...props}>
-    {children}
-  </MotionGridItem>
-);
-export { Card };
