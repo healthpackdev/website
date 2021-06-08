@@ -1,25 +1,18 @@
-import { Box, Img } from '@chakra-ui/react';
-import Link from '@components/common/link';
-import useMotion from '@hooks/use-motion';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-const NavbarImage = () => {
-  const MotionImg = useMotion(Img);
-  return (
-    <Box>
-      <Link href="/">
-        <MotionImg
-          // whileHover={{ rotate: '180deg' }}
-          // transition={{ duration: 0.5 }}
-          display="inline-block"
-          src="/favicons/favicon.ico"
-          alt="healthpack's profile"
-          draggable={false}
-          borderRadius="full"
-          boxSize="30px"
-          mx="4"
-        />
-      </Link>
-    </Box>
-  );
-};
+const NavbarImage = () => (
+  <div>
+    <Link href="/">
+      <motion.img
+        className="inline-block rounded-full mx-4 cursor-pointer"
+        src="/avatar.png"
+        alt="healthpack's profile"
+        draggable={false}
+        width={30}
+        height={30}
+      />
+    </Link>
+  </div>
+);
 export default NavbarImage;

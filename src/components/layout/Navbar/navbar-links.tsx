@@ -1,31 +1,22 @@
-import { Box, List, ListItem, useColorModeValue } from '@chakra-ui/react';
-import Link from '@components/common/link';
-import siteConfig from '@config/site-config.json';
-import useMotion from '@hooks/use-motion';
+import links from '@config/nav-links.json';
+import Link from 'next/link';
+import React from 'react';
+// import { motion } from 'framer-motion';
 
-const Navigate: React.FC = ({ ...props }) => {
-  const MotionLink = useMotion(Link);
+const Navigate: React.FC<React.HTMLProps<HTMLDivElement>> = ({ ...props }) => (
+  <nav {...props}>
+    <ul>
+      {links.map((link, index) => (
+        <li key={index.toString()}>
+          <Link href={link.href}>
+            <a className="px-3 py-1 rounded-md select-none text-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+              {link.title}
+            </a>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </nav>
+);
 
-  return (
-    <Box as="nav" {...props}>
-      <List display="flex">
-        {siteConfig.pages.map((page, index) => (
-          <ListItem key={index.toString()}>
-            <MotionLink
-              href={page.href}
-              px="3"
-              _hover={{ backgroundColor: useColorModeValue('gray.50', 'gray.800') }}
-              py="2"
-              borderRadius="md"
-              userSelect="none"
-              fontSize="lg"
-            >
-              {page.text}
-            </MotionLink>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-};
 export default Navigate;

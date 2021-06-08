@@ -1,16 +1,12 @@
-import { IconButton, Link } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import siteConfig from '@config/site-config.json';
+import author from '@config/author-meta.json';
 
 const NavbarGithub: React.FC = () => (
-  <Link isExternal href={`https://github.com/${siteConfig.author.github}`}>
-    <IconButton
-      aria-label="Github Profile"
-      variant="ghost"
-      colorScheme="gray"
-      icon={<FontAwesomeIcon icon={['fab', 'github']} />}
-    />
-  </Link>
+  <a target="_blank" href={`https://github.com/${author.github}`} rel="noreferrer">
+    <button aria-label="Github Profile" className="icon-button" type="button">
+      <FontAwesomeIcon icon={['fab', 'github']} />
+    </button>
+  </a>
 );
 
 export default NavbarGithub;

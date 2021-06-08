@@ -1,29 +1,31 @@
-import { Flex, Box, useMediaQuery, Container, useColorModeValue, Spacer } from '@chakra-ui/react';
+import { useMedia } from 'react-use';
+import { useState } from 'react';
+import { NavbarMobileToggle, NavbarMobile } from '@components/layout/Navbar/navbar-mobile';
 import NavbarImage from '@components/layout/Navbar/navbar-image';
 import NavbarLinks from '@components/layout/Navbar/navbar-links';
-import NavbarMobile from '@components/layout/Navbar/navbar-mobile';
 import NavbarGithub from '@components/layout/Navbar/navbar-github';
 
 import ThemeToggle from '@components/common/theme-toggle';
 
 const Navbar: React.FC = () => {
-  const [isMobile] = useMediaQuery('(max-width: 500px)');
+  const isSmall = useMedia('(max-width: 500px)');
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
-    <Box as="header" maxW="full" backgroundColor={useColorModeValue('white', 'gray.700')} boxShadow="lg" py="2">
-      <Container maxW="container.lg" display="flex" alignItems="center">
-        <Flex alignItems="center">
-          {isMobile && <NavbarMobile />}
+    <header className="bg-white dark:bg-gray-700 shadow-lg p-2">
+      <div className="flex container items-center justify-between">
+        <div className="flex items-center">
+          {isSmall && <NavbarMobileToggle onClick={() => setIsNavOpen(!isNavOpen)} />}
           <NavbarImage />
-          {!isMobile && <NavbarLinks />}
-        </Flex>
-        <Spacer />
-        <Flex alignItems="center" px="2">
+          {!isSmall && <NavbarLinks />}
+        </div>
+        <div className="flex items-center px-2">
           <NavbarGithub />
           <ThemeToggle />
-        </Flex>
-      </Container>
-    </Box>
+        </div>
+      </div>
+      {isSmall && isNavOpen && NavbarMobile}
+    </header>
   );
 };
 
