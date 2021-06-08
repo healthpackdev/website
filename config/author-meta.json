@@ -1,0 +1,35 @@
+{
+  "name": "healthpackdev",
+  "github": "healthpackdev",
+  "socials": [
+    { "href": "https://discord.com/users/573054368568311808", "icon": ["fab", "discord"], "color": "#738ADB" },
+    { "href": "https://github.com/healthpackdev", "icon": ["fab", "github"], "color": "#718096" },
+    { "href": "https://twitter.com/healthpackdev", "icon": ["fab", "twitter"], "color": "#1DA1F2" },
+    {
+      "href": "https://www.youtube.com/channel/UCDnt9my_8z87bWL-yCb5NEA",
+      "icon": ["fab", "youtube"],
+      "color": "#E53E3E"
+    }
+  ],
+  "techs": [
+    "Javascript",
+    "HTML",
+    "CSS",
+    "Typescript",
+    "Webpack",
+    "Bootstrap",
+    "Figma",
+    "Git",
+    "Github",
+    "Heroku",
+    "Linux",
+    "Mongodb",
+    "Tailwindcss",
+    "Nextjs",
+    "Nodejs",
+    "React",
+    "Sass",
+    "Yarn",
+    "Pnpm"
+  ]
+}

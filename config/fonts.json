@@ -1,0 +1,10 @@
+{
+  "primary": {
+    "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "name": "Inter"
+  },
+  "header": {
+    "url": "https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap",
+    "name": "'Baloo 2'"
+  }
+}
