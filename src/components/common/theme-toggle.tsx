@@ -1,20 +1,24 @@
-import { IconButton, useColorMode } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { motion } from 'framer-motion';
+import { useTheme } from 'next-themes';
 
 const ThemeToggle: React.FC = ({ ...props }) => {
-  const { toggleColorMode, colorMode } = useColorMode();
-  const mode = colorMode === 'light';
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const MotionIcon = motion(FontAwesomeIcon);
+
   return (
-    <IconButton
-      onClick={toggleColorMode}
-      size="md"
-      aria-label={`Toggle ${mode ? 'dark' : 'light'} mode`}
-      borderRadius="lg"
-      variant="ghost"
-      colorScheme="gray"
+    <button
+      onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
+      className="icon-button"
+      aria-label={`Toggle ${theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
       {...props}
-      icon={<FontAwesomeIcon icon={mode ? ['fas', 'moon'] : ['fas', 'sun']} />}
-    />
+      type="button"
+    >
+      <MotionIcon
+        whileHover={{ rotate: '360deg' }}
+        icon={theme === 'dark' || resolvedTheme === 'dark' ? ['fas', 'moon'] : ['fas', 'sun']}
+      />
+    </button>
   );
 };
 export default ThemeToggle;
