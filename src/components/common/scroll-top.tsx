@@ -1,4 +1,3 @@
-import { IconButton } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 
@@ -18,16 +17,14 @@ const ScrollTop: React.FC = () => {
   };
   return (
     !isTop && (
-      <IconButton
-        variant="solid"
-        borderRadius="full"
-        icon={<FontAwesomeIcon icon={['fas', 'arrow-up']} />}
-        position="fixed"
-        bottom="20px"
-        right="20px"
-        aria-label="Yukarı Çık!"
+      <button
+        type="button"
+        className="fixed bottom-5 right-5 w-10 h-10 rounded-full dark:bg-blue-500 bg-blue-400"
+        aria-label="up!"
         onClick={onClickScroll}
-      />
+      >
+        <FontAwesomeIcon icon={['fas', 'arrow-up']} />
+      </button>
     )
   );
 };
