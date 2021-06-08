@@ -19,7 +19,6 @@
       "@theme/*": ["./src/theme/*"],
       "@scripts/*": ["./src/scripts/*"],
       "@components/*": ["./src/components/*"],
-      "@hooks/*": ["./src/hooks/*"],
       "@config/*": ["./config/*"]
     }
   },
