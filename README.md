@@ -69,9 +69,7 @@ $ npm run dev
 }
 ```
 ``config/netlify-cms.ts``<br>
-see https://www.netlifycms.org/docs/configuration-options
+see https://www.netlifycms.org/docs/configuration-options <br>
 ``config/seo.ts``<br>
-see https://github.com/garmeeh/next-seo#default-seo-configuration
-``config/about-text.tsx``<br>
-Hero About Text
+see https://github.com/garmeeh/next-seo#default-seo-configuration <br>
 
