@@ -4,18 +4,30 @@ const withAnalyzer = require('@next/bundle-analyzer')({
 });
 
 module.exports = withAnalyzer({
+  future: {
+    webpack5: true,
+  },
+  experimental: {
+    turboMode: true,
+  },
   jsconfigPaths: true,
   distDir: 'build',
   webpack(config, { isServer, dev }) {
-    if (!isServer && !dev) {
+    if (isServer) {
       require('./src/scripts/sitemap.js');
+    }
 
+    // Replace React with Preact only in client production build
+
+    /* if (!dev && !isServer) {
       Object.assign(config.resolve.alias, {
         react: 'preact/compat',
         'react-dom/test-utils': 'preact/test-utils',
         'react-dom': 'preact/compat',
       });
-    }
+    } */
+    // ! returns error currently comment
+
     return config;
   },
   async redirects() {
