@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
     <header className="bg-white dark:bg-gray-700 shadow-lg p-2">
       <div className="flex container items-center justify-between">
         <div className="flex items-center">
-          {isSmall && <NavbarMobileToggle onClick={() => setIsNavOpen(!isNavOpen)} />}
+          {isSmall && <NavbarMobileToggle onClick={() => setIsNavOpen(!isNavOpen)} isNavOpen={isNavOpen} />}
           <NavbarImage />
           {!isSmall && <NavbarLinks />}
         </div>
@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
           <ThemeToggle />
         </div>
       </div>
-      {isSmall && isNavOpen && NavbarMobile}
+      {isSmall && isNavOpen && <NavbarMobile />}
     </header>
   );
 };

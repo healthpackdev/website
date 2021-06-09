@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NavbarLinks from '@components/layout/Navbar/navbar-links';
 
-export const NavbarMobile: React.FC = () => <NavbarLinks className="flex flex-col w-full" />;
+export const NavbarMobile: React.FC = () => <NavbarLinks className="flex justify-center w-full" />;
 /*
   const [path, setPath] = useState('/');
   useEffect(() => {
@@ -11,8 +11,11 @@ export const NavbarMobile: React.FC = () => <NavbarLinks className="flex flex-co
     setPath(WindowPath);
   });
 */
-export const NavbarMobileToggle: React.FC<React.HTMLProps<HTMLButtonElement>> = ({ ...props }) => (
+export const NavbarMobileToggle: React.FC<React.HTMLProps<HTMLButtonElement> & { isNavOpen: boolean }> = ({
+  isNavOpen,
+  ...props
+}) => (
   <button {...props} className="icon-button" aria-label="open menu" type="button">
-    <FontAwesomeIcon icon={['fas', 'bars']} />
+    <FontAwesomeIcon icon={!isNavOpen ? ['fas', 'bars'] : ['fas', 'times']} />
   </button>
 );
