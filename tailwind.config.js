@@ -1,5 +1,6 @@
 const fonts = require('./config/fonts.json');
 const colors = require('tailwindcss/colors');
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: 'jit',
@@ -7,8 +8,8 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: {
-      primary: [fonts.primary.name],
-      header: [fonts.header.name],
+      primary: [fonts.primary.name, ...fontFamily.sans],
+      header: [fonts.header.name, ...fontFamily.sans],
     },
     colors: {
       ...colors,
