@@ -1,6 +1,6 @@
 import defaultSeoConfig from '@config/seo';
 import { DefaultSeo, DefaultSeoProps } from 'next-seo';
-import { useRouter } from 'next//router';
+import { useRouter } from 'next/router';
 
 const Seo: React.FC<DefaultSeoProps> = ({ ...props }) => {
   const router = useRouter();
