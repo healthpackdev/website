@@ -1,8 +1,8 @@
 import Navbar from '@components/layout/Navbar';
 import Footer from '@components/layout/Footer';
 import ScrollTop from '@components/common/scroll-top';
-import { Seo } from '@config/seo';
-import type { DefaultSeoProps } from 'next-seo';
+import defaultSeo from '@config/seo';
+import { DefaultSeoProps, DefaultSeo } from 'next-seo';
 import { HTMLMotionProps, motion } from 'framer-motion';
 
 interface LayoutProps {
@@ -11,7 +11,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps & HTMLMotionProps<'main'>> = ({ children, seo, ...props }) => (
   <>
-    <Seo {...seo} />
+    <DefaultSeo {...defaultSeo} {...seo} />
     <Navbar />
     <motion.main
       initial={{ y: 5, opacity: 0 }}

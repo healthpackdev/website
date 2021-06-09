@@ -1,10 +1,8 @@
 import fonts from '@config/fonts.json';
 import { hostName } from '@config/site-config.json';
-
-import { DefaultSeo } from 'next-seo';
 import type { DefaultSeoProps } from 'next-seo';
 
-const SeoConfig: DefaultSeoProps = {
+const seoConfig: DefaultSeoProps = {
   titleTemplate: `%s - ${hostName}`,
   openGraph: {
     type: 'website',
@@ -35,5 +33,5 @@ const SeoConfig: DefaultSeoProps = {
     cardType: 'summary_large_image',
   },
 };
-const Seo: React.FC<DefaultSeoProps> = ({ ...props }) => <DefaultSeo {...SeoConfig} {...props} />;
-export { SeoConfig, Seo };
+
+export default seoConfig;
