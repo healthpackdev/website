@@ -15,7 +15,7 @@ interface IRepo {
   readonly desc: string;
 }
 
-export type ErrorOrRepo = Array<IRepo> | string;
+export type ErrorOrRepo = IRepo[] | string;
 interface HomeProps {
   projects: ErrorOrRepo;
 }
