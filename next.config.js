@@ -14,7 +14,7 @@ module.exports = withAnalyzer({
   distDir: 'build',
   webpack(config, { isServer, dev }) {
     if (isServer) {
-      require('./src/scripts/sitemap.js');
+      require('./scripts/sitemap.js');
     }
 
     // Replace React with Preact only in client production build

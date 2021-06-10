@@ -1,7 +1,7 @@
 const globby = require('globby');
 const fs = require('fs');
 const prettier = require('prettier');
-const siteConfig = require('../../config/site-config.json');
+const siteConfig = require('../config/site-config.json');
 
 globby(['src/pages/*', '!src/pages/_*', '!src/pages/api', '!src/pages/404.tsx']).then((pages) => {
   const sitemapTemplate = [
@@ -12,7 +12,7 @@ globby(['src/pages/*', '!src/pages/_*', '!src/pages/api', '!src/pages/404.tsx'])
 
       return `
       <url>
-      <loc>https://${siteConfig.host_name + path}</loc>
+      <loc>https://${siteConfig.hostName + path}</loc>
       </url>
       `;
     }),

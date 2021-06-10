@@ -17,11 +17,11 @@
     "typeRoots": ["node_modules/@types"],
     "paths": {
       "@theme/*": ["./src/theme/*"],
-      "@scripts/*": ["./src/scripts/*"],
+      "@scripts/*": ["./scripts/*"],
       "@components/*": ["./src/components/*"],
       "@config/*": ["./config/*"]
     }
   },
-  "include": ["next-env.d.ts", "src/**/*", "config/*"],
-  "exclude": ["src/scripts/sitemap.js"]
+  "include": ["next-env.d.ts", "src/**/*", "config/*", "scripts"],
+  "exclude": ["scripts/sitemap.js"]
 }

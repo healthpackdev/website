@@ -9,6 +9,7 @@ import {
   faCodeBranch,
   faBars,
   faBook,
+  faTimes,
   faArrowLeft,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -26,6 +27,7 @@ const icons = [
   faBars,
   faCodeBranch,
   faBook,
+  faTimes,
 ];
 
 library.add(...icons);
