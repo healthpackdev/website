@@ -1,22 +1,22 @@
 import fonts from '@config/fonts.json';
-import { hostName } from '@config/site-config.json';
+import siteConfig from '@config/site-config.json';
 import type { DefaultSeoProps } from 'next-seo';
 
 const seoConfig: DefaultSeoProps = {
-  titleTemplate: `%s - ${hostName}`,
+  titleTemplate: `%s - ${siteConfig.hostName}`,
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    url: `https://${hostName}`,
+    url: `https://${siteConfig.hostName}`,
     images: [
       {
-        url: `https://${hostName}/favicon.ico`,
+        url: `https://${siteConfig.hostName}/favicon.ico`,
         alt: 'favicon',
         height: 50,
         width: 50,
       },
     ],
-    site_name: hostName,
+    site_name: siteConfig.hostName,
   },
   additionalLinkTags: [
     { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
