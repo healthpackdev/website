@@ -9,21 +9,17 @@ const Footer: React.FC = () => (
     <div className="flex container justify-between items-center flex-col lg:flex-row text-center lg:text-left">
       <p className="text-gray-400 text-sm order-1 lg:order-[-1]">
         © {new Date().getFullYear()} all rights reserved. Made with <FontAwesomeIcon icon={faHeart} color="red" /> by{' '}
-        <Link href="https://github.com/healthpackdev">
-          <a target="_blank" className="text-blue-500">
-            healthpack
-          </a>
-        </Link>{' '}
+        <a href="/github" target="_blank" rel="noreferrer" className="text-blue-500">
+          healthpack
+        </a>{' '}
         using{' '}
-        <Link href="https://chakra-ui.com">
-          <a target="_blank" className="text-blue-700">
-            TailwindCSS
-          </a>
-        </Link>
+        <a href="https://tailwindcss.com" target="_blank" rel="noreferrer" className="text-blue-700">
+          TailwindCSS
+        </a>
       </p>
       <div className="flex justify-center">
         {author.socials.map((social, index) => (
-          <Link href={social.href} key={index.toString()}>
+          <Link href={`/${social.icon[1]}`} key={index.toString()}>
             <a className="mx-2 my-3" style={{ color: social.color }}>
               <FontAwesomeIcon icon={social.icon as IconProp} />
             </a>
