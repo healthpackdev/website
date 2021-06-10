@@ -9,7 +9,7 @@
     "project": "./tsconfig.json",
     "sourceType": "module"
   },
-  "ignorePatterns": ["*.config.js", "*.d.ts", "*.config.ts", "build/*","src/scripts/sitemap.js"],
+  "ignorePatterns": ["*.config.js", "*.d.ts", "*.config.ts", "build/*","*.js"],
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": ["error"],
