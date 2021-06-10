@@ -34,7 +34,7 @@ const Home: React.FC<HomeProps> = ({ projects }) => (
   </Layout>
 );
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const client = new Octokit();
   let projects: ErrorOrRepo;
 
