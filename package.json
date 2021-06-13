@@ -19,6 +19,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@octokit/rest": "^18.5.3",
     "framer-motion": "^4.1.9",
+    "gray-matter": "^4.0.3",
     "netlify-cms-app": "^2.15.18",
     "next": "10.2.3",
     "next-seo": "^4.24.0",
