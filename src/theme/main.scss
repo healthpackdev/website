@@ -4,11 +4,11 @@
 
 @layer base {
   ::-webkit-scrollbar {
-    @apply w-1;
+    width: 4px;
     &-thumb {
       @apply bg-blue-500;
       &:hover {
-        @apply bg-blue-600;
+        @apply bg-blue-700;
       }
     }
   }
@@ -18,7 +18,7 @@
   }
 
   body {
-    @apply bg-gray-50 dark:bg-gray-800;
+    @apply bg-white dark:bg-gray-800;
     @apply font-primary #{!important};
   }
 
@@ -34,18 +34,32 @@
   * {
     transition: box-shadow 100ms !important;
   }
-  *:focus {
-    box-shadow: 0px 0px 0px 2.5px theme('colors.blue.600');
+  button:focus,
+  a:focus {
+    box-shadow: 0 0 0 2px theme('colors.blue.600');
     outline: none !important;
-    
   }
 }
 
 @layer components {
-  .container {
-    @apply max-w-screen-lg #{!important};
+  .content {
+    @apply max-w-screen-lg md:max-w-screen-md mx-auto;
   }
+  @screen lg {
+    .content {
+      max-width: calc(theme('screens.md') + theme('spacing.20'))
+    }
+  }
+
   .icon-button {
-    @apply  hover:bg-gray-100 dark:hover:bg-gray-800 w-10 h-10 flex items-center justify-center rounded-md
+    @apply hover:bg-gray-100 dark:hover:bg-gray-700 w-10 h-10 flex items-center justify-center rounded-md;
+  }
+  .input {
+    @apply bg-white dark:bg-gray-700 border dark:border-gray-600 py-2 w-1/2 px-4 rounded-md outline-none;
+
+    &:focus {
+      transition: box-shadow 5s;
+      box-shadow: 0px 0px 0px 1px theme('colors.blue.600'), theme('boxShadow.lg');
+    }
   }
 }
