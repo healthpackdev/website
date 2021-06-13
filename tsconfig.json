@@ -19,9 +19,10 @@
       "@theme/*": ["./src/theme/*"],
       "@scripts/*": ["./scripts/*"],
       "@components/*": ["./src/components/*"],
-      "@config/*": ["./config/*"]
+      "@config/*": ["./config/*"],
+      "@lib/*": ["./lib/*"]
     }
   },
-  "include": ["next-env.d.ts", "src/**/*", "config/*", "scripts"],
+  "include": ["next-env.d.ts", "src", "config", "scripts", "lib"],
   "exclude": ["scripts/sitemap.js"]
 }
