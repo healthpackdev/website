@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import NavbarLinks from '@components/layout/Navbar/navbar-links';
+import NavbarLinks from '@components/Layout/Navbar/navbar-links';
 
 export const NavbarMobile: React.FC = () => <NavbarLinks className="flex justify-center w-full" />;
 /*

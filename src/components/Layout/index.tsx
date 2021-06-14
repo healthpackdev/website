@@ -1,7 +1,7 @@
-import Navbar from '@components/layout/Navbar';
-import Footer from '@components/layout/Footer';
-import ScrollTop from '@components/layout/scroll-top';
-import Seo from '@components/layout/Seo';
+import Navbar from '@components/Layout/Navbar';
+import Footer from '@components/Layout/Footer';
+import ScrollTop from '@components/Layout/scroll-top';
+import Seo from '@components/Layout/Seo';
 import { DefaultSeoProps } from 'next-seo';
 import { HTMLMotionProps, motion } from 'framer-motion';
 

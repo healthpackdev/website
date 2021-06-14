@@ -5,18 +5,19 @@ import { useTheme } from 'next-themes';
 const ThemeToggle: React.FC = ({ ...props }) => {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const MotionIcon = motion(FontAwesomeIcon);
-
+  const isDark = theme === 'dark' || resolvedTheme === 'dark';
   return (
     <button
-      onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
       className="icon-button"
-      aria-label={`Toggle ${theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
+      aria-label={`Toggle ${isDark ? 'light' : 'dark'} mode`}
       {...props}
       type="button"
     >
       <MotionIcon
         whileHover={{ rotate: '360deg' }}
-        icon={theme === 'dark' || resolvedTheme === 'dark' ? ['fas', 'moon'] : ['fas', 'sun']}
+        icon={isDark ? ['fas', 'moon'] : ['fas', 'sun']}
+        className={isDark ? 'text-gray-400' : 'text-yellow-500'}
       />
     </button>
   );

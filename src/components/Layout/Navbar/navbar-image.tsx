@@ -9,8 +9,8 @@ const NavbarImage = () => (
         src="/avatar.png"
         alt="healthpack's profile"
         draggable={false}
-        width={30}
-        height={30}
+        width={35}
+        height={35}
       />
     </Link>
   </div>

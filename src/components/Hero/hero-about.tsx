@@ -5,10 +5,8 @@ import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { motion } from 'framer-motion';
 
 const HeroAbout: React.FC = () => (
-  <div className="w-full lg:pr-[300px]">
-    <header className="text-blue-500 text-3xl md:text-4xl font-semibold text-center lg:text-left font-luckiest-guy">
-      Web developer
-    </header>
+  <div className="lg:pr-10">
+    <header className="text-blue-500 text-3xl md:text-4xl font-semibold text-center lg:text-left">Web developer</header>
     <p className="text-md text-md text-gray-800 dark:text-blueGray-50 text-center lg:text-left">
       <AboutText />
     </p>

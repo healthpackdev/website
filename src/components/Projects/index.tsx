@@ -1,20 +1,20 @@
 import Link from 'next/link';
-import { Container } from '@components/containers';
+import { Section } from '@components/section';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
-import type { ErrorOrRepo } from '../../../pages/index';
+import type { ErrorOrRepo } from '../../pages/index';
 
 interface ProjectsProps {
   readonly projects: ErrorOrRepo;
 }
 
 const Projects: React.FC<ProjectsProps> = ({ projects }) => (
-  <Container id="projects" header="My Github projects">
+  <Section id="projects" header="My Github projects">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
       {typeof projects !== 'string' ? (
         projects.map((proj, index) => (
           <motion.div
-            className="cursor-pointer shadow-md rounded-md bg-white dark:bg-gray-700"
+            className="cursor-pointer shadow-md rounded-md bg-gray-100 dark:bg-gray-700"
             whileHover={{ y: -5 }}
             key={index.toString()}
           >
@@ -52,7 +52,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => (
         <div className="text-center">{projects}</div>
       )}
     </div>
-  </Container>
+  </Section>
 );
 
 export default Projects;
