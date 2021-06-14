@@ -1,1 +1,18 @@
-{"extends": ["@commitlint/config-conventional"]}
+{
+  "extends": [
+    "@commitlint/config-conventional"
+  ],
+  "rules": {
+    "type-enum": [
+      "feat",
+      "docs",
+      "refactor",
+      "style",
+      "ui",
+      "chore",
+      "build",
+      "fix",
+      "revert"
+    ]
+  }
+}
