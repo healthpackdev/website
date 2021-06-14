@@ -17,7 +17,7 @@ const ThemeToggle: React.FC = ({ ...props }) => {
       <MotionIcon
         whileHover={{ rotate: '360deg' }}
         icon={isDark ? ['fas', 'moon'] : ['fas', 'sun']}
-        className={isDark ? 'text-gray-400' : 'text-yellow-500'}
+        className={isDark ? 'text-gray-300' : 'text-yellow-500'}
       />
     </button>
   );
