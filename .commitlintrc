@@ -4,15 +4,19 @@
   ],
   "rules": {
     "type-enum": [
-      "feat",
-      "docs",
-      "refactor",
-      "style",
-      "ui",
-      "chore",
-      "build",
-      "fix",
-      "revert"
+      2,
+      "always",
+      [
+        "feat",
+        "docs",
+        "refactor",
+        "style",
+        "ui",
+        "chore",
+        "build",
+        "fix",
+        "revert"
+      ]
     ]
   }
 }
