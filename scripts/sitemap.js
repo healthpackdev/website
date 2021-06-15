@@ -24,6 +24,6 @@ globby(['src/pages/*', '!src/pages/_*', '!src/pages/api', '!src/pages/404.tsx'])
 
   fs.writeFile('public/sitemap.xml', sitemap, { encoding: 'utf-8' }, (err) => {
     if (err) throw new Error(err);
-    console.log('Sitemap generated.');
+    console.log('\x1b[35mevent\x1b[0m', ' - sitemap generated.');
   });
 });
