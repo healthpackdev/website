@@ -19,32 +19,34 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => (
             key={index.toString()}
           >
             <Link href={proj.link}>
-              <div className="flex flex-col py-2 px-4 justify-between">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl text-blue-500 font-medium">{proj.name}</h3>
-                  <FontAwesomeIcon icon={['fab', 'github']} />
-                </div>
-                <p className="text-gray-800 dark:text-blueGray-50 line-clamp-2" /* noOfLines={2}> */>{proj.desc}</p>
-                <div className="flex mt-4 justify-between">
-                  <div className="flex">
-                    <img
-                      width={18}
-                      height={18}
-                      className="mr-2 inline-block"
-                      src={`/icons/${proj.lang?.toLowerCase()}.svg`}
-                      alt={proj.lang?.toLowerCase()}
-                    />
-                    <span>{proj.lang}</span>
+              <a>
+                <div className="flex flex-col py-2 px-4 justify-between">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl text-blue-500 font-medium">{proj.name}</h3>
+                    <FontAwesomeIcon icon={['fab', 'github']} />
                   </div>
-                  <div className="flex items-center">
-                    {/* flex items-center is more powerfull */}
-                    <span className="inline-block px-2">{proj.fork_count}</span>
-                    <FontAwesomeIcon icon={['fas', 'code-branch']} />
-                    <span className="inline-block px-2">{proj.star}</span>
-                    <FontAwesomeIcon icon={['fas', 'star']} />
+                  <p className="text-gray-800 dark:text-blueGray-50 line-clamp-2">{proj.desc}</p>
+                  <div className="flex mt-4 justify-between">
+                    <div className="flex">
+                      <img
+                        width={18}
+                        height={18}
+                        className="mr-2 inline-block"
+                        src={`/icons/${proj.lang?.toLowerCase()}.svg`}
+                        alt={proj.lang?.toLowerCase()}
+                      />
+                      <span>{proj.lang}</span>
+                    </div>
+                    <div className="flex items-center">
+                      {/* flex items-center is more powerfull */}
+                      <span className="inline-block px-2">{proj.fork_count}</span>
+                      <FontAwesomeIcon icon={['fas', 'code-branch']} />
+                      <span className="inline-block px-2">{proj.star}</span>
+                      <FontAwesomeIcon icon={['fas', 'star']} />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </Link>
           </motion.div>
         ))
