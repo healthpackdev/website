@@ -4,13 +4,9 @@ const withAnalyzer = require('@next/bundle-analyzer')({
 });
 
 module.exports = withAnalyzer({
-  future: {
-    webpack5: true,
-  },
   experimental: {
     turboMode: true,
   },
-  jsconfigPaths: true,
   distDir: 'build',
   webpack(config, { isServer, dev }) {
     if (isServer) {
