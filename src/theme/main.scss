@@ -40,11 +40,12 @@
 
 @layer components {
   .content {
-    @apply max-w-screen-lg md:max-w-screen-md mx-auto;
+   
+    @apply max-w-screen-lg md:max-w-screen-md mx-auto px-4;
   }
   @screen lg {
     .content {
-      max-width: calc(theme('screens.md') + theme('spacing.20'))
+      max-width: calc(theme('screens.md') + theme('spacing.10'));
     }
   }
 
@@ -52,11 +53,12 @@
     @apply hover:bg-gray-100 dark:hover:bg-gray-700 w-10 h-10 flex items-center justify-center rounded-md;
   }
   .input {
-    @apply bg-white dark:bg-gray-700 border dark:border-gray-600 py-2 w-1/2 px-4 rounded-md outline-none;
-
+    @apply bg-white dark:bg-opacity-50 dark:bg-gray-800 dark:border-gray-600 py-2 my-2 px-4 rounded-md outline-none focus:ring-1 ring-blue-500 transition-all;
     &:focus {
-      transition: box-shadow 5s;
-      box-shadow: 0px 0px 0px 1px theme('colors.blue.600'), theme('boxShadow.lg');
+      @apply bg-opacity-75 #{!important};
     }
+  }
+  .button {
+    @apply bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700 p-2 my-2 cursor-pointer rounded-md;
   }
 }
