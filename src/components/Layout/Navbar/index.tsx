@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
 
   return (
     <header className="border-t-8 border-blue-400 dark:border-blue-800 py-2 sticky">
-      <div className="content flex justify-between px-4">
+      <div className="content flex justify-between">
         <div className="flex items-center">
           {isSmall && <NavbarMobileToggle onClick={() => setIsNavOpen(!isNavOpen)} isNavOpen={isNavOpen} />}
           <NavbarImage />
