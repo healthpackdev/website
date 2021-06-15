@@ -1,6 +1,7 @@
 import author from '@config/author-meta.json';
 import { Section } from '@components/section';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const index: React.FC = () => (
   <Section id="technologies" header="Technologies I use">
@@ -11,7 +12,7 @@ const index: React.FC = () => (
           whileHover={{ y: -5 }}
           key={index.toString()}
         >
-          <img
+          <Image
             src={`/icons/${tech.toLowerCase()}.svg`}
             alt={tech.toLowerCase()}
             width={18}
