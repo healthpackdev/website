@@ -1,7 +1,8 @@
-import Hero from '@components/containers/Hero';
-import Techs from '@components/containers/Techs';
-import Projects from '@components/containers/Projects';
-import Layout from '@components/layout';
+import Hero from '@components/Hero';
+import Techs from '@components/Techs';
+import Projects from '@components/Projects';
+import Contact from '@components/Contact';
+import Layout from '@components/Layout';
 import { GetStaticProps } from 'next';
 import { Octokit } from '@octokit/rest';
 import author from '@config/author-meta.json';
@@ -31,6 +32,7 @@ const Home: React.FC<HomeProps> = ({ projects }) => (
     <Hero />
     <Techs />
     <Projects projects={projects} />
+    <Contact />
   </Layout>
 );
 
