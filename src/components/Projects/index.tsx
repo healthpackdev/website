@@ -3,6 +3,7 @@ import { Section } from '@components/section';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
 import type { ErrorOrRepo } from '../../pages/index';
+import Image from 'next/image';
 
 interface ProjectsProps {
   readonly projects: ErrorOrRepo;
@@ -28,7 +29,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => (
                   <p className="text-gray-800 dark:text-blueGray-50 line-clamp-2">{proj.desc}</p>
                   <div className="flex mt-4 justify-between">
                     <div className="flex">
-                      <img
+                      <Image
                         width={18}
                         height={18}
                         className="mr-2 inline-block"
