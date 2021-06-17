@@ -5,7 +5,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import Link from 'next/link';
 
 const Footer: React.FC = () => (
-  <footer className="mt-10 border-b-8 bg-gray-200 dark:bg-gray-700 border-blue-400 dark:border-blue-700">
+  <footer className="mt-10 border-t">
     <div className="flex content justify-between items-center flex-col lg:flex-row text-center lg:text-left">
       <p className="text-gray-700 dark:text-gray-200 text-sm order-1 lg:order-[-1]">
         © {new Date().getFullYear()} all rights reserved. Made with <FontAwesomeIcon icon={faHeart} color="red" /> by{' '}

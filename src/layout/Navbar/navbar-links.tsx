@@ -9,7 +9,7 @@ const Navigate: React.FC<React.HTMLProps<HTMLDivElement>> = ({ ...props }) => (
       {links.map((link, index) => (
         <li key={index.toString()}>
           <Link href={link.href}>
-            <a className="px-4 py-1 rounded select-none text-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+            <a className="no-link px-4 py-1 rounded select-none text-lg hover:bg-gray-100 dark:hover:bg-gray-700">
               {link.title}
             </a>
           </Link>

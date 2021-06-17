@@ -19,7 +19,7 @@ const ScrollTop: React.FC = () => {
     !isTop && (
       <button
         type="button"
-        className="fixed text-white bottom-5 right-5 w-10 h-10 rounded-full dark:bg-blue-500 bg-blue-400"
+        className="fixed text-white bottom-5 right-5 rounded-full bg-blue-500 hover:bg-blue-600 active:scale-125 transition-all w-10 h-10"
         aria-label="up!"
         onClick={onClickScroll}
       >

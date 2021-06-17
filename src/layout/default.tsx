@@ -15,8 +15,8 @@ const Layout: React.FC<LayoutProps & HTMLMotionProps<'main'>> = ({ children, seo
     <Navbar />
     <motion.main
       className="content"
-      initial={{ y: 5, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
       {...props}
     >
