@@ -1,0 +1,30 @@
+button:focus,
+a:focus {
+  box-shadow: 0 0 0 2px theme('colors.blue.600');
+  outline: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header {
+  @apply font-header !important;
+}
+
+a:not(.no-link) {
+  @apply underline text-blue-500;
+}
+
+.content {
+  @apply max-w-screen-lg md:max-w-screen-md mx-auto px-4;
+  @screen lg {
+    max-width: calc(theme('screens.md') + theme('spacing.10'));
+  }
+}
+
+.icon-button {
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700 w-10 h-10 flex items-center justify-center rounded-md;
+}

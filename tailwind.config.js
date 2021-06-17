@@ -1,29 +1,31 @@
 const fonts = require('./config/fonts.json');
-const colors = require('tailwindcss/colors');
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: 'jit',
   purge: ['./src/**/*.tsx'],
-  darkMode: 'class', // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     fontFamily: {
-      primary: [fonts.primary.name, ...fontFamily.sans],
+      sans: [fonts.sans.name, ...fontFamily.sans],
       header: [fonts.header.name, ...fontFamily.sans],
     },
-    colors: {
-      ...colors,
-      gray: {
-        ...colors.gray,
-        700: '#2D3748',
-        800: '#1A202C',
+    extend: {
+      borderColor: {
+        DEFAULT: 'var(--colors-border-primary)', // border-opacity will not work.
+      },
+      backgroundColor: {
+        primary: 'rgba(var(--colors-bg-primary), var(--tw-bg-opacity))',
+        secondary: 'rgba(var(--colors-bg-secondary), var(--tw-bg-opacity))',
+      },
+      textColor: {
+        primary: 'var(--colors-text-primary)',
+        secondary: 'var(--colors-text-secondary)',
+      },
+      container: {
+        center: true,
       },
     },
-    container: {
-      // maxWidth: '1024px', not working.
-      center: true,
-    },
-    extend: {},
   },
   variants: {
     extend: {},
