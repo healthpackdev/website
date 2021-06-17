@@ -1,6 +1,6 @@
 import Hero from '@components/Hero';
 import Techs from '@components/Techs';
-import Projects from '@components/Projects';
+import Repos from '@components/Projects';
 import Contact from '@components/Contact';
 import Layout from '@layout/default';
 import { GetStaticProps } from 'next';
@@ -18,10 +18,10 @@ interface IRepo {
 
 export type ErrorOrRepo = IRepo[] | string;
 interface HomeProps {
-  projects: ErrorOrRepo;
+  repos: ErrorOrRepo;
 }
 
-const Home: React.FC<HomeProps> = ({ projects }) => (
+const Home: React.FC<HomeProps> = ({ repos }) => (
   <Layout
     seo={{
       title: `Home`,
@@ -31,21 +31,21 @@ const Home: React.FC<HomeProps> = ({ projects }) => (
   >
     <Hero />
     <Techs />
-    <Projects projects={projects} />
+    <Repos repos={repos} />
     <Contact />
   </Layout>
 );
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const client = new Octokit();
-  let projects: ErrorOrRepo;
+  let repos: ErrorOrRepo;
 
   await client
     .request('GET /users/{username}/repos', {
       username: author.github,
     })
     .then(({ data }) => {
-      projects = data
+      repos = data
         .sort((a, b) => b.stargazers_count - a.stargazers_count)
         .filter((project) => project.name !== author.github && !project.archived)
         .slice(0, 12) // Get 12 max repo
@@ -59,12 +59,12 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
         }));
     })
     .catch(() => {
-      projects = 'Rate Limit Error';
+      repos = 'Rate Limit Error';
     });
 
   return {
     props: {
-      projects,
+      repos,
     },
     revalidate: 5,
   };
