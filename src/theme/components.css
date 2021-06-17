@@ -15,7 +15,7 @@ header {
 }
 
 a:not(.no-link) {
-  @apply underline text-blue-500;
+  @apply underline text-blue-500 hover:text-blue-700 active:text-blue-900;
 }
 
 .content {

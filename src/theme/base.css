@@ -1,7 +1,7 @@
 :root {
   --colors-body-background: white;
   --colors-text-primary: theme('colors.gray.800');
-  --colors-text-secondary: theme('colors.gray.500');
+  --colors-text-secondary: theme('colors.gray.600');
   --colors-border-primary: theme('colors.gray.200');
   --colors-bg-primary: 229, 231, 235; /* colors.gray.200 */
   --colors-bg-secondary: 229, 231, 235; /* colors.gray.200 */
