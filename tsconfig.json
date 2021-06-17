@@ -17,10 +17,10 @@
     "typeRoots": ["node_modules/@types"],
     "paths": {
       "@theme/*": ["./src/theme/*"],
-      "@scripts/*": ["./scripts/*"],
       "@components/*": ["./src/components/*"],
       "@config/*": ["./config/*"],
-      "@lib/*": ["./lib/*"]
+      "@lib/*": ["./lib/*"],
+      "@layout/*" : ["./src/layout/*"]
     }
   },
   "include": ["next-env.d.ts", "src", "config", "scripts", "lib"],

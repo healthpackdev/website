@@ -2,7 +2,7 @@ import Hero from '@components/Hero';
 import Techs from '@components/Techs';
 import Projects from '@components/Projects';
 import Contact from '@components/Contact';
-import Layout from '@components/Layout';
+import Layout from '@layout/*';
 import { GetStaticProps } from 'next';
 import { Octokit } from '@octokit/rest';
 import author from '@config/author-meta.json';

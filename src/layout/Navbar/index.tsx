@@ -1,9 +1,9 @@
 import { useMedia } from 'react-use';
 import { useState } from 'react';
-import { NavbarMobileToggle, NavbarMobile } from '@components/Layout/Navbar/navbar-mobile';
-import NavbarImage from '@components/Layout/Navbar/navbar-image';
-import NavbarLinks from '@components/Layout/Navbar/navbar-links';
-import NavbarGithub from '@components/Layout/Navbar/navbar-github';
+import { NavbarMobileToggle, NavbarMobile } from 'src/layout/Navbar/navbar-mobile';
+import NavbarImage from 'src/layout/Navbar/navbar-image';
+import NavbarLinks from 'src/layout/Navbar/navbar-links';
+import NavbarGithub from 'src/layout/Navbar/navbar-github';
 
 import ThemeToggle from '@components/theme-toggle';
 
