@@ -20,7 +20,7 @@ const seoConfig: DefaultSeoProps = {
   },
   additionalLinkTags: [
     { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
-    { rel: 'stylesheet', href: fonts.primary.url },
+    { rel: 'stylesheet', href: fonts.sans.url },
     { rel: 'stylesheet', href: fonts.header.url },
     { rel: 'icon', href: '/favicon.ico' },
     { rel: 'icon', href: '/favicon-32x32.png', sizes: '32x32' },
