@@ -7,17 +7,16 @@ import { motion } from 'framer-motion';
 const HeroAbout: React.FC = () => (
   <div>
     <header className="text-3xl md:text-4xl font-semibold">Hey, I&apos;m Yasin Kadir</header>
-    <p className="text-md text-md text-gray-800 dark:text-blueGray-50">
+    <p className="text-secondary">
       <AboutText />
     </p>
 
-    <div className="flex justify-center lg:justify-start">
+    <div className="mt-5">
       {author.socials.map((social, index) => (
         <motion.a
-          // whileHover={{ scale: 1.5 }}
+          className="mx-2 my-3"
           whileHover={{ y: '-2px' }}
           href={`/${social.icon[1]}`}
-          className="mx-2 my-3"
           key={index.toString()}
           style={{ color: social.color }}
           target="_blank"

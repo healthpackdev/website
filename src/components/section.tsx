@@ -3,8 +3,8 @@ export interface SectionProps extends React.HTMLProps<HTMLDivElement> {
 }
 
 export const Section: React.FC<SectionProps> = ({ header, children, ...props }) => (
-  <section className="py-10" {...props}>
-    <header className="text-4xl text-center my-7 font-semibold">{header}</header>
+  <section className="py-5" {...props}>
+    <header className="text-4xl text-left my-5 font-semibold">{header}</header>
     {children}
   </section>
 );

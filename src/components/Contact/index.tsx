@@ -2,6 +2,7 @@ import { Section } from '@components/section';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import author from '@config/author-meta.json';
+import css from './Contact.module.css';
 
 interface Inputs {
   email: string;
@@ -20,31 +21,28 @@ const Contact: React.FC = () => {
 
   return (
     <Section header="Contact Me">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="dark:bg-gray-700 bg-gray-100 p-4 flex flex-col rounded-md shadow-lg"
-      >
+      <form onSubmit={handleSubmit(onSubmit)} className={css.contact}>
         <input
           type="email"
-          className="input"
+          className={css.input}
           placeholder="Your email address"
           {...register('email', { required: true })}
         />
 
         <input
           type="text"
-          className="input"
+          className={css.input}
           placeholder="Your name"
           autoComplete="off"
           {...register('name', { required: false })}
         />
         <textarea
           rows={5}
-          className="input resize-none !my-2"
+          className={css.textArea}
           placeholder="Your message"
           {...register('message', { required: true })}
         />
-        <input type="submit" className="button" />
+        <input type="submit" className={css.button} />
       </form>
     </Section>
   );
