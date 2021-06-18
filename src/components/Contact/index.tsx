@@ -22,24 +22,30 @@ const Contact: React.FC = () => {
   return (
     <Section header="Contact Me">
       <form onSubmit={handleSubmit(onSubmit)} className={css.contact}>
+        <label htmlFor="contact-email">Your e-mail address</label>
         <input
           type="email"
+          id="contact-email"
           className={css.input}
-          placeholder="Your email address"
+          autoComplete="off"
+          placeholder="you@mail.com"
           {...register('email', { required: true })}
         />
-
+        <label htmlFor="contact-name">Your name</label>
         <input
           type="text"
+          id="contact-name"
           className={css.input}
-          placeholder="Your name"
+          placeholder="James Bond"
           autoComplete="off"
           {...register('name', { required: false })}
         />
+        <label htmlFor="contact-message">Your message</label>
         <textarea
           rows={5}
+          id="contact-message"
           className={css.textArea}
-          placeholder="Your message"
+          placeholder="Hello Yasin!"
           {...register('message', { required: true })}
         />
         <input type="submit" className={css.button} />

@@ -3,6 +3,9 @@ import AboutText from '@config/about-text';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { motion } from 'framer-motion';
+import css from './Hero.module.css';
+
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
 const HeroAbout: React.FC = () => (
   <div>
@@ -11,17 +14,18 @@ const HeroAbout: React.FC = () => (
       <AboutText />
     </p>
 
-    <div className="mt-5">
+    <div className="mt-5 grid lg:block grid-cols-2">
       {author.socials.map((social, index) => (
         <motion.a
-          className="mx-2 my-3"
-          whileHover={{ y: '-2px' }}
+          className={css.social + ' no-link'}
+          whileHover={{ y: -2 }}
           href={`/${social.icon[1]}`}
           key={index.toString()}
-          style={{ color: social.color }}
+          //@ts-ignore
+          style={{ '--social-color': social.color }}
           target="_blank"
         >
-          <FontAwesomeIcon icon={social.icon as IconProp} />
+          <FontAwesomeIcon icon={social.icon as IconProp} /> {capitalize(social.icon[1])}
         </motion.a>
       ))}
     </div>
