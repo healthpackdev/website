@@ -25,8 +25,7 @@ const Home: React.FC<HomeProps> = ({ repos }) => (
   <Layout
     seo={{
       title: `Home`,
-      description:
-        'Young developer from Turkey. Interested in programming. recently started building simple websites. Javascript and Typescript lover',
+      description: `I&apos;m a Web Developer and 7th grade student at Şair Nedim. I have about 1 years experience in Javascript. I love Next.js and React with Typescript. I currently develop this website and trying to learn Golang - visit website and learn more about me`,
     }}
   >
     <Hero />
