@@ -18,7 +18,7 @@ a:not(.no-link) {
   @apply underline text-blue-500 hover:text-blue-700 active:text-blue-900;
 }
 
-.content {
+.max-w-content {
   @apply max-w-screen-lg md:max-w-screen-md mx-auto px-4;
   @screen lg {
     max-width: calc(theme('screens.md') + theme('spacing.10'));
@@ -26,5 +26,5 @@ a:not(.no-link) {
 }
 
 .icon-button {
-  @apply hover:bg-gray-100 dark:hover:bg-gray-700 w-10 h-10 flex items-center justify-center rounded-md;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-900 w-10 h-10 flex items-center justify-center rounded-md;
 }
