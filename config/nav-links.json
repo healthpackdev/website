@@ -1,3 +1,5 @@
 [
-  { "href": "/blog", "title": "Blog" }
+  { "href": "/", "title": "Home", "icon": "home" },
+  { "href": "/about", "title": "About", "icon": "user" },
+  { "href": "/blog", "title": "Blog", "icon": "pencil-alt" }
 ]

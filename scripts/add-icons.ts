@@ -9,9 +9,15 @@ import {
   faBars,
   faSearch,
   faTimes,
+  faHome,
+  faPencilAlt,
+  faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
 const icons = [
+  faHome,
+  faUser,
+  faPencilAlt,
   faDiscord,
   faTwitter,
   faGithub,
