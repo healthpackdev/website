@@ -1,6 +1,6 @@
 import Hero from '@components/Hero';
 import Techs from '@components/Techs';
-import Repos from '@components/Projects';
+import Repos from '@components/Repos';
 import Contact from '@components/Contact';
 import Layout from '@layout/default';
 import { GetStaticProps } from 'next';
