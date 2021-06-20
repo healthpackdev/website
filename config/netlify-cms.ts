@@ -5,8 +5,8 @@ const netlifyCMSConfig: CmsConfig = {
     name: 'git-gateway',
     branch: 'main',
   },
-  media_folder: 'public/img',
-  public_folder: '/img',
+  media_folder: 'public/images',
+  public_folder: '/public/uploads',
   collections: [
     {
       name: 'blog',

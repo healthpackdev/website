@@ -1,11 +1,8 @@
 import type { IBlogPost } from '@lib/mdx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import Image from 'next/image';
 import css from './Blog.module.css';
-import BlogPost from "./blog-post";
+import BlogPost from './blog-post';
 
 const BlogBody: React.FC<{ posts: IBlogPost[] }> = ({ posts }) => {
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -16,7 +13,7 @@ const BlogBody: React.FC<{ posts: IBlogPost[] }> = ({ posts }) => {
   const [filteredPosts, setFilteredPosts] = useState([]);
 
   useEffect(() => {
-    setSearchValue({ ...searchValue, text: searchInputRef.current.value })
+    setSearchValue({ ...searchValue, text: searchInputRef.current.value });
     setFilteredPosts(
       posts.filter((post) => {
         return (
@@ -40,11 +37,8 @@ const BlogBody: React.FC<{ posts: IBlogPost[] }> = ({ posts }) => {
         <input ref={searchInputRef} type="text" className={css.searchInput} placeholder="Makale Ara" />
       </div>
       {!filteredPosts
-        ? posts.map((post, i) => (
-          <BlogPost post={post} key={i.toString()} />
-        ))
-        : filteredPosts.map((post, i) => (<BlogPost post={post} key={i.toString()} />))
-      }
+        ? posts.map((post, i) => <BlogPost post={post} key={i.toString()} />)
+        : filteredPosts.map((post, i) => <BlogPost post={post} key={i.toString()} />)}
     </>
   );
 };

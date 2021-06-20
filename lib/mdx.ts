@@ -29,7 +29,6 @@ export const getBlogPosts = (): IBlogPost[] => {
       publishedAt: null,
     };
 
-
     return [{ data, content, slug: currentPost.replace('.mdx', '') }, ...allPosts];
   }, []);
 };

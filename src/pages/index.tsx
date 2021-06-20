@@ -2,7 +2,7 @@ import Hero from '@components/Hero';
 import Techs from '@components/Techs';
 import Repos from '@components/Repos';
 import Contact from '@components/Contact';
-import { GetStaticProps, NextPage } from 'next';
+import { GetStaticProps } from 'next';
 import author from '@config/author-meta.json';
 
 interface IRepo {

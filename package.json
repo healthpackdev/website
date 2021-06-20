@@ -10,7 +10,7 @@
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write --check './src/**/*.{js,ts,tsx,jsx}'"
+    "format": "prettier --write --check './{src,lib}/**/*.{js,ts,tsx,jsx}'"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
