@@ -1,5 +1,5 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faDiscord, faTwitter, faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faTwitter, faGithub, faSpotify } from '@fortawesome/free-brands-svg-icons';
 import {
   faArrowUp,
   faMoon,
@@ -14,14 +14,14 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
-const icons = [
+library.add(
   faHome,
   faUser,
   faPencilAlt,
   faDiscord,
   faTwitter,
   faGithub,
-  faYoutube,
+  faSpotify,
   faSearch,
   faArrowUp,
   faMoon,
@@ -29,7 +29,5 @@ const icons = [
   faStar,
   faBars,
   faCodeBranch,
-  faTimes,
-];
-
-library.add(...icons);
+  faTimes
+);
