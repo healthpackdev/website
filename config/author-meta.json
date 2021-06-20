@@ -7,9 +7,9 @@
     { "href": "https://github.com/healthpackdev", "icon": ["fab", "github"], "color": "#718096" },
     { "href": "https://twitter.com/healthpackdev", "icon": ["fab", "twitter"], "color": "#1DA1F2" },
     {
-      "href": "https://www.youtube.com/channel/UCDnt9my_8z87bWL-yCb5NEA",
-      "icon": ["fab", "youtube"],
-      "color": "#E53E3E"
+      "href": "https://open.spotify.com/user/yirq6nvra9f2pl9xhp4whw2c4",
+      "icon": ["fab", "spotify"],
+      "color": "#1DB954"
     }
   ],
   "techs": [
