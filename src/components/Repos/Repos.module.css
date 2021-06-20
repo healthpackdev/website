@@ -19,5 +19,5 @@
   @apply text-xl text-blue-500 font-medium;
 }
 .repoCardDescription {
-  @apply text-secondary line-clamp-2;
+  @apply text-primary line-clamp-2;
 }

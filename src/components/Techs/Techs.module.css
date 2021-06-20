@@ -9,5 +9,5 @@
 }
 
 .techName {
-  @apply text-center text-primary font-semibold ml-2;
+  @apply text-center text-secondary font-semibold ml-2;
 }

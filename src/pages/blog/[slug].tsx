@@ -1,2 +1,2 @@
-const BlogPost: React.FC = () => <></>;
+const BlogPost: React.FC = () => <>qq</>;
 export default BlogPost;

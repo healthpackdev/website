@@ -2,7 +2,7 @@
   @apply border p-4 flex flex-col rounded-md;
 }
 .input {
-  @apply p-2 bg-secondary bg-opacity-25 border my-2 rounded-md;
+  @apply p-2 bg-primary border my-2 rounded-md;
 }
 .input:focus {
     @apply ring-1 ring-blue-500 border-blue-500 outline-none;

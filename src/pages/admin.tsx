@@ -7,15 +7,15 @@ import type { NetlifyCmsApp } from 'netlify-cms-app';
 
 const NetlifyCMS = dynamic(
   () =>
-    import('netlify-cms-app') // @ts-ignore
+    import('netlify-cms-app')
+      // @ts-ignore
       .then((cms: typeof NetlifyCmsApp) => {
         cms.init({ config });
 
-        return function emptyReturn() {
-          return <></>;
-        }; // Fragment
+        // eslint-disable-next-line react/display-name
+        return () => <></>;
       })
-      .then((space) => space),
+      .then((fragment) => fragment),
   {
     ssr: false,
   }

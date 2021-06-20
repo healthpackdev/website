@@ -1,20 +1,31 @@
 :root {
   --colors-body-background: white;
-  --colors-text-primary: theme('colors.gray.800');
-  --colors-text-secondary: theme('colors.gray.600');
+
+  --colors-text-primary: theme('colors.gray.700'); /* Typography */
+  --colors-text-link: theme('colors.blue.600');
+  --colors-text-link-hover: theme('colors.blue.800');
+
   --colors-border-primary: theme('colors.gray.200');
-  --colors-bg-primary: 229, 231, 235; /* colors.gray.200 */
-  --colors-bg-secondary: 229, 231, 235; /* colors.gray.200 */
+  --colors-border-secondary: theme('colors.gray.600');
+
+  --colors-bg-primary: rgba(229, 231, 235, 0.25); /* colors.gray.200 */
+  --colors-bg-secondary: theme('colors.gray.100');
 }
 
 .dark {
-  --colors-body-background: black;
-  --colors-text-primary: theme('colors.gray.100');
-  --colors-text-secondary: theme('colors.gray.400');
-  --colors-border-primary: theme('colors.gray.900');
-  --colors-bg-primary: 55, 65, 81; /* colors.gray.700 */
-  --colors-bg-secondary: 17, 24, 39; /* colors.gray.900 */
+  --colors-body-background: theme('colors.gray.900');
+
+  --colors-text-primary: theme('colors.gray.300'); /* Typography */
+  --colors-text-link: theme('colors.blue.500');
+  --colors-text-link-hover: theme('colors.blue.600');
+
+  --colors-border-primary: theme('colors.gray.800');
+  --colors-border-secondary: theme('colors.gray.400');
+
+  --colors-bg-primary: rgba(31, 41, 55, 0.25); /* colors.gray.800 */
+  --colors-bg-secondary: rgba(31, 41, 55, 0.35); /* colors.gray.700 */
 }
+
 body {
   background-color: var(--colors-body-background);
 }

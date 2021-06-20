@@ -10,9 +10,9 @@ const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
 const Hero: React.FC = () => (
   <Section header="Hi I'm Yasin Kadir" id="hero">
-    <p className="text-secondary">
-      I&apos;m a Web Developer and 7th grade student at Şair Nedim. I have about 1 years experience in Javascript. I
-      love <b>Next.js</b> and <b>React</b> with <b>Typescript</b>. I currently develop{' '}
+    <p className="prose">
+      I&apos;m a Web Developer and student. I have about 1 years experience in Javascript. I love <b>Next.js</b> and{' '}
+      <b>React</b> with <b>Typescript</b>. I currently develop{' '}
       <Link href="/">
         <a>this website</a>
       </Link>{' '}

@@ -2,9 +2,7 @@ import Hero from '@components/Hero';
 import Techs from '@components/Techs';
 import Repos from '@components/Repos';
 import Contact from '@components/Contact';
-import Layout from '@layout/default';
-import { GetStaticProps } from 'next';
-import { Octokit } from '@octokit/rest';
+import { GetStaticProps, NextPage } from 'next';
 import author from '@config/author-meta.json';
 
 interface IRepo {
@@ -21,29 +19,28 @@ interface HomeProps {
   repos: ErrorOrRepo;
 }
 
-const Home: React.FC<HomeProps> = ({ repos }) => (
-  <Layout
-    seo={{
-      title: `Home`,
-      description: `I&apos;m a Web Developer and 7th grade student at Şair Nedim. I have about 1 years experience in Javascript. I love Next.js and React with Typescript. I currently develop this website and trying to learn Golang - visit website and learn more about me`,
-    }}
-  >
+const Home: Page<HomeProps> = ({ repos }) => (
+  <>
     <Hero />
     <Techs />
     <Repos repos={repos} />
     <Contact />
-  </Layout>
+  </>
 );
 
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const client = new Octokit();
-  let repos: ErrorOrRepo;
+Home.LayoutProps = {
+  seo: {
+    title: `Home`,
+    description: `I'mm a Web Developer and student. I have about 1 years experience in Javascript. I love Next.js and React with Typescript. I currently develop this website and trying to learn Golang - visit website and learn more about me`,
+  },
+};
 
-  await client
-    .request('GET /users/{username}/repos', {
-      username: author.github,
-    })
-    .then(({ data }) => {
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const GITHUB_ENDPOINT = 'https://api.github.com';
+  let repos: ErrorOrRepo;
+  await fetch(`${GITHUB_ENDPOINT}/users/${author.github}/repos`)
+    .then((res) => res.json())
+    .then((data) => {
       repos = data
         .sort((a, b) => b.stargazers_count - a.stargazers_count)
         .filter((project) => project.name !== author.github && !project.archived)

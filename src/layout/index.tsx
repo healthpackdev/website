@@ -2,10 +2,11 @@ import Navbar from 'src/layout/Navbar';
 import Footer from 'src/layout/Footer';
 import ScrollTop from 'src/layout/scroll-top';
 import Seo from 'src/layout/Seo';
+import React from "react";
 import { DefaultSeoProps } from 'next-seo';
 import { HTMLMotionProps, motion } from 'framer-motion';
 
-interface LayoutProps {
+export interface LayoutProps {
   seo: DefaultSeoProps;
 }
 

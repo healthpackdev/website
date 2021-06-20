@@ -14,7 +14,7 @@ header {
   @apply font-header !important;
 }
 
-a:not(.no-link) {
+a.link {
   @apply underline text-blue-500 hover:text-blue-700 active:text-blue-900;
 }
 
@@ -26,5 +26,5 @@ a:not(.no-link) {
 }
 
 .icon-button {
-  @apply hover:bg-gray-100 dark:hover:bg-gray-900 w-10 h-10 flex items-center justify-center rounded-md;
+  @apply hover:bg-secondary w-10 h-10 flex items-center justify-center rounded-md;
 }
