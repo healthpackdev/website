@@ -8,13 +8,14 @@ specifiers:
   '@fortawesome/free-solid-svg-icons': ^5.15.3
   '@fortawesome/react-fontawesome': ^0.1.14
   '@next/bundle-analyzer': ^10.2.3
-  '@octokit/rest': ^18.5.3
   '@tailwindcss/line-clamp': ^0.2.1
+  '@tailwindcss/typography': ^0.4.1
   '@types/prismjs': ^1.16.5
   '@types/react': ^17.0.3
   '@typescript-eslint/eslint-plugin': ^4.4.1
   '@typescript-eslint/parser': ^4.22.0
   autoprefixer: ^10.2.6
+  dayjs: ^1.10.5
   eslint: ^7.24.0
   eslint-config-next: ^11.0.0
   eslint-config-prettier: ^8.2.0
@@ -41,6 +42,7 @@ specifiers:
   react-dom: 17.0.2
   react-hook-form: ^7.8.4
   react-use: ^17.2.4
+  reading-time: ^1.3.0
   tailwindcss: ^2.2.2
   typescript: ^4.2.4
 
@@ -49,7 +51,7 @@ dependencies:
   '@fortawesome/free-brands-svg-icons': 5.15.3
   '@fortawesome/free-solid-svg-icons': 5.15.3
   '@fortawesome/react-fontawesome': 0.1.14_ec0af2bc0907a851e3e0afc4708fd0f0
-  '@octokit/rest': 18.6.0
+  dayjs: 1.10.5
   framer-motion: 4.1.17_react-dom@17.0.2+react@17.0.2
   gray-matter: 4.0.3
   netlify-cms-app: 2.15.19_7a759d72fcbc11ce03c9de110c21df82
@@ -62,12 +64,14 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
   react-hook-form: 7.8.8_react@17.0.2
   react-use: 17.2.4_react-dom@17.0.2+react@17.0.2
+  reading-time: 1.3.0
 
 devDependencies:
   '@commitlint/cli': 12.1.4
   '@commitlint/config-conventional': 12.1.4
   '@next/bundle-analyzer': 10.2.3
   '@tailwindcss/line-clamp': 0.2.1_tailwindcss@2.2.2
+  '@tailwindcss/typography': 0.4.1_tailwindcss@2.2.2
   '@types/prismjs': 1.16.5
   '@types/react': 17.0.11
   '@typescript-eslint/eslint-plugin': 4.27.0_1c5b48a1f115d929d137a72df737d54c
@@ -623,105 +627,6 @@ packages:
       fastq: 1.11.0
     dev: true
 
-  /@octokit/auth-token/2.4.5:
-    resolution: {integrity: sha512-BpGYsPgJt05M7/L/5FoE1PiAbdxXFZkX/3kDYcsvd1v6UhlnE5e96dTDr0ezX/EFwciQxf3cNV0loipsURU+WA==}
-    dependencies:
-      '@octokit/types': 6.16.4
-    dev: false
-
-  /@octokit/core/3.5.1:
-    resolution: {integrity: sha512-omncwpLVxMP+GLpLPgeGJBF6IWJFjXDS5flY5VbppePYX9XehevbDykRH9PdCdvqt9TS5AOTiDide7h0qrkHjw==}
-    dependencies:
-      '@octokit/auth-token': 2.4.5
-      '@octokit/graphql': 4.6.4
-      '@octokit/request': 5.6.0
-      '@octokit/request-error': 2.1.0
-      '@octokit/types': 6.16.4
-      before-after-hook: 2.2.2
-      universal-user-agent: 6.0.0
-    dev: false
-
-  /@octokit/endpoint/6.0.12:
-    resolution: {integrity: sha512-lF3puPwkQWGfkMClXb4k/eUT/nZKQfxinRWJrdZaJO85Dqwo/G0yOC434Jr2ojwafWJMYqFGFa5ms4jJUgujdA==}
-    dependencies:
-      '@octokit/types': 6.16.4
-      is-plain-object: 5.0.0
-      universal-user-agent: 6.0.0
-    dev: false
-
-  /@octokit/graphql/4.6.4:
-    resolution: {integrity: sha512-SWTdXsVheRmlotWNjKzPOb6Js6tjSqA2a8z9+glDJng0Aqjzti8MEWOtuT8ZSu6wHnci7LZNuarE87+WJBG4vg==}
-    dependencies:
-      '@octokit/request': 5.6.0
-      '@octokit/types': 6.16.4
-      universal-user-agent: 6.0.0
-    dev: false
-
-  /@octokit/openapi-types/7.3.2:
-    resolution: {integrity: sha512-oJhK/yhl9Gt430OrZOzAl2wJqR0No9445vmZ9Ey8GjUZUpwuu/vmEFP0TDhDXdpGDoxD6/EIFHJEcY8nHXpDTA==}
-    dev: false
-
-  /@octokit/plugin-paginate-rest/2.13.5_@octokit+core@3.5.1:
-    resolution: {integrity: sha512-3WSAKBLa1RaR/7GG+LQR/tAZ9fp9H9waE9aPXallidyci9oZsfgsLn5M836d3LuDC6Fcym+2idRTBpssHZePVg==}
-    peerDependencies:
-      '@octokit/core': '>=2'
-    dependencies:
-      '@octokit/core': 3.5.1
-      '@octokit/types': 6.16.4
-    dev: false
-
-  /@octokit/plugin-request-log/1.0.4_@octokit+core@3.5.1:
-    resolution: {integrity: sha512-mLUsMkgP7K/cnFEw07kWqXGF5LKrOkD+lhCrKvPHXWDywAwuDUeDwWBpc69XK3pNX0uKiVt8g5z96PJ6z9xCFA==}
-    peerDependencies:
-      '@octokit/core': '>=3'
-    dependencies:
-      '@octokit/core': 3.5.1
-    dev: false
-
-  /@octokit/plugin-rest-endpoint-methods/5.3.1_@octokit+core@3.5.1:
-    resolution: {integrity: sha512-3B2iguGmkh6bQQaVOtCsS0gixrz8Lg0v4JuXPqBcFqLKuJtxAUf3K88RxMEf/naDOI73spD+goJ/o7Ie7Cvdjg==}
-    peerDependencies:
-      '@octokit/core': '>=3'
-    dependencies:
-      '@octokit/core': 3.5.1
-      '@octokit/types': 6.16.4
-      deprecation: 2.3.1
-    dev: false
-
-  /@octokit/request-error/2.1.0:
-    resolution: {integrity: sha512-1VIvgXxs9WHSjicsRwq8PlR2LR2x6DwsJAaFgzdi0JfJoGSO8mYI/cHJQ+9FbN21aa+DrgNLnwObmyeSC8Rmpg==}
-    dependencies:
-      '@octokit/types': 6.16.4
-      deprecation: 2.3.1
-      once: 1.4.0
-    dev: false
-
-  /@octokit/request/5.6.0:
-    resolution: {integrity: sha512-4cPp/N+NqmaGQwbh3vUsYqokQIzt7VjsgTYVXiwpUP2pxd5YiZB2XuTedbb0SPtv9XS7nzAKjAuQxmY8/aZkiA==}
-    dependencies:
-      '@octokit/endpoint': 6.0.12
-      '@octokit/request-error': 2.1.0
-      '@octokit/types': 6.16.4
-      is-plain-object: 5.0.0
-      node-fetch: 2.6.1
-      universal-user-agent: 6.0.0
-    dev: false
-
-  /@octokit/rest/18.6.0:
-    resolution: {integrity: sha512-MdHuXHDJM7e5sUBe3K9tt7th0cs4csKU5Bb52LRi2oHAeIMrMZ4XqaTrEv660HoUPoM1iDlnj27Ab/Nh3MtwlA==}
-    dependencies:
-      '@octokit/core': 3.5.1
-      '@octokit/plugin-paginate-rest': 2.13.5_@octokit+core@3.5.1
-      '@octokit/plugin-request-log': 1.0.4_@octokit+core@3.5.1
-      '@octokit/plugin-rest-endpoint-methods': 5.3.1_@octokit+core@3.5.1
-    dev: false
-
-  /@octokit/types/6.16.4:
-    resolution: {integrity: sha512-UxhWCdSzloULfUyamfOg4dJxV9B+XjgrIZscI0VCbp4eNrjmorGEw+4qdwcpTsu6DIrm9tQsFQS2pK5QkqQ04A==}
-    dependencies:
-      '@octokit/openapi-types': 7.3.2
-    dev: false
-
   /@polka/url/1.0.0-next.15:
     resolution: {integrity: sha512-15spi3V28QdevleWBNXE4pIls3nFZmBbUGrW9IVPwiQczuSb9n76TCB4bsk8TSel+I1OkHEdPhu5QKMfY6rQHA==}
     dev: true
@@ -747,6 +652,18 @@ packages:
     peerDependencies:
       tailwindcss: '>=2.0.0'
     dependencies:
+      tailwindcss: 2.2.2_505819627e86648d07c4e196a4237c15
+    dev: true
+
+  /@tailwindcss/typography/0.4.1_tailwindcss@2.2.2:
+    resolution: {integrity: sha512-ovPPLUhs7zAIJfr0y1dbGlyCuPhpuv/jpBoFgqAc658DWGGrOBWBMpAWLw2KlzbNeVk4YBJMzue1ekvIbdw6XA==}
+    peerDependencies:
+      tailwindcss: '>=2.0.0'
+    dependencies:
+      lodash.castarray: 4.4.0
+      lodash.isplainobject: 4.0.6
+      lodash.merge: 4.6.2
+      lodash.uniq: 4.5.0
       tailwindcss: 2.2.2_505819627e86648d07c4e196a4237c15
     dev: true
 
@@ -1350,10 +1267,6 @@ packages:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: false
 
-  /before-after-hook/2.2.2:
-    resolution: {integrity: sha512-3pZEU3NT5BFUo/AD5ERPWOgQOCZITni6iavr5AUw5AUwQjMlI0kzu5btnyD39AF0gUEsDPwJT+oY1ORBJijPjQ==}
-    dev: false
-
   /big.js/5.2.2:
     resolution: {integrity: sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==}
     dev: false
@@ -1906,6 +1819,10 @@ packages:
     engines: {node: '>= 6'}
     dev: false
 
+  /dayjs/1.10.5:
+    resolution: {integrity: sha512-BUFis41ikLz+65iH6LHQCDm4YPMj5r1YFLdupPIyM4SGcXMmtiLQ7U37i+hGS8urIuqe7I/ou3IS1jVc4nbN4g==}
+    dev: false
+
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
     dependencies:
@@ -1968,10 +1885,6 @@ packages:
   /depd/1.1.2:
     resolution: {integrity: sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=}
     engines: {node: '>= 0.6'}
-    dev: false
-
-  /deprecation/2.3.1:
-    resolution: {integrity: sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==}
     dev: false
 
   /des.js/1.0.1:
@@ -3301,11 +3214,6 @@ packages:
       isobject: 3.0.1
     dev: false
 
-  /is-plain-object/5.0.0:
-    resolution: {integrity: sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==}
-    engines: {node: '>=0.10.0'}
-    dev: false
-
   /is-regex/1.1.3:
     resolution: {integrity: sha512-qSVXFz28HM7y+IWX6vLCsexdlvzT1PJNFSBuaQLQ5o0IEw8UDYW6/2+eCMVyIsbM8CNLX2a/QWmSpyxYEHY7CQ==}
     engines: {node: '>= 0.4'}
@@ -3549,8 +3457,16 @@ packages:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
     dev: false
 
+  /lodash.castarray/4.4.0:
+    resolution: {integrity: sha1-wCUTUV4wna3dTCTGDP3c9ZdtkRU=}
+    dev: true
+
   /lodash.clonedeep/4.5.0:
     resolution: {integrity: sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=}
+    dev: true
+
+  /lodash.isplainobject/4.0.6:
+    resolution: {integrity: sha1-fFJqUtibRcRcxpC4gWO+BJf1UMs=}
     dev: true
 
   /lodash.merge/4.6.2:
@@ -3571,6 +3487,10 @@ packages:
 
   /lodash.truncate/4.4.2:
     resolution: {integrity: sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM=}
+    dev: true
+
+  /lodash.uniq/4.5.0:
+    resolution: {integrity: sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=}
     dev: true
 
   /lodash/4.17.21:
@@ -4822,6 +4742,7 @@ packages:
     resolution: {integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=}
     dependencies:
       wrappy: 1.0.2
+    dev: true
 
   /opener/1.5.2:
     resolution: {integrity: sha512-ur5UIdyw5Y7yEj9wLzhqXiy6GZ3Mwx0yGI+5sMn2r0N0v3cKJvUmFH5yPP+WXh9e0xfyzyJX95D8l088DNFj7A==}
@@ -5931,6 +5852,10 @@ packages:
     dependencies:
       picomatch: 2.3.0
     dev: true
+
+  /reading-time/1.3.0:
+    resolution: {integrity: sha512-RJ8J5O6UvrclfZpcPSPuKusrdRfoY7uXXoYOOdeswZNtSkQaewT3919yz6RyloDBR+iwcUyz5zGOUjhgvfuv3g==}
+    dev: false
 
   /redent/3.0.0:
     resolution: {integrity: sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==}
@@ -7148,10 +7073,6 @@ packages:
       unist-util-visit-parents: 3.1.1
     dev: false
 
-  /universal-user-agent/6.0.0:
-    resolution: {integrity: sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==}
-    dev: false
-
   /universalify/2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
     engines: {node: '>= 10.0.0'}
@@ -7423,6 +7344,7 @@ packages:
 
   /wrappy/1.0.2:
     resolution: {integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=}
+    dev: true
 
   /ws/7.5.0:
     resolution: {integrity: sha512-6ezXvzOZupqKj4jUqbQ9tXuJNo+BR2gU8fFRk3XCP3e0G6WT414u5ELe6Y0vtp7kmSJ3F7YWObSNr1ESsgi4vw==}

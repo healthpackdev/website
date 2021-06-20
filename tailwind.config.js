@@ -11,12 +11,26 @@ module.exports = {
       header: [fonts.header.name, ...fontFamily.sans],
     },
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            color: 'var(--colors-text-primary)',
+            a: {
+              color: 'var(--colors-text-link)',
+              '&:hover': {
+                color: 'var(--colors-text-link-hover)',
+              }
+            },
+          },
+        },
+      },
       borderColor: {
-        DEFAULT: 'var(--colors-border-primary)', // border-opacity will not work.
+        DEFAULT: 'var(--colors-border-primary)',
+        secondary: 'var(--colors-border-secondary)'
       },
       backgroundColor: {
-        primary: 'rgba(var(--colors-bg-primary), var(--tw-bg-opacity))',
-        secondary: 'rgba(var(--colors-bg-secondary), var(--tw-bg-opacity))',
+        primary: 'var(--colors-bg-primary)',
+        secondary: 'var(--colors-bg-secondary)',
       },
       textColor: {
         primary: 'var(--colors-text-primary)',
@@ -30,5 +44,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [require('@tailwindcss/line-clamp'), require('@tailwindcss/typography')],
 };
