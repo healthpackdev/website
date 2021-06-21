@@ -3,6 +3,8 @@ import Techs from '@components/Techs';
 import Repos from '@components/Repos';
 import Contact from '@components/Contact';
 import { GetStaticProps } from 'next';
+import client from '@lib/octokit';
+
 import author from '@config/author-meta.json';
 
 interface IRepo {
@@ -36,9 +38,11 @@ Home.PageProps = {
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const GITHUB_ENDPOINT = 'https://api.github.com';
   let repos: ErrorOrRepo;
-  await fetch(`${GITHUB_ENDPOINT}/users/${author.github}/repos`)
-    .then((res) => res.json())
-    .then((data) => {
+  await client
+    .request(`GET /users/{username}/repos`, {
+      username: author.github,
+    })
+    .then(({ data }) => {
       repos = data
         .sort((a, b) => b.stargazers_count - a.stargazers_count)
         .filter((project) => project.name !== author.github && !project.archived)

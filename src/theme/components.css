@@ -28,3 +28,10 @@ a.link {
 .icon-button {
   @apply hover:bg-secondary w-10 h-10 flex items-center justify-center rounded-md;
 }
+
+.input {
+  @apply p-2 bg-primary border my-2 rounded-md;
+}
+.input:focus {
+  @apply ring-1 ring-blue-500 border-blue-500 outline-none;
+}

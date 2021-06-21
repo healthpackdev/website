@@ -13,11 +13,12 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
   const [filteredPosts, setFilteredPosts] = useState<IBlogPostMatter[]>([]);
 
   useEffect(() => {
-    console.log(filteredPosts);
     setFilteredPosts(
-      posts.filter((post) => {
-        return post.data.title.includes(searchValue.text) || post.data.description.includes(searchValue.text);
-      })
+      posts
+        .sort((a, b) => Number(new Date(b.data.publishedAt)) - Number(new Date(a.data.publishedAt)))
+        .filter((post) => {
+          return post.data.title.includes(searchValue.text) || post.data.description.includes(searchValue.text);
+        })
     );
   }, [filteredPosts, posts, searchValue]);
 
