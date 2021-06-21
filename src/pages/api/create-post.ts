@@ -1,5 +1,5 @@
 import type { NextApiHandler } from 'next';
-import client from '@lib/octokit';
+import request from '@lib/octokit';
 import fs from 'fs';
 import path from 'path';
 import siteConfig from '@config/site-config.json';
@@ -18,7 +18,9 @@ ${body.content}`
 };
 
 const createPostInProd = async ({ slug, content }: Record<string, string>) => {
-  await client('PUT /repos/{owner}/{repo}/contents/{path}', {
+  content = Buffer.from(content).toString('base64');
+
+  await request('PUT /repos/{owner}/{repo}/contents/{path}', {
     owner: author.github,
     content,
     message: `create ${slug}.mdx`,

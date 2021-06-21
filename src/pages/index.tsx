@@ -3,7 +3,7 @@ import Techs from '@components/Techs';
 import Repos from '@components/Repos';
 import Contact from '@components/Contact';
 import { GetStaticProps } from 'next';
-import client from '@lib/octokit';
+import request from '@lib/octokit';
 
 import author from '@config/author-meta.json';
 
@@ -37,7 +37,7 @@ Home.PageProps = {
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   let repos: ErrorOrRepo;
-  await client(`GET /users/{username}/repos`, {
+  await request(`GET /users/{username}/repos`, {
     username: author.github,
   })
     .then(({ data }) => {
