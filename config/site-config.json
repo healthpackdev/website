@@ -1,3 +1,5 @@
 {
-  "hostName": "healthpackdev.cf"
+  "hostName": "healthpackdev.cf",
+  "publicRepoName": "website",
+  "branch": "with-blog"
 }
