@@ -1,5 +1,5 @@
 import type { NextApiHandler } from 'next';
-import client from '@lib/octokit';
+// import client from '@lib/octokit';
 import fs from 'fs';
 import path from 'path';
 
@@ -15,9 +15,7 @@ ${body.content}`
   );
 };
 
-const createRepositoryInDev = (body: Record<string, string>) => {
-    
-}
+// const createRepositoryInDev = (body: Record<string, string>) => {};
 
 const convertToString = (content: string, encoding: BufferEncoding) => Buffer.from(content, encoding).toString();
 

@@ -86,13 +86,12 @@ const AdminComp = () => {
               {...register('description', { required: true })}
             />
             <textarea
-              type="text"
               placeholder="Post content mdx"
               className="input col-span-2"
               rows={10}
               {...register('content', { required: true })}
             />
-            <input type="submit" className="bg-blue-500 cursor-pointer   p-2 rounded-md col-span-1 text-white" />
+            <input type="submit" className="bg-blue-500 cursor-pointer p-2 rounded-md col-span-1 text-white" />
           </motion.form>
         </>
       )}

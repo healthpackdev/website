@@ -36,7 +36,6 @@ Home.PageProps = {
 };
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const GITHUB_ENDPOINT = 'https://api.github.com';
   let repos: ErrorOrRepo;
   await client
     .request(`GET /users/{username}/repos`, {
