@@ -33,7 +33,6 @@ export const getBlogPosts = (): IBlogPost[] => {
     data = {
       ...data,
       minRead: readingTime(content).minutes,
-      publishedAt: null,
     };
 
     return [{ data, content, slug: currentPost.replace('.mdx', '') }, ...allPosts];
