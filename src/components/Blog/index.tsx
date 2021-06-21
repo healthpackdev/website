@@ -1,29 +1,26 @@
-import type { IBlogPost } from '@lib/mdx';
+import type { IBlogPostMatter } from '@lib/mdx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef, useState } from 'react';
 import css from './Blog.module.css';
 import BlogPost from './blog-post';
 
-const BlogBody: React.FC<{ posts: IBlogPost[] }> = ({ posts }) => {
+const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const [searchValue, setSearchValue] = useState({
     text: null,
     sortBy: 'date',
   });
-  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState<IBlogPostMatter[]>([]);
 
   useEffect(() => {
-    setSearchValue({ ...searchValue, text: searchInputRef.current.value });
+    console.log(filteredPosts);
     setFilteredPosts(
       posts.filter((post) => {
-        return (
-          post.content.includes(searchValue.text) ||
-          post.data.title.includes(searchValue.text) ||
-          post.data.description.includes(searchValue.text)
-        );
+        return post.data.title.includes(searchValue.text) || post.data.description.includes(searchValue.text);
       })
     );
   }, [filteredPosts, posts, searchValue]);
+
   return (
     <>
       <p className="text-primary">
@@ -34,11 +31,19 @@ const BlogBody: React.FC<{ posts: IBlogPost[] }> = ({ posts }) => {
         <span className={css.searchButton} onClick={() => searchInputRef.current.focus()}>
           <FontAwesomeIcon icon={['fas', 'search']} />
         </span>
-        <input ref={searchInputRef} type="text" className={css.searchInput} placeholder="Makale Ara" />
+        <input
+          ref={searchInputRef}
+          onChange={(e) => setSearchValue({ ...searchValue, text: e.target.value.toLowerCase() })}
+          type="text"
+          className={css.searchInput}
+          placeholder="Başlığa veya açıklamaya göre aramak için yaz."
+        />
       </div>
-      {!filteredPosts
-        ? posts.map((post, i) => <BlogPost post={post} key={i.toString()} />)
-        : filteredPosts.map((post, i) => <BlogPost post={post} key={i.toString()} />)}
+      <div>
+        {filteredPosts.length < 1
+          ? posts.map((post, i) => <BlogPost post={post} key={i.toString()} />)
+          : filteredPosts.map((post, i) => <BlogPost post={post} key={i.toString()} />)}
+      </div>
     </>
   );
 };

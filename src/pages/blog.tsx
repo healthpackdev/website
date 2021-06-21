@@ -1,10 +1,10 @@
 import { GetStaticProps } from 'next';
-import { getBlogPosts, IBlogPost } from '@lib/mdx';
+import { getBlogPostMatters, IBlogPostMatter } from '@lib/mdx';
 import { Section } from '@components/section';
 import BlogBody from '@components/Blog';
 
 interface BlogProps {
-  posts: IBlogPost[];
+  posts: IBlogPostMatter[];
 }
 const Blog: Page<BlogProps> = ({ posts }) => (
   <>
@@ -13,17 +13,15 @@ const Blog: Page<BlogProps> = ({ posts }) => (
     </Section>
   </>
 );
-Blog.LayoutProps = (ctx) => {
+Blog.PageProps = (ctx) => {
   return {
-    seo: {
-      title: 'Blog',
-      description: `Günlük hayattan edindiğim programlama, tecrübeler ve paylaşma gereği duyduğum şeyler hakkında yazdığım ve bilgi verdiğim Türkçe blog sayfası. Toplamda ${ctx.posts.length} tane makaleye sahip`,
-    },
+    title: 'Blog',
+    description: `Günlük hayattan edindiğim programlama, tecrübeler ve paylaşma gereği duyduğum şeyler hakkında yazdığım ve bilgi verdiğim Türkçe blog sayfası. Toplamda ${ctx.posts.length} tane makaleye sahip`,
   };
 };
 
 export const getStaticProps: GetStaticProps<BlogProps> = async () => {
-  const posts = getBlogPosts();
+  const posts = getBlogPostMatters();
 
   return {
     props: {

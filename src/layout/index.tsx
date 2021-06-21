@@ -4,22 +4,19 @@ import ScrollTop from 'src/layout/scroll-top';
 import Seo from 'src/layout/Seo';
 import React from 'react';
 import { DefaultSeoProps } from 'next-seo';
-import { HTMLMotionProps, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
-export interface LayoutProps {
-  seo: DefaultSeoProps;
-}
+export type LayoutProps = DefaultSeoProps;
 
-const Layout: React.FC<LayoutProps & HTMLMotionProps<'main'>> = ({ children, seo, ...props }) => (
+const Layout: React.FC<DefaultSeoProps> = ({ children, ...props }) => (
   <>
-    <Seo {...seo} />
+    <Seo {...props} />
     <Navbar />
     <motion.main
       className="max-w-content"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
-      {...props}
     >
       {children}
     </motion.main>

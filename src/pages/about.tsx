@@ -82,6 +82,6 @@ const About: Page = () => {
     </>
   );
 };
-About.LayoutProps = { seo: { title: 'About', description: 'Learn More About Me in this page.' } };
+About.PageProps = { title: 'About', description: 'Learn More About Me in this page.' };
 
 export default About;
