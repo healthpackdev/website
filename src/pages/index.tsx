@@ -37,10 +37,9 @@ Home.PageProps = {
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   let repos: ErrorOrRepo;
-  await client
-    .request(`GET /users/{username}/repos`, {
-      username: author.github,
-    })
+  await client(`GET /users/{username}/repos`, {
+    username: author.github,
+  })
     .then(({ data }) => {
       repos = data
         .sort((a, b) => b.stargazers_count - a.stargazers_count)
