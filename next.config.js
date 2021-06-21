@@ -7,9 +7,6 @@ const withAnalyzer = require('@next/bundle-analyzer')({
  * @type import('next/dist/next-server/server/config-shared').NextConfig
  */
 module.exports = withAnalyzer({
-  experimental: {
-    turboMode: true,
-  },
   distDir: 'build',
   webpack(config, { isServer, dev }) {
     if (isServer) {
