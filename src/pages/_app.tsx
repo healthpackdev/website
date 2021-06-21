@@ -1,18 +1,18 @@
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
-import '../../scripts/add-icons';
-import '../../scripts/dayjs';
+import '@lib/add-icons';
+import '@lib/dayjs';
 import '@theme/main.css';
 import Layout from '@layout/index';
 
 const App = ({ Component, pageProps }: AppProps) => {
-  let LayoutProps = (Component as Page).LayoutProps;
+  let PageProps = (Component as Page).PageProps;
 
-  if (typeof LayoutProps === 'function') LayoutProps = LayoutProps(pageProps);
+  if (typeof PageProps === 'function') PageProps = PageProps(pageProps);
 
   return (
     <ThemeProvider attribute="class">
-      <Layout {...LayoutProps}>
+      <Layout {...PageProps}>
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>

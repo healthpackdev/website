@@ -13,7 +13,7 @@ module.exports = withAnalyzer({
   distDir: 'build',
   webpack(config, { isServer, dev }) {
     if (isServer) {
-      require('./scripts/sitemap.js');
+      require('./lib/sitemap.js');
     }
 
     // Replace React with Preact only in client production build
@@ -24,8 +24,7 @@ module.exports = withAnalyzer({
         'react-dom/test-utils': 'preact/test-utils',
         'react-dom': 'preact/compat',
       });
-    } 
-    // ! returns error currently comment
+    }
 
     return config;
   },
