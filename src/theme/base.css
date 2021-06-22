@@ -23,11 +23,12 @@
   --colors-border-secondary: theme('colors.gray.400');
 
   --colors-bg-primary: rgba(31, 41, 55, 0.25); /* colors.gray.800 */
-  --colors-bg-secondary: rgba(31, 41, 55, 0.50); /* colors.gray.800 */
+  --colors-bg-secondary: rgba(31, 41, 55, 0.5); /* colors.gray.800 */
 }
 
 body {
   background-color: var(--colors-body-background);
+  overflow: scroll;
 }
 
 html {
