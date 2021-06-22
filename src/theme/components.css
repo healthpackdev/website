@@ -35,3 +35,7 @@ a.link {
 .input:focus {
   @apply ring-1 ring-blue-500 border-blue-500 outline-none;
 }
+
+.btn {
+  @apply text-white cursor-pointer bg-blue-500 hover:bg-blue-600 active:bg-blue-700 rounded-md p-2 transition-all;
+}
