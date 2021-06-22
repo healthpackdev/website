@@ -2,13 +2,14 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
+import type { AdminPostInputs } from 'src/pages/admin';
 
 const processRoot = process.cwd();
 
 export interface IBlogPost {
   data: {
     title: string;
-    banner?: string;
+    image: string;
     description: string;
     publishedAt: Date;
     minRead: string;
@@ -55,3 +56,14 @@ export const getBlogPostMatters = (): IBlogPostMatter[] => {
     return [{ data, slug: currentPost.replace('.mdx', '') }, ...allPosts];
   }, []);
 };
+
+export const mdxTemplate = (body: AdminPostInputs, imageName: string) =>
+  `---
+title: ${body.title}
+image: ${imageName}
+description: ${body.description}
+publishedAt: ${Number(new Date())}
+---
+
+![Image](/images/${imageName})
+${body.content}`;
