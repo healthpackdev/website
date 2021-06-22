@@ -4,37 +4,36 @@ import fs from 'fs';
 import path from 'path';
 import siteConfig from '@config/site-config.json';
 import author from '@config/author-meta.json';
+import { decodeBase64, encodeBase64, decodeBase64File } from '@lib/buffer';
+import { mdxTemplate } from '@lib/mdx';
+import type { AdminPostInputs } from 'src/pages/admin';
 
-const createPostInDev = (body: Record<string, string>) => {
-  fs.writeFileSync(
-    path.join(process.cwd(), 'content', 'blog', `${body.slug}.mdx`),
-    `---
-title: ${body.title}
-description: ${body.description}
-publishedAt: ${Number(new Date())}
----
-${body.content}`
-  );
+const root = process.cwd();
+
+const png = /^data:image\/png;base64,/;
+
+const createPostInDev = (body: AdminPostInputs) => {
+  const imageName = `${body.slug}-image.${png.test(body.image) ? 'png' : 'jpeg'}`;
+  fs.writeFileSync(path.join(root, 'content', 'blog', `${body.slug}.mdx`), mdxTemplate(body, imageName));
+  fs.writeFileSync(path.join(root, 'public', 'images', imageName), decodeBase64File(body.image));
 };
 
-const createPostInProd = async ({ slug, content }: Record<string, string>) => {
-  content = Buffer.from(content).toString('base64');
+const createPostInProd = async (body: AdminPostInputs) => {
+  const imageName = `${body.slug}-image.${png.test(body.image) ? 'png' : 'jpeg'}`;
+  const content = encodeBase64(mdxTemplate(body, imageName));
 
   await request('PUT /repos/{owner}/{repo}/contents/{path}', {
     owner: author.github,
     content,
-    message: `create ${slug}.mdx`,
-    path: `content/blog/${slug}.mdx`,
+    message: `create blog post named ${body.slug}.mdx`,
+    path: `content/blog/${body.slug}.mdx`,
     repo: siteConfig.publicRepoName,
     branch: siteConfig.branch,
   });
 };
-
-const convertToString = (content: string, encoding: BufferEncoding) => Buffer.from(content, encoding).toString();
-
 const createPost: NextApiHandler = async ({ headers, body, method }, res) => {
   if (method === 'POST') {
-    const reqToken = convertToString(headers.authorization.split(' ')[1], 'base64');
+    const reqToken = decodeBase64(headers.authorization.split(' ')[1]);
 
     if (reqToken !== process.env.ADMIN_TOKEN) {
       res.status(401).send('Unauthorized');

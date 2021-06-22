@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
         <input
           type="email"
           id="contact-email"
-          className={css.input}
+          className="input"
           autoComplete="off"
           placeholder="you@mail.com"
           {...register('email', { required: true })}
@@ -35,7 +35,7 @@ const Contact: React.FC = () => {
         <input
           type="text"
           id="contact-name"
-          className={css.input}
+          className="input"
           placeholder="James Bond"
           autoComplete="off"
           {...register('name', { required: false })}
@@ -44,11 +44,11 @@ const Contact: React.FC = () => {
         <textarea
           rows={5}
           id="contact-message"
-          className={css.textArea}
+          className="input resize-none"
           placeholder="Hello Yasin!"
           {...register('message', { required: true })}
         />
-        <input type="submit" className={css.button} />
+        <input type="submit" className="btn" />
       </form>
     </Section>
   );

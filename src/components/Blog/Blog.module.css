@@ -17,20 +17,19 @@
   @apply border-secondary;
 }
 
-.post {
-  @apply border rounded-md my-2;
+.article {
+  @apply py-4 px-6 border rounded-md my-5 flex space-x-2;
+}
+.article img {
+  @apply rounded-md;
+}
+.article header {
+  @apply text-3xl;
+}
+.article p {
+  @apply text-primary;
 }
 
-.post header {
-  @apply text-3xl px-4 text-blue-500 !font-sans;
+.article .footer {
+  @apply my-2 text-primary flex justify-between;
 }
-.post header:hover {
-  @apply underline;
-}
-.post .postBody {
-  @apply text-primary text-lg border-b px-4 py-2;
-}
-.post .postFooter {
-  @apply flex justify-between bg-primary px-4 py-2;
-}
-

@@ -4,26 +4,29 @@ import { useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import { encodeBase64, encodeBase64File } from '@lib/buffer';
 
-type Inputs = {
+export type AdminPostInputs = {
   title: string;
   slug: string;
   description: string;
   content: string;
+  image: FileList & string; // FileList
 };
 
 const AdminComp = () => {
-  const { register, handleSubmit } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<AdminPostInputs>();
   const [token, setToken] = useState<string>(null);
   const [isValid, setIsValid] = useState(null);
   const [sent, setSent] = useState(false);
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<AdminPostInputs> = async (data) => {
+    data.image = await encodeBase64File(data.image[0]);
+
     axios
       .post('/api/create-post', data, {
         headers: {
-          Authorization: 'Basic ' + Buffer.from(token).toString('base64'),
+          Authorization: 'Basic ' + encodeBase64(token),
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
@@ -52,11 +55,7 @@ const AdminComp = () => {
         <div className="flex flex-col">
           <input type="text" id="token" className="input" placeholder="Site admin token" />
           {isValid === false && <>not valid.</>}
-          <button
-            type="submit"
-            onClick={onTokenSubmit}
-            className="bg-blue-500 text-white rounded-md hover:bg-blue-600 active:bg-blue-700 p-2"
-          >
+          <button type="submit" onClick={onTokenSubmit} className="btn">
             Validate
           </button>
         </div>
@@ -87,11 +86,12 @@ const AdminComp = () => {
             />
             <textarea
               placeholder="Post content mdx"
-              className="input col-span-2"
+              className="input resize-none col-span-2"
               rows={10}
               {...register('content', { required: true })}
             />
-            <input type="submit" className="bg-blue-500 cursor-pointer p-2 rounded-md col-span-1 text-white" />
+            <input type="file" accept="image/png, image/jpg, image/jpeg" {...register('image', { required: true })} />
+            <input type="submit" className="btn col-span-2" />
           </motion.form>
         </>
       )}
