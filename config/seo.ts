@@ -8,14 +8,6 @@ const seoConfig: DefaultSeoProps = {
     type: 'website',
     locale: 'en_IE',
     url: `https://${siteConfig.hostName}`,
-    images: [
-      {
-        url: `https://${siteConfig.hostName}/favicon.ico`,
-        alt: 'favicon',
-        height: 50,
-        width: 50,
-      },
-    ],
     site_name: siteConfig.hostName,
   },
   additionalLinkTags: [
