@@ -1,16 +1,14 @@
 import type { IBlogPostMatter } from '@lib/mdx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import css from './Blog.module.css';
 import BlogPost from './blog-post';
 import { Section } from '@components/section';
 import { AnimatePresence } from 'framer-motion';
 
 const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
-  const searchInputRef = useRef<HTMLInputElement>(null);
   const [searchValue, setSearchValue] = useState<string>(null);
-  const [recentPosts, setRecentPosts] = useState([]);
-  // const [popularPosts, setPopulerPosts] = useState([]);
+
   const sortedByDate = posts.sort(
     (a, b) => Number(new Date(b.data.publishedAt)) - Number(new Date(a.data.publishedAt)) // use server's date.
   );
@@ -21,11 +19,7 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
     );
   });
 
-  useEffect(() => {
-    const sortedByViews = posts.sort((a, b) => b.data.views - a.data.views);
-
-    setRecentPosts(sortedByDate.slice(0, 3));
-  }, []);
+  const recentPosts = sortedByDate.slice(0, 3);
 
   return (
     <>
@@ -34,11 +28,10 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
         <b>{posts.length}</b> tane makale yazdım. Bir makale aramak için aşağıdaki kutucuğa yazı yaz.
       </p>
       <div className={css.search}>
-        <span className={css.searchButton} onClick={() => searchInputRef.current.focus()}>
+        <span className={css.searchButton} onClick={() => document.querySelector('input').focus()}>
           <FontAwesomeIcon icon={['fas', 'search']} />
         </span>
         <input
-          ref={searchInputRef}
           onChange={(e) => setSearchValue(e.target.value.length >= 1 ? e.target.value.toLowerCase() : null)}
           type="text"
           className={css.searchInput}
