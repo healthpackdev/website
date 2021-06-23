@@ -25,7 +25,7 @@ const Hero: React.FC = () => (
     <div className="mt-5 grid lg:block grid-cols-2">
       {author.socials.map((social, index) => (
         <motion.a
-          className={css.social + ' no-link'}
+          className={css.social}
           whileHover={{ y: -2 }}
           href={`/${social.icon[1]}`}
           key={index.toString()}
