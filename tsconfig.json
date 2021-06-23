@@ -19,10 +19,10 @@
       "@theme/*": ["./src/theme/*"],
       "@components/*": ["./src/components/*"],
       "@config/*": ["./config/*"],
-      "@lib/*": ["./lib/*"],
-      "@layout/*" : ["./src/layout/*"]
+      "@lib/*": ["./src/lib/*"],
+      "@layout/*": ["./src/layout/*"]
     }
   },
-  "include": ["next-env.d.ts", "src", "config", "scripts", "lib"],
-  "exclude": ["lib/sitemap.js"]
+  "include": ["next-env.d.ts", "src", "config", "scripts", "src/lib"],
+  "exclude": ["src/lib/sitemap.js"]
 }
