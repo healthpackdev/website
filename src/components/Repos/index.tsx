@@ -5,6 +5,7 @@ import type { ErrorOrRepo } from '../../pages/index';
 import Image from 'next/image';
 import css from './Repos.module.css';
 import { motion } from 'framer-motion';
+
 interface RepositoriesProps {
   readonly repos: ErrorOrRepo;
 }
@@ -28,7 +29,7 @@ const Repositories: React.FC<RepositoriesProps> = ({ repos }) => (
                       <Image
                         width={18}
                         height={18}
-                        src={`/icons/${proj.lang?.toLowerCase()}.svg`}
+                        src={require(`public/icons/${proj.lang.toLowerCase()}.svg`)}
                         alt={proj.lang?.toLowerCase()}
                       />
                       <span className="inline-block mx-2">{proj.lang}</span>

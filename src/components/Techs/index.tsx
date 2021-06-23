@@ -9,7 +9,12 @@ const index: React.FC = () => (
     <div className={css.techs}>
       {author.techs.map((tech, index) => (
         <motion.div whileHover={{ y: -2 }} className={css.techCard} key={index.toString()}>
-          <Image src={`/icons/${tech.toLowerCase()}.svg`} alt={tech.toLowerCase()} width={18} height={18} />
+          <Image
+            src={require(`public/icons/${tech.toLowerCase()}.svg`)}
+            alt={tech.toLowerCase()}
+            width={18}
+            height={18}
+          />
           <span className={css.techName}>{tech}</span>
         </motion.div>
       ))}
