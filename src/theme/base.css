@@ -2,6 +2,7 @@
   --colors-body-background: white;
 
   --colors-text-primary: theme('colors.gray.700'); /* Typography */
+  --colors-text-secondary: theme('colors.gray.900');
   --colors-text-link: theme('colors.blue.600');
   --colors-text-link-hover: theme('colors.blue.800');
 
@@ -16,6 +17,7 @@
   --colors-body-background: theme('colors.gray.900');
 
   --colors-text-primary: theme('colors.gray.300'); /* Typography */
+  --colors-text-secondary: theme('colors.gray.100');
   --colors-text-link: theme('colors.blue.500');
   --colors-text-link-hover: theme('colors.blue.600');
 
