@@ -1,10 +1,11 @@
 import fonts from '@config/fonts.json';
 import siteConfig from '@config/site-config.json';
 import author from '@config/author-meta.json';
+import type { NextSeoProps } from 'next-seo';
 
-import type { DefaultSeoProps } from 'next-seo';
+const authorTwitter = author.socials.find((social) => social.icon[1] == 'twitter')?.href.split('/')[3];
 
-const seoConfig: DefaultSeoProps = {
+const seoConfig: NextSeoProps = {
   titleTemplate: `%s - ${siteConfig.hostName}`,
   openGraph: {
     type: 'website',
@@ -24,8 +25,8 @@ const seoConfig: DefaultSeoProps = {
   ],
   additionalMetaTags: [{ name: 'theme-color', content: '#006ABC' }],
   twitter: {
-    handle: '@handle',
-    site: `@${author.socials.find((social) => social.icon[1] == 'twitter')?.href.split('/')[3]}`,
+    handle: `@${authorTwitter}`,
+    site: `@${authorTwitter}`,
     cardType: 'summary_large_image',
   },
 };
