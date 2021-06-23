@@ -6,7 +6,7 @@ module.exports = {
   distDir: 'build',
   webpack(config, { isServer, dev }) {
     if (isServer) {
-      require('./lib/sitemap.js');
+      require('./src/lib/sitemap.js');
     }
 
     // Replace React with Preact only in client production build
