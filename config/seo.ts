@@ -1,5 +1,7 @@
 import fonts from '@config/fonts.json';
 import siteConfig from '@config/site-config.json';
+import author from '@config/author-meta.json';
+
 import type { DefaultSeoProps } from 'next-seo';
 
 const seoConfig: DefaultSeoProps = {
@@ -23,7 +25,7 @@ const seoConfig: DefaultSeoProps = {
   additionalMetaTags: [{ name: 'theme-color', content: '#006ABC' }],
   twitter: {
     handle: '@handle',
-    site: '@site',
+    site: `@${author.socials.find((social) => social.icon[1] == 'twitter')?.href.split('/')[3]}`,
     cardType: 'summary_large_image',
   },
 };
