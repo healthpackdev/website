@@ -2,7 +2,6 @@ import Navbar from 'src/layout/Navbar';
 import Footer from 'src/layout/Footer';
 import ScrollTop from 'src/layout/scroll-top';
 import Seo from 'src/layout/Seo';
-import React from 'react';
 import { NextSeoProps } from 'next-seo';
 import { motion } from 'framer-motion';
 
