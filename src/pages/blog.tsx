@@ -13,12 +13,10 @@ const Blog: Page<BlogProps> = ({ posts }) => (
     </Section>
   </>
 );
-Blog.PageProps = (ctx) => {
-  return {
-    title: 'Blog',
-    description: `Günlük hayattan edindiğim programlama, tecrübeler ve paylaşma gereği duyduğum şeyler hakkında yazdığım ve bilgi verdiğim Türkçe blog sayfası. Toplamda ${ctx.posts.length} tane makaleye sahip`,
-  };
-};
+Blog.PageProps = (ctx) => ({
+  title: 'Blog',
+  description: `Günlük hayattan edindiğim programlama, tecrübeler ve paylaşma gereği duyduğum şeyler hakkında yazdığım ve bilgi verdiğim Türkçe blog sayfası. Toplamda ${ctx.posts.length} tane makaleye sahip`,
+});
 
 export const getStaticProps: GetStaticProps<BlogProps> = async () => {
   const posts = getBlogPostMatters();
