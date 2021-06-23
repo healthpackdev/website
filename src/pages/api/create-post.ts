@@ -21,12 +21,22 @@ const createPostInDev = (body: AdminPostInputs) => {
 const createPostInProd = async (body: AdminPostInputs) => {
   const imageName = `${body.slug}-image.${png.test(body.image) ? 'png' : 'jpeg'}`;
   const content = encodeBase64(mdxTemplate(body, imageName));
+  const imageContent = body.image.replace(/^data:image\/(png|jpeg);base64,/, '');
 
   await request('PUT /repos/{owner}/{repo}/contents/{path}', {
     owner: author.github,
     content,
     message: `create blog post named ${body.slug}.mdx`,
     path: `content/blog/${body.slug}.mdx`,
+    repo: siteConfig.publicRepoName,
+    branch: siteConfig.branch,
+  });
+
+  await request('PUT /repos/{owner}/{repo}/contents/{path}', {
+    owner: author.github,
+    content: imageContent,
+    message: `create image for ${body.slug}.mdx`,
+    path: `public/images/${imageName}`,
     repo: siteConfig.publicRepoName,
     branch: siteConfig.branch,
   });
