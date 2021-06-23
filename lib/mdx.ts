@@ -17,43 +17,44 @@ export interface IBlogPost {
   content: string;
   slug: string;
 }
+
 export type IBlogPostMatter = Omit<IBlogPost, 'content'>;
 
-const readContent = (type: string) => {
+const blogPost = (source: string, slug: string): IBlogPost => {
+  let { data, content } = matter(source);
+
+  data = {
+    ...data,
+    minRead: readingTime(content).minutes,
+    publishedAt: data.publishedAt || null,
+  };
+
+  return {
+    data: data as IBlogPost['data'],
+    content,
+    slug,
+  };
+};
+
+export const readContentFiles = (type: string) => {
   const fileNames = fs.readdirSync(path.join(processRoot, 'content', type));
   return fileNames;
 };
 
-export const getBlogPosts = (): IBlogPost[] => {
-  const fileNames = readContent('blog');
-
-  return fileNames.reduce((allPosts, currentPost) => {
-    const source = fs.readFileSync(path.join(processRoot, 'content', 'blog', currentPost), 'utf-8');
-    let { data, content } = matter(source);
-
-    data = {
-      ...data,
-      minRead: readingTime(content).minutes,
-    };
-
-    return [{ data, content, slug: currentPost.replace('.mdx', '') }, ...allPosts];
-  }, []);
+export const getBySlug = (type: string, slug: string): IBlogPost => {
+  const fileSource = fs.readFileSync(path.join(processRoot, 'content', type, `${slug}.mdx`), 'utf-8');
+  return blogPost(fileSource, slug);
 };
 
 export const getBlogPostMatters = (): IBlogPostMatter[] => {
-  const fileNames = readContent('blog');
+  const fileNames = readContentFiles('blog');
 
   return fileNames.reduce((allPosts, currentPost) => {
     const source = fs.readFileSync(path.join(processRoot, 'content', 'blog', currentPost), 'utf-8');
-    let { data, content } = matter(source);
+    const slug = currentPost.replace('.mdx', '');
+    const post = blogPost(source, slug);
 
-    data = {
-      ...data,
-      minRead: readingTime(content).minutes,
-      publishedAt: data.publishedAt || null,
-    };
-
-    return [{ data, slug: currentPost.replace('.mdx', '') }, ...allPosts];
+    return [post, ...allPosts];
   }, []);
 };
 
