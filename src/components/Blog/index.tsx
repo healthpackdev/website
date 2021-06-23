@@ -8,6 +8,7 @@ import { AnimatePresence } from 'framer-motion';
 
 const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
   const [searchValue, setSearchValue] = useState<string>(null);
+  let searchInputRef: HTMLInputElement;
 
   const sortedByDate = posts.sort(
     (a, b) => Number(new Date(b.data.publishedAt)) - Number(new Date(a.data.publishedAt)) // use server's date.
@@ -28,10 +29,13 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
         <b>{posts.length}</b> tane makale yazdım. Bir makale aramak için aşağıdaki kutucuğa yazı yaz.
       </p>
       <div className={css.search}>
-        <span className={css.searchButton} onClick={() => document.querySelector('input').focus()}>
+        <span className={css.searchButton} onClick={() => searchInputRef.focus()}>
           <FontAwesomeIcon icon={['fas', 'search']} />
         </span>
         <input
+          ref={(input) => {
+            searchInputRef = input;
+          }}
           onChange={(e) => setSearchValue(e.target.value.length >= 1 ? e.target.value.toLowerCase() : null)}
           type="text"
           className={css.searchInput}
