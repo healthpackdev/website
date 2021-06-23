@@ -18,11 +18,9 @@
 }
 
 .article {
-  @apply py-4 px-6 border rounded-md my-5 flex space-x-2;
+  @apply p-4 border rounded-md my-5 w-full flex flex-col;
 }
-.article img {
-  @apply rounded-md;
-}
+
 .article header {
   @apply text-3xl;
 }
@@ -31,5 +29,5 @@
 }
 
 .article .footer {
-  @apply my-2 text-primary flex justify-between;
+  @apply mt-2 text-primary flex justify-between;
 }

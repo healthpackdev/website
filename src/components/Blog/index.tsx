@@ -11,7 +11,7 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
   let searchInputRef: HTMLInputElement;
 
   const sortedByDate = posts.sort(
-    (a, b) => Number(new Date(b.data.publishedAt)) - Number(new Date(a.data.publishedAt)) // use server's date.
+    (a, b) => Number(new Date(b.data.publishedAt)) - Number(new Date(a.data.publishedAt))
   );
 
   const filteredPosts = sortedByDate.filter((post) => {
@@ -36,7 +36,7 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
           ref={(input) => {
             searchInputRef = input;
           }}
-          onChange={(e) => setSearchValue(e.target.value.length >= 1 ? e.target.value.toLowerCase() : null)}
+          onChange={() => setSearchValue(searchInputRef.value.length >= 1 ? searchInputRef.value.toLowerCase() : null)}
           type="text"
           className={css.searchInput}
           placeholder="Başlığa veya açıklamaya göre aramak için yaz."
@@ -56,7 +56,7 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
             {filteredPosts.length >= 1 ? (
               filteredPosts.map((post, i) => <BlogPost post={post} key={i.toString()} />)
             ) : searchValue ? (
-              <h3 className="text-primary text-2xl">Üzgünüm aradığın şeyi bulamadık :(</h3>
+              <h3 className="text-primary text-2xl">Üzgünüm aradığın şeyi bulamadık :{'('}</h3>
             ) : (
               posts.slice(3).map((post, i) => <BlogPost post={post} key={i.toString()} />)
             )}
