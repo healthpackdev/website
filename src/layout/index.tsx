@@ -3,12 +3,12 @@ import Footer from 'src/layout/Footer';
 import ScrollTop from 'src/layout/scroll-top';
 import Seo from 'src/layout/Seo';
 import React from 'react';
-import { DefaultSeoProps } from 'next-seo';
+import { NextSeoProps } from 'next-seo';
 import { motion } from 'framer-motion';
 
-export type LayoutProps = DefaultSeoProps;
+export type LayoutProps = NextSeoProps;
 
-const Layout: React.FC<DefaultSeoProps> = ({ children, ...props }) => (
+const Layout: React.FC<NextSeoProps> = ({ children, ...props }) => (
   <>
     <Seo {...props} />
     <Navbar />
