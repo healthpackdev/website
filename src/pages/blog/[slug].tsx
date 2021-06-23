@@ -1,6 +1,5 @@
 import { readContentFiles, IBlogPost, getBySlug } from '@lib/mdx';
 import { GetStaticProps, GetStaticPaths } from 'next';
-import dayjs from 'dayjs';
 import author from '@config/author-meta.json';
 import site from '@config/site-config.json';
 
@@ -15,7 +14,10 @@ BlogPost.PageProps = ({ post: { data } }) => ({
   description: data.description,
   openGraph: {
     type: 'article',
-    article: { publishedTime: dayjs(data.publishedAt).format(), authors: [`https://github.com/${author.github}`] },
+    article: {
+      publishedTime: new Date(data.publishedAt).toISOString(),
+      authors: [`https://github.com/${author.github}`],
+    },
     images: [
       {
         url: `${site.hostName}/images/${data.image}`,
