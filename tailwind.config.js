@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: [fonts.sans.name, ...fontFamily.sans],
-      header: [fonts.header.name, ...fontFamily.sans],
+      comic: [fonts.comic.name, ...fontFamily.sans],
       mono: [fonts.mono.name, ...fontFamily.mono],
     },
     extend: {
