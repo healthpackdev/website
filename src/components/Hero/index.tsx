@@ -2,7 +2,6 @@ import { Section } from '@components/section';
 import author from '@config/author-meta.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { motion } from 'framer-motion';
 import css from './Hero.module.css';
 import Link from 'next/link';
 
@@ -24,17 +23,17 @@ const Hero: React.FC = () => (
 
     <div className="mt-5 grid lg:block grid-cols-2">
       {author.socials.map((social, index) => (
-        <motion.a
+        <a
           className={css.social}
-          whileHover={{ y: -2 }}
           href={`/${social.icon[1]}`}
           key={index.toString()}
           //@ts-ignore
           style={{ '--social-color': social.color }}
           target="_blank"
+          rel="noreferrer"
         >
           <FontAwesomeIcon icon={social.icon as IconProp} /> {capitalize(social.icon[1])}
-        </motion.a>
+        </a>
       ))}
     </div>
   </Section>
