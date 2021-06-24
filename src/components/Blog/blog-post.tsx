@@ -9,13 +9,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faBookReader, faEye } from '@fortawesome/free-solid-svg-icons';
 import useSWR from 'swr';
 
-const fetcher = async (args) => {
-  const res = await fetch(`/api/views?path=/blog/${args[0]}`);
+const fetcher = async (...args) => {
+  const res = await fetch(`/api/views?path=/blog/${args.join('')}`);
   return res.json();
 };
 
 const BlogPost: React.FC<{ post: IBlogPostMatter }> = ({ post: { data, slug } }) => {
-  const { data: res } = useSWR(`/${slug}`, fetcher);
+  const { data: res } = useSWR(slug, fetcher);
 
   return (
     <motion.article
