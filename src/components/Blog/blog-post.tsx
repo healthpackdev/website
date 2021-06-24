@@ -21,7 +21,7 @@ const BlogPost: React.FC<{ post: IBlogPostMatter }> = ({ post: { data, slug } })
     <div className="md:col-span-5">
       <Link href={`/blog/${slug}`}>
         <a>
-          <header className="text-blue-500 hover:underline">{data.title}</header>
+          <h2 className="text-blue-500 hover:underline text-3xl">{data.title}</h2>
         </a>
       </Link>
       <p>{data.description}</p>
