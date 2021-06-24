@@ -1,16 +1,9 @@
-button:focus,
-a:focus {
-  box-shadow: 0 0 0 2px theme('colors.blue.600');
-  outline: none !important;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-header {
+h6 {
   @apply font-header !important;
 }
 
