@@ -15,8 +15,9 @@ export interface IBlogPost {
     description: string;
     publishedAt: Date;
     minRead: string;
+    views?: number;
   };
-  content: MDXRemoteSerializeResult<Record<string, unknown>> | string;
+  content: MDXRemoteSerializeResult;
   slug: string;
 }
 
