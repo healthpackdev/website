@@ -1,7 +1,6 @@
 import { Section } from '@components/section';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useState } from 'react';
-import axios from 'axios';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { encodeBase64, encodeBase64File } from '@lib/buffer';
@@ -23,29 +22,29 @@ const AdminComp = () => {
   const onSubmit: SubmitHandler<AdminPostInputs> = async (data) => {
     data.image = await encodeBase64File(data.image[0]);
 
-    axios
-      .post('/api/create-post', data, {
-        headers: {
-          Authorization: 'Basic ' + encodeBase64(token),
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-      .then(() => {
-        setSent(true);
-      });
+    fetch('/api/create-post', {
+      method: 'POST',
+      headers: {
+        Authorization: 'Basic ' + encodeBase64(token),
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }).then((res) => {
+      if (res.status === 200) setSent(true);
+    });
   };
   const onTokenSubmit = () => {
     const val = (document.getElementById('token') as HTMLInputElement).value;
     if (!val) setIsValid(false);
     else {
-      axios
-        .get(`/api/validate?token=${encodeURIComponent(val)}`)
-        .then(() => {
+      fetch(`/api/validate?token=${encodeURIComponent(val)}`).then((res) => {
+        if (res.status === 401) setIsValid(false);
+        else if (res.status === 200) {
           setToken(val);
           setIsValid(true);
-        })
-        .catch(() => setIsValid(false));
+        }
+      });
     }
   };
 
