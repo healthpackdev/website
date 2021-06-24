@@ -18,12 +18,12 @@ const Navbar: React.FC = () => {
         <h2 className="pl-3 mr-1 text-3xl inline-block font-semibold">Healthpack</h2>
         <motion.span
           whileHover={{ rotate: '5deg' }}
-          className="select-none font-bold bg-blue-500 text-white px-1 rounded-md"
+          className="font-header select-none font-bold bg-blue-500 text-white px-1 rounded-md"
         >
           v{pkg.version}
         </motion.span>
       </div>
-      <div className="border-b-2   py-2 flex justify-between">
+      <div className="border-b py-2 flex justify-between">
         <div className="flex items-center">
           {isSmall && <NavbarMobileToggle onClick={() => setIsNavOpen(!isNavOpen)} isNavOpen={isNavOpen} />}
           {!isSmall && <NavbarLinks />}
