@@ -9,24 +9,43 @@ module.exports = {
     fontFamily: {
       sans: [fonts.sans.name, ...fontFamily.sans],
       header: [fonts.header.name, ...fontFamily.sans],
+      mono: [fonts.mono.name, ...fontFamily.mono],
     },
     extend: {
-      typography: {
+      typography: (theme) => ({
         DEFAULT: {
           css: {
             color: 'var(--colors-text-primary)',
             a: {
-              color: 'var(--colors-text-link)',
+              color: theme('colors.blue.600'),
               '&:hover': {
-                color: 'var(--colors-text-link-hover)',
-              }
+                color: theme('colors.blue.800'),
+              },
+            },
+            pre: {
+              wordBreak: 'break-down',
+              color: 'var(--colors-text-primary)',
+              backgroundColor: 'var(--colors-bg-primary)',
+            },
+            'h1,h2,h3,h4,h5': {
+              color: 'var(--colors-text-secondary)',
             },
           },
         },
-      },
+        dark: {
+          css: {
+            a: {
+              color: theme('colors.blue.500'),
+              '&:hover': {
+                color: theme('colors.blue.600'),
+              },
+            },
+          },
+        },
+      }),
       borderColor: {
         DEFAULT: 'var(--colors-border-primary)',
-        secondary: 'var(--colors-border-secondary)'
+        secondary: 'var(--colors-border-secondary)',
       },
       backgroundColor: {
         primary: 'var(--colors-bg-primary)',
@@ -42,6 +61,7 @@ module.exports = {
     },
   },
   variants: {
+    typography: ['dark'],
     extend: {},
   },
   plugins: [require('@tailwindcss/line-clamp'), require('@tailwindcss/typography')],

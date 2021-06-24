@@ -6,5 +6,9 @@
   "header": {
     "url": "https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap",
     "name": "'Baloo 2'"
+  },
+  "mono": {
+    "url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap",
+    "name": "'JetBrains Mono'"
   }
 }
