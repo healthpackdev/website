@@ -2,11 +2,16 @@ import { readContentFiles, IBlogPost, getBySlug } from '@lib/mdx';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import author from '@config/author-meta.json';
 import site from '@config/site-config.json';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 interface BlogPostProps {
   post: IBlogPost;
 }
-const BlogPost: Page<BlogPostProps> = ({ post }) => <>{post.data.title}</>;
+const BlogPost: Page<BlogPostProps> = ({ post }) => (
+  <article className="article-content">
+    <MDXRemote {...(post.content as MDXRemoteSerializeResult<Record<string, any>>)} components={{}} />
+  </article>
+);
 export default BlogPost;
 
 BlogPost.PageProps = ({ post: { data } }) => ({
@@ -40,8 +45,8 @@ export const getStaticPaths: GetStaticPaths = () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<BlogPostProps> = ({ params }) => {
-  const post = getBySlug('blog', params.slug as string);
-
+export const getStaticProps: GetStaticProps<BlogPostProps> = async ({ params }) => {
+  const post = await getBySlug('blog', params.slug as string);
+  console.log(post);
   return { props: { post } };
 };
