@@ -1,5 +1,4 @@
 import defaultSeoConfig from '@config/seo';
-import { useEffect } from 'react';
 import { NextSeo, NextSeoProps } from 'next-seo';
 import { useRouter } from 'next/router';
 
