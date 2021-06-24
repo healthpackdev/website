@@ -4,7 +4,6 @@ import dayjs from 'dayjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faBookReader, faEye } from '@fortawesome/free-solid-svg-icons';
 
 const BlogPost: React.FC<{ post: IBlogPostMatter }> = ({ post: { data, slug } }) => (
   <article className={`md:!grid grid-cols-7 gap-x-2`.concat(' ', css.article)}>
@@ -27,13 +26,13 @@ const BlogPost: React.FC<{ post: IBlogPostMatter }> = ({ post: { data, slug } })
       <p>{data.description}</p>
       <div className="mt-2 text-primary flex-wrap flex justify-between">
         <span className="hover:text-secondary">
-          <FontAwesomeIcon icon={faClock} className="mr-1" /> {dayjs(data.publishedAt).fromNow()}
+          <FontAwesomeIcon icon={['fas', 'clock']} className="mr-1" /> {dayjs(data.publishedAt).fromNow()}
         </span>
         <span className="hover:text-secondary">
-          <FontAwesomeIcon icon={faEye} className="mr-1" /> {data.views ?? '0'} görüntülenme
+          <FontAwesomeIcon icon={['fas', 'eye']} className="mr-1" /> {data.views ?? '0'} görüntülenme
         </span>
         <span className="hover:text-secondary">
-          <FontAwesomeIcon icon={faBookReader} className="mr-1" />
+          <FontAwesomeIcon icon={['fas', 'book-reader']} className="mr-1" />
           {Number(data.minRead).toFixed()} dakika okuma
         </span>
       </div>

@@ -12,9 +12,15 @@ import {
   faHome,
   faPencilAlt,
   faUser,
+  faClock,
+  faBookReader,
+  faEye,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
+  faClock,
+  faBookReader,
+  faEye,
   faHome,
   faUser,
   faPencilAlt,
