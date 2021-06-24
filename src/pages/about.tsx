@@ -53,7 +53,7 @@ const About: Page = () => {
   return (
     <>
       <Section header="About Me">
-        <p className="prose">
+        <p className="prose dark:prose-dark">
           Hi my name is Yasin Kadir. I was born in Turkey/Istanbul. I&apos;m currently a student in middle school. 1
           year ago I started programming with <b>Node.js</b> for write web apps. I mostly use Javascript and Typescript
           these are my favourites. after I learn Typescript I started learn React. For starting I was hate Next.js
@@ -62,7 +62,7 @@ const About: Page = () => {
         </p>
       </Section>
       <Section header="My Editor">
-        <p className="prose">
+        <p className="prose dark:prose-dark">
           I&apos;m using{' '}
           <b>
             <a href="https://code.visualstudio.com">Visual Studio Code</a>
