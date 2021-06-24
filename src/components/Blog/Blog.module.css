@@ -18,7 +18,7 @@
 }
 
 .article {
-  @apply p-4 border rounded-md my-5 w-full flex flex-col;
+  @apply p-4 border-2 rounded-md my-5 w-full flex flex-col;
 }
 
 .article header {
@@ -26,8 +26,4 @@
 }
 .article p {
   @apply text-primary;
-}
-
-.article .footer {
-  @apply mt-2 text-primary flex justify-between;
 }

@@ -1,4 +1,4 @@
-import type { IBlogPostMatter } from '@lib/mdx';
+import type { IBlogPostMatter } from 'src/lib/mdx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import css from './Blog.module.css';
@@ -21,6 +21,7 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
   });
 
   const recentPosts = sortedByDate.slice(0, 3);
+  const allPosts = sortedByDate.slice(3);
 
   return (
     <>
@@ -58,7 +59,7 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
             ) : searchValue ? (
               <h3 className="text-primary text-2xl">Üzgünüm aradığın şeyi bulamadık :{'('}</h3>
             ) : (
-              posts.slice(3).map((post, i) => <BlogPost post={post} key={i.toString()} />)
+              allPosts.map((post, i) => <BlogPost post={post} key={i.toString()} />)
             )}
           </AnimatePresence>
         </Section>

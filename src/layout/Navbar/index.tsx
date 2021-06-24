@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
           v{pkg.version}
         </motion.span>
       </div>
-      <div className="border-b py-2 flex justify-between">
+      <div className="border-b-2   py-2 flex justify-between">
         <div className="flex items-center">
           {isSmall && <NavbarMobileToggle onClick={() => setIsNavOpen(!isNavOpen)} isNavOpen={isNavOpen} />}
           {!isSmall && <NavbarLinks />}

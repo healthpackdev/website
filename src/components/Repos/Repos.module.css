@@ -3,7 +3,7 @@
   @apply grid grid-cols-1 lg:grid-cols-2 gap-4;
 }
 .repoCard {
-  @apply cursor-pointer rounded-md border;
+  @apply cursor-pointer rounded-md border-2;
 }
 .repoCard:hover {
   @apply shadow-lg transition-shadow;
