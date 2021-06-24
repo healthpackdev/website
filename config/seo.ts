@@ -17,6 +17,7 @@ const seoConfig: NextSeoProps = {
     { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
     { rel: 'stylesheet', href: fonts.sans.url },
     { rel: 'stylesheet', href: fonts.header.url },
+    { rel: 'stylesheet', href: fonts.mono.url },
     { rel: 'icon', href: '/favicon.ico' },
     { rel: 'icon', href: '/favicon-32x32.png', sizes: '32x32' },
     { rel: 'icon', href: '/favicon-16x16.png', sizes: '16x16' },
