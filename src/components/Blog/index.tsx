@@ -7,20 +7,20 @@ import { Section } from '@components/section';
 import { AnimatePresence } from 'framer-motion';
 import useSWR from 'swr';
 
-const fetcher = async (...args) => {
-  const res = await fetch(`/api/views?path=/blog/${args.join('')}`);
+const fetcher = async () => {
+  const res = await fetch('/api/views');
   return res.json();
 };
 
 const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
   const [searchValue, setSearchValue] = useState<string>(null);
   let searchInputRef: HTMLInputElement;
-  for (const p of posts) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { data: res } = useSWR(p.slug, fetcher);
-
-    p.data.views = res?.views;
-  }
+  const { data: res } = useSWR('e', fetcher);
+  res
+    ?.filter(({ page }) => page.startsWith('/blog/'))
+    .forEach(({ page, visitors }) => {
+      posts.find((p) => `/blog/${p.slug}` === page).data.views = visitors;
+    });
 
   const sortedByDate = posts.sort(
     (a, b) => Number(new Date(b.data.publishedAt)) - Number(new Date(a.data.publishedAt))
