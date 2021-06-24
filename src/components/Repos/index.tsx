@@ -29,6 +29,7 @@ const Repositories: React.FC<RepositoriesProps> = ({ repos }) => (
                       <Image
                         width={18}
                         height={18}
+                        className="rounded-md"
                         src={require(`public/icons/${proj.lang.toLowerCase()}.svg`)}
                         alt={proj.lang?.toLowerCase()}
                       />
