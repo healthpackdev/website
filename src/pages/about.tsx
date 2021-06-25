@@ -18,7 +18,7 @@ const extensions = [
     item: 'eamodio.gitlens',
   },
   {
-    name: 'Go',
+    name: 'Golang',
     item: 'golang.go',
   },
   {
