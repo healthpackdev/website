@@ -1,4 +1,4 @@
-import type { IBlogPostMatter } from 'src/lib/mdx';
+import type { IBlogPostMatter } from '@lib/mdx';
 import css from './Blog.module.css';
 import dayjs from 'dayjs';
 import Link from 'next/link';
