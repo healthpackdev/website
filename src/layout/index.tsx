@@ -7,7 +7,9 @@ import { NextSeoProps } from 'next-seo';
 import { motion } from 'framer-motion';
 import site from '@config/site-config.json';
 
-export type LayoutProps = NextSeoProps & { analytics?: boolean };
+export interface LayoutProps extends NextSeoProps {
+  analytics?: boolean;
+}
 
 const Layout: React.FC<LayoutProps> = ({ children, analytics = true, ...props }) => (
   <>
