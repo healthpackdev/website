@@ -19,7 +19,9 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
   res
     ?.filter(({ page }) => page.startsWith('/blog/'))
     .forEach(({ page, visitors }) => {
-      posts.find((p) => `/blog/${p.slug}` === page).data.views = visitors;
+      const p = posts.find((p) => `/blog/${p.slug}` === page);
+
+      if (p) p.data.views = visitors;
     });
 
   const sortedByDate = posts.sort(
