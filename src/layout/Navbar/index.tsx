@@ -1,8 +1,8 @@
 import { useMedia } from 'react-use';
 import { useState } from 'react';
-import { NavbarMobileToggle, NavbarMobile } from 'src/layout/Navbar/navbar-mobile';
-import NavbarLinks from 'src/layout/Navbar/navbar-links';
-import NavbarGithub from 'src/layout/Navbar/navbar-github';
+import { NavbarMobileToggle, NavbarMobile } from '@layout/Navbar/navbar-mobile';
+import NavbarLinks from '@layout/Navbar/navbar-links';
+import NavbarGithub from '@layout/Navbar/navbar-github';
 
 import ThemeToggle from '@components/theme-toggle';
 import pkg from 'package.json';
