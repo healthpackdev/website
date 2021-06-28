@@ -6,8 +6,8 @@ import { LayoutProps } from '@layout/index';
 
 declare global {
   interface Data<PO> {
-    PageProps?: LayoutProps | ((ctx: PO) => LayoutProps);
+    layoutProps?: LayoutProps | ((ctx: PO) => LayoutProps);
   }
 
-  type Page<P = {}, IP = P> = NextPage<IP> & Data<P>;
+  type Page<P = {}> = NextPage<P> & Data<P>;
 }

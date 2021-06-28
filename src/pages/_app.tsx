@@ -6,13 +6,13 @@ import '@theme/main.css';
 import Layout from '@layout/index';
 
 const App = ({ Component, pageProps }: AppProps) => {
-  let PageProps = (Component as Page).PageProps;
+  let layoutProps = (Component as Page).layoutProps;
 
-  if (typeof PageProps === 'function') PageProps = PageProps(pageProps);
+  if (typeof layoutProps === 'function') layoutProps = layoutProps(pageProps);
 
   return (
     <ThemeProvider attribute="class">
-      <Layout {...PageProps}>
+      <Layout {...layoutProps}>
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>

@@ -15,7 +15,7 @@ const Blog: Page<BlogProps> = ({ posts }) => (
   </>
 );
 
-Blog.PageProps = (ctx) => ({
+Blog.layoutProps = (ctx) => ({
   title: 'Blog',
   description: `Günlük hayattan edindiğim programlama, tecrübeler ve paylaşma gereği duyduğum şeyler hakkında yazdığım ve bilgi verdiğim Türkçe blog sayfası. Toplamda ${ctx.posts.length} tane makaleye sahip`,
 });

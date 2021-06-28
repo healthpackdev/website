@@ -46,7 +46,7 @@ const BlogPost: Page<BlogPostProps> = ({ post: { data, content, slug } }) => {
 
 export default BlogPost;
 
-BlogPost.PageProps = ({ post: { data } }) => ({
+BlogPost.layoutProps = ({ post: { data } }) => ({
   title: data.title,
   description: data.description,
   openGraph: {

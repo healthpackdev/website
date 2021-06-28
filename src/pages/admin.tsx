@@ -103,6 +103,6 @@ const CsrAdmin = dynamic(() => new Promise((resolve) => resolve(AdminComp)), {
 });
 const Admin: Page = () => <CsrAdmin />;
 
-Admin.PageProps = {};
+Admin.layoutProps = {};
 
 export default Admin;
