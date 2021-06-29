@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next';
-import { getBlogPostMatters, IBlogPostMatter } from '@lib/mdx';
+import { getBlogPostMatters, IBlogPostMatter } from '@lib/markdown';
 import { Section } from '@components/section';
 import BlogBody from '@components/Blog';
 

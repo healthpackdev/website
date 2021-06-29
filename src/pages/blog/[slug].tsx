@@ -1,13 +1,12 @@
-import { readContentFiles, IBlogPost, getBySlug } from '@lib/mdx';
+import { readContentFiles, IBlogPost, getBySlug } from '@lib/markdown';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import author from '@config/author-meta.json';
 import site from '@config/site-config.json';
-import { MDXRemote } from 'next-mdx-remote';
-import MDXComponents from '@components/mdx';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 import useSWR from 'swr';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Markdown from '@components/markdown';
 
 interface BlogPostProps {
   post: IBlogPost;
@@ -17,7 +16,7 @@ const fetcher = async (...args) => {
   return res.json();
 };
 
-const BlogPost: Page<BlogPostProps> = ({ post: { data, content, slug } }) => {
+const BlogPost: Page<BlogPostProps> = ({ post: { data, markdown, slug } }) => {
   const date = dayjs(data.publishedAt);
   data.views = useSWR(slug, fetcher).data?.views;
 
@@ -38,13 +37,11 @@ const BlogPost: Page<BlogPostProps> = ({ post: { data, content, slug } }) => {
 
           <Image src={require(`public/images/${data.image}`)} alt={data.title} />
         </div>
-        <MDXRemote {...content} components={MDXComponents} />
+        <Markdown markdown={markdown} />
       </article>
     </>
   );
 };
-
-export default BlogPost;
 
 BlogPost.layoutProps = ({ post: { data } }) => ({
   title: data.title,
@@ -64,21 +61,23 @@ BlogPost.layoutProps = ({ post: { data } }) => ({
   },
 });
 
+export default BlogPost;
+
 export const getStaticPaths: GetStaticPaths = () => {
   const posts = readContentFiles('blog');
 
   return {
     paths: posts.map((p) => ({
       params: {
-        slug: p.replace(/\.mdx/, ''),
+        slug: p.replace(/\.md/, ''),
       },
     })),
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps<BlogPostProps> = async ({ params }) => {
-  const post = await getBySlug('blog', params.slug as string);
+export const getStaticProps: GetStaticProps<BlogPostProps> = ({ params }) => {
+  const post = getBySlug('blog', params.slug as string);
 
   return { props: { post } };
 };
