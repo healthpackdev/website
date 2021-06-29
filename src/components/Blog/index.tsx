@@ -1,4 +1,4 @@
-import type { IBlogPostMatter } from '@lib/mdx';
+import type { IBlogPostMatter } from '@lib/markdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import css from './Blog.module.css';
