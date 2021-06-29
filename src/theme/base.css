@@ -46,13 +46,6 @@ html {
   @apply bg-blue-700;
 }
 
-pre,
-kbd,
-samp,
-code {
-  @apply font-mono;
-}
-
 h1,
 h2,
 h3,
