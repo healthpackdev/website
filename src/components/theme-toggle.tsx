@@ -10,8 +10,7 @@ const ThemeToggle: React.FC = ({ ...props }) => {
       className="icon-button"
       aria-label={`Toggle ${isDark ? 'light' : 'dark'} mode`}
       {...props}
-      type="button"
-    >
+      type="button">
       <FontAwesomeIcon
         icon={isDark ? ['fas', 'moon'] : ['fas', 'sun']}
         className={isDark ? 'text-gray-300' : 'text-yellow-500'}

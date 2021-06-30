@@ -18,8 +18,7 @@ const Navbar: React.FC = () => {
         <h2 className="pl-3 mr-1 text-3xl inline-block font-semibold">Healthpack</h2>
         <motion.span
           whileHover={{ rotate: '5deg' }}
-          className="font-comic select-none font-bold bg-blue-500 text-white px-1 rounded-md"
-        >
+          className="font-comic select-none font-bold bg-blue-500 text-white px-1 rounded-md">
           v{pkg.version}
         </motion.span>
       </div>

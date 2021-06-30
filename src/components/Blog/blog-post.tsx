@@ -1,4 +1,4 @@
-import type { IBlogPostMatter } from '@lib/markdown';
+import type { IBlogPostMatter } from '@lib/mdx';
 import css from './Blog.module.css';
 import dayjs from 'dayjs';
 import Link from 'next/link';
@@ -12,6 +12,8 @@ const BlogPost: React.FC<{ post: IBlogPostMatter }> = ({ post: { data, slug } })
         src={require(`public/images/${data.image}`)}
         objectFit="cover"
         className="rounded-md"
+        width="200" // prefer 200x100 near images.
+        height="100"
         objectPosition="center center"
         alt={data.title}
       />
@@ -23,7 +25,7 @@ const BlogPost: React.FC<{ post: IBlogPostMatter }> = ({ post: { data, slug } })
           <h2 className="text-blue-500 hover:underline text-3xl">{data.title}</h2>
         </a>
       </Link>
-      <p>{data.description}</p>
+      <p className="m-0">{data.description}</p>
       <div className="mt-2 text-primary flex-wrap flex justify-between">
         <span className="hover:text-secondary">
           <FontAwesomeIcon icon={['fas', 'clock']} className="mr-1" /> {dayjs(data.publishedAt).fromNow()}
@@ -33,7 +35,7 @@ const BlogPost: React.FC<{ post: IBlogPostMatter }> = ({ post: { data, slug } })
         </span>
         <span className="hover:text-secondary">
           <FontAwesomeIcon icon={['fas', 'book-reader']} className="mr-1" />
-          {Number(data.minRead).toFixed()} dakika okuma
+          {data.minRead} okuma
         </span>
       </div>
     </div>

@@ -30,8 +30,7 @@ const Hero: React.FC = () => (
           //@ts-ignore
           style={{ '--social-color': social.color }}
           target="_blank"
-          rel="noreferrer"
-        >
+          rel="noreferrer">
           <FontAwesomeIcon icon={social.icon as IconProp} /> {capitalize(social.icon[1])}
         </a>
       ))}

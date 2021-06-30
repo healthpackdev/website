@@ -3,7 +3,7 @@ const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: 'jit',
-  purge: ['./src/**/*.tsx'],
+  purge: ['./src/**/*.{tsx,jsx,js}'],
   darkMode: 'class',
   theme: {
     fontFamily: {
@@ -12,6 +12,9 @@ module.exports = {
       mono: [fonts.mono.name, ...fontFamily.mono],
     },
     extend: {
+      borderRadius: {
+        DEFAULT: '.375rem',
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
@@ -23,10 +26,36 @@ module.exports = {
               },
             },
             pre: {
-              wordBreak: 'break-down',
-              color: 'var(--colors-text-primary)',
+              border: '1px solid var(--colors-border-primary)',
               backgroundColor: 'var(--colors-bg-primary)',
+              color: 'var(--colors-text-primary)',
             },
+            code: {
+              border: '1px solid var(--colors-border-primary)',
+              backgroundColor: 'var(--colors-bg-primary)',
+              color: 'var(--colors-text-primary)',
+            },
+            'div[data-title] + pre': {
+              marginTop: '0',
+              borderRadius: `0 0 .375rem .375rem`,
+            },
+            'div[data-title]': {
+              /* theme/base.css */
+            },
+            strong: {
+              color: 'inherit',
+            },
+            '.task-list-item': {
+              /* theme/base.css */
+            },
+            th: {
+              color: 'var(--colors-text-primary)',
+            },
+            blockquote: {
+              color: 'var(--colors-text-primary)',
+            },
+            'blockquote p:first-of-type::before': false,
+            'blockquote p:last-of-type::after': false,
             'h1,h2,h3,h4,h5': {
               color: 'var(--colors-text-secondary)',
             },
@@ -39,6 +68,9 @@ module.exports = {
               '&:hover': {
                 color: theme('colors.blue.600'),
               },
+            },
+            blockquote: {
+              borderLeftColor: theme('colors.gray.700'),
             },
           },
         },

@@ -64,8 +64,7 @@ const AdminComp = () => {
             <motion.div
               initial={{ x: -60 }}
               animate={{ x: 0 }}
-              className="w-full text-white bg-green-400 dark:bg-green-600 px-4 py-2 rounded-md shadow-md my-2"
-            >
+              className="w-full text-white bg-green-400 dark:bg-green-600 px-4 py-2 rounded-md shadow-md my-2">
               Successfull created post in {process.env.NODE_ENV}
             </motion.div>
           )}
@@ -73,8 +72,7 @@ const AdminComp = () => {
             initial={{ x: -60 }}
             animate={{ x: 0 }}
             onSubmit={handleSubmit(onSubmit)}
-            className="grid grid-cols-2 gap-x-2"
-          >
+            className="grid grid-cols-2 gap-x-2">
             <input type="text" placeholder="Post title" className="input" {...register('title', { required: true })} />
             <input type="text" placeholder="Post slug" className="input" {...register('slug', { required: true })} />
             <input
@@ -84,7 +82,7 @@ const AdminComp = () => {
               {...register('description', { required: true })}
             />
             <textarea
-              placeholder="Post content mdx"
+              placeholder="Paste content of post"
               className="input resize-none col-span-2"
               rows={10}
               {...register('content', { required: true })}

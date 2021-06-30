@@ -21,8 +21,7 @@ const ScrollTop: React.FC = () => {
         type="button"
         className="fixed text-white bottom-5 right-5 rounded-full bg-blue-500 hover:bg-blue-600 active:scale-105 transition-all w-10 h-10"
         aria-label="up!"
-        onClick={onClickScroll}
-      >
+        onClick={onClickScroll}>
         <FontAwesomeIcon icon={['fas', 'arrow-up']} />
       </button>
     )

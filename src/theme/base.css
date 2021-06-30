@@ -35,6 +35,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
+html,
+body {
+  overflow: auto;
+}
 
 ::-webkit-scrollbar {
   @apply w-1;
@@ -53,4 +57,23 @@ h4,
 h5,
 h6 {
   @apply font-comic !important;
+}
+
+.prose div[data-title] {
+  @apply flex justify-between py-3 px-5 font-semibold font-mono text-secondary bg-secondary border rounded-t-md text-sm;
+}
+
+.prose .task-list-item {
+  @apply pl-2;
+}
+.prose .task-list-item::before {
+  display: none;
+}
+
+.prose code[inline-higlight]::after,
+.prose code[inline-higlight]::before {
+  display: none;
+}
+.prose code[inline-higlight] {
+  font-weight: 500;
 }

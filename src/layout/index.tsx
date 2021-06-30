@@ -24,8 +24,7 @@ const Layout: React.FC<LayoutProps> = ({ children, analytics = true, ...props })
       className="max-w-content"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.4 }}
-    >
+      transition={{ duration: 0.4 }}>
       {children}
     </motion.main>
     <ScrollTop />

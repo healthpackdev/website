@@ -1,4 +1,4 @@
-import { readContentFiles, IBlogPost, getBySlug } from '@lib/markdown';
+import { readContentFiles, IBlogPost, getBySlug } from '@lib/mdx';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import author from '@config/author-meta.json';
 import site from '@config/site-config.json';
@@ -6,7 +6,7 @@ import Image from 'next/image';
 import dayjs from 'dayjs';
 import useSWR from 'swr';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Markdown from '@components/markdown';
+import MDX from '@components/mdx';
 
 interface BlogPostProps {
   post: IBlogPost;
@@ -16,7 +16,7 @@ const fetcher = async (...args) => {
   return res.json();
 };
 
-const BlogPost: Page<BlogPostProps> = ({ post: { data, markdown, slug } }) => {
+const BlogPost: Page<BlogPostProps> = ({ post: { data, mdxSource, slug } }) => {
   const date = dayjs(data.publishedAt);
   data.views = useSWR(slug, fetcher).data?.views;
 
@@ -29,7 +29,7 @@ const BlogPost: Page<BlogPostProps> = ({ post: { data, markdown, slug } }) => {
             <FontAwesomeIcon icon={['fas', 'clock']} /> {date.format('MMMM MM[,] YYYY')}
           </div>
           <div className="bg-primary rounded-md py-1 px-3 inline-block border m-2">
-            <FontAwesomeIcon icon={['fas', 'book-reader']} /> {Number(data.minRead).toFixed()} dakika okuma
+            <FontAwesomeIcon icon={['fas', 'book-reader']} /> {data.minRead} okuma
           </div>
           <div className="bg-primary rounded-md py-1 px-3 inline-block border m-2">
             <FontAwesomeIcon icon={['fas', 'eye']} /> {data.views ?? '0'} görüntülenme
@@ -37,7 +37,7 @@ const BlogPost: Page<BlogPostProps> = ({ post: { data, markdown, slug } }) => {
 
           <Image src={require(`public/images/${data.image}`)} alt={data.title} />
         </div>
-        <Markdown markdown={markdown} />
+        <MDX mdxSource={mdxSource} />
       </article>
     </>
   );
@@ -69,15 +69,15 @@ export const getStaticPaths: GetStaticPaths = () => {
   return {
     paths: posts.map((p) => ({
       params: {
-        slug: p.replace(/\.md/, ''),
+        slug: p.replace(/\.mdx/, ''),
       },
     })),
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps<BlogPostProps> = ({ params }) => {
-  const post = getBySlug('blog', params.slug as string);
+export const getStaticProps: GetStaticProps<BlogPostProps> = async ({ params }) => {
+  const post = await getBySlug('blog', params.slug);
 
   return { props: { post } };
 };

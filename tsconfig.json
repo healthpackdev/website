@@ -23,6 +23,6 @@
       "@layout/*": ["./src/layout/*"]
     }
   },
-  "include": ["next-env.d.ts", "src", "config", "scripts", "src/lib"],
+  "include": ["next-env.d.ts", "src", "config"],
   "exclude": ["src/lib/sitemap.js"]
 }

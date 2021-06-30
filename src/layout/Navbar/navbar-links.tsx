@@ -18,8 +18,7 @@ const Navigate: React.FC<React.HTMLProps<HTMLDivElement>> = ({ ...props }) => {
               <a
                 className={`${
                   isActive(link.href) ? 'font-bold' : ''
-                } font-sans mr-1 px-4 py-2 rounded-md select-none border border-none hover:bg-secondary`}
-              >
+                } font-sans mr-1 px-4 py-2 rounded-md select-none border border-none hover:bg-secondary`}>
                 <FontAwesomeIcon icon={['fas', link.icon] as IconProp} className="mr-2" /> {link.title}
               </a>
             </Link>
