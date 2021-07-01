@@ -16,7 +16,7 @@ const Views: NextApiHandler = async (req, res) => {
     ).then((res) => res.json());
 
     res.status(200).json({
-      views: results.visitors.value,
+      visitors: results.visitors.value,
     });
   } else if (req.method === 'GET' && !path) {
     const { results } = await fetch(
