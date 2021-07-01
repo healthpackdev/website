@@ -1,20 +1,17 @@
 import useSWR from 'swr';
 
-type viewsResponse = { page: string; visitors: number }[];
+type UseAPI = (endpoint: string, fetchOptions?: RequestInit) => { res: any; error: any };
 
-interface ApiResponses {
-  views: viewsResponse;
-}
+const apiFetcher = async (options: any[]) => {
+  const endpoint = options[0];
+  const fetchOptions = options[1];
 
-type UseAPI = <T extends keyof ApiResponses>(url: T, method?: string) => { res: ApiResponses[T]; error: any };
-
-const apiFetcher = async (options: [string, string?]) => {
-  const res = await fetch(`/api/${options[0]}`, { method: options[1]?.toUpperCase() || 'GET' });
+  const res = await fetch(`/api/${endpoint}`, fetchOptions);
   return res.json();
 };
 
-export const useAPI: UseAPI = (url, method) => {
-  const { data, error } = useSWR([url, method], apiFetcher);
+export const useAPI: UseAPI = (endpoint, fetchOptions) => {
+  const { data, error } = useSWR([endpoint, fetchOptions], apiFetcher);
 
   return {
     res: data,
