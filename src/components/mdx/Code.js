@@ -2,8 +2,6 @@ import Prism from 'prismjs';
 import visit from 'unist-util-visit';
 import bytes from 'bytes';
 
-// TODO: make it with work well virtual dom
-
 // import prism languages
 import '@config/prism-languages';
 
@@ -32,13 +30,17 @@ export function code() {
       const titleNode = {
         type: 'html',
         value: `<div data-title><div>${title}</div><div>${sizeOfCode} - ${
-          --higlight.split('\n').length /* */
+          higlight.split('\n').length /* */
         } satır</div></div>`,
       };
 
       if (title) tree.children.splice(index, 0, titleNode); // insert code title
-      node.type = 'html'; // replace html type
-      node.value = `<pre className="language-${language}"><code className="language-${language}">${higlight}</code></pre>`; // replace higlighted code
+      node.higlight = higlight;
+      node.value = `
+      <pre className="language-${language}">
+      <button className="copy-button">Kopyala</button>
+      <code className="language-${language}">${higlight}</code>
+      </pre>`; // replace higlighted code
     });
 }
 
@@ -54,7 +56,7 @@ export function inlineCode() {
       if (language)
         higlight = Prism.highlight(node.value.trim(), Prism.languages[language], language).replace('\n', '');
       else return;
-      node.type = 'html';
+
       node.value = `<code className="language-${language}" inline-higlight>${higlight}</code>`;
     });
 }

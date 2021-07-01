@@ -85,7 +85,7 @@ export const getBlogPostMatters = () => {
 export const MDXTemplate = (body: AdminPostInputs, imageName: string) =>
   `---
 title: ${body.title}
-image: ${imageName}
+${imageName ? `image: ${imageName}` : ''}
 description: ${body.description}
 publishedAt: ${Number(new Date())}
 ---

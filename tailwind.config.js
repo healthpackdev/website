@@ -20,6 +20,7 @@ module.exports = {
           css: {
             color: 'var(--colors-text-primary)',
             a: {
+              textDecoration: 'none',
               color: theme('colors.blue.600'),
               '&:hover': {
                 color: theme('colors.blue.800'),

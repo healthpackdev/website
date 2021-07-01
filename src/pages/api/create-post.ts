@@ -13,15 +13,18 @@ const root = process.cwd();
 const png = /^data:image\/png;base64,/;
 
 const createPostInDev = (body: AdminPostInputs) => {
-  const imageName = `${body.slug}-image.${png.test(body.image) ? 'png' : 'jpeg'}`;
+  let imageName;
+
+  if (body.image) imageName = `${body.slug}-image.${png.test(body.image) ? 'png' : 'jpeg'}`;
+
   fs.writeFileSync(path.join(root, 'content', 'blog', `${body.slug}.mdx`), MDXTemplate(body, imageName));
-  fs.writeFileSync(path.join(root, 'public', 'images', imageName), decodeBase64File(body.image));
+  if (imageName) fs.writeFileSync(path.join(root, 'public', 'images', imageName), decodeBase64File(body.image));
 };
 
 const createPostInProd = async (body: AdminPostInputs) => {
-  const imageName = `${body.slug}-image.${png.test(body.image) ? 'png' : 'jpeg'}`;
+  const imageName = body.image ? `${body.slug}-image.${png.test(body.image) ? 'png' : 'jpeg'}` : null;
   const content = encodeBase64(MDXTemplate(body, imageName));
-  const imageContent = body.image.replace(/^data:image\/(png|jpeg);base64,/, '');
+  const imageContent = body.image?.replace(/^data:image\/(png|jpeg);base64,/, '');
 
   await request('PUT /repos/{owner}/{repo}/contents/{path}', {
     owner: author.github,
@@ -32,14 +35,15 @@ const createPostInProd = async (body: AdminPostInputs) => {
     branch: siteConfig.branch,
   });
 
-  await request('PUT /repos/{owner}/{repo}/contents/{path}', {
-    owner: author.github,
-    content: imageContent,
-    message: `create image for ${body.slug}.mdx`,
-    path: `public/images/${imageName}`,
-    repo: siteConfig.publicRepoName,
-    branch: siteConfig.branch,
-  });
+  if (imageContent && imageName)
+    await request('PUT /repos/{owner}/{repo}/contents/{path}', {
+      owner: author.github,
+      content: imageContent,
+      message: `create image for ${body.slug}.mdx`,
+      path: `public/images/${imageName}`,
+      repo: siteConfig.publicRepoName,
+      branch: siteConfig.branch,
+    });
 };
 const createPost: NextApiHandler = async ({ headers, body, method }, res) => {
   if (method === 'POST') {

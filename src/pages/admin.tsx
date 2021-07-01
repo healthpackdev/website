@@ -10,7 +10,7 @@ export type AdminPostInputs = {
   slug: string;
   description: string;
   content: string;
-  image: FileList & string; // FileList
+  image?: FileList & string; // FileList
 };
 
 const AdminComp = () => {
@@ -20,7 +20,7 @@ const AdminComp = () => {
   const [sent, setSent] = useState(false);
 
   const onSubmit: SubmitHandler<AdminPostInputs> = async (data) => {
-    data.image = await encodeBase64File(data.image[0]);
+    if (data.image) data.image = await encodeBase64File(data.image[0]);
 
     fetch('/api/create-post', {
       method: 'POST',
@@ -87,7 +87,7 @@ const AdminComp = () => {
               rows={10}
               {...register('content', { required: true })}
             />
-            <input type="file" accept="image/png, image/jpg, image/jpeg" {...register('image', { required: true })} />
+            <input type="file" accept="image/png, image/jpg, image/jpeg" {...register('image', { required: false })} />
             <input type="submit" className="btn col-span-2" />
           </motion.form>
         </>

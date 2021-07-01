@@ -24,10 +24,10 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
       if (p) p.data.views = visitors;
     });
 
-  const sortedByDate = posts.sort(
-    (a, b) => Number(new Date(b.data.publishedAt)) - Number(new Date(a.data.publishedAt))
-  );
-  const sortedByViews = sortedByDate.slice(3).sort((a, b) => b.data.views - a.data.views);
+  const sortedByViews = posts.sort((a, b) => b.data.views - a.data.views);
+  const sortedByDate = sortedByViews
+    .slice(3)
+    .sort((a, b) => Number(new Date(b.data.publishedAt)) - Number(new Date(a.data.publishedAt)));
 
   const filteredPosts = sortedByDate.filter((post) => {
     return (
@@ -62,13 +62,13 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
       <div>
         {!searchValue && (
           <>
-            <Section header="Son makaleler" id="recent-posts">
-              {recentPosts.map((post, i) => (
+            <Section header="Son makaleler" id="recent-posts" className={null}>
+              {recentPosts.slice(0, 3).map((post, i) => (
                 <BlogPost post={post} key={i.toString()} />
               ))}
             </Section>
             <Section header="Popüler makaleler" id="populer-posts">
-              {sortedByViews.map((post, i) => (
+              {sortedByViews.slice(0, 3).map((post, i) => (
                 <BlogPost post={post} key={i.toString()} />
               ))}
             </Section>

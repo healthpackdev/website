@@ -35,7 +35,7 @@ const BlogPost: Page<BlogPostProps> = ({ post: { data, mdxSource, slug } }) => {
             <FontAwesomeIcon icon={['fas', 'eye']} /> {data.views ?? '0'} görüntülenme
           </div>
 
-          <Image src={require(`public/images/${data.image}`)} alt={data.title} />
+          {data.image && <Image src={require(`public/images/${data.image}`)} alt={data.title} />}
         </div>
         <MDX mdxSource={mdxSource} />
       </article>
@@ -52,12 +52,14 @@ BlogPost.layoutProps = ({ post: { data } }) => ({
       publishedTime: new Date(data.publishedAt).toISOString(),
       authors: [`https://github.com/${author.github}`],
     },
-    images: [
-      {
-        url: `${site.hostName}/images/${data.image}`,
-        alt: data.title,
-      },
-    ],
+    images: data.image
+      ? [
+          {
+            url: `${site.hostName}/images/${data.image}`,
+            alt: data.title,
+          },
+        ]
+      : null,
   },
 });
 
