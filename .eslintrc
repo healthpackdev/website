@@ -13,9 +13,8 @@
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": ["error"],
-    "no-unused-vars": ["warn"],
     "@typescript-eslint/array-type": ["error"],
-    "@typescript-eslint/no-unused-vars": ["off"],
+    "@typescript-eslint/no-unused-vars": ["warn"],
     "react/react-in-jsx-scope": ["off"],
     "react/jsx-props-no-spreading": ["off"],
     "import/no-extraneous-dependencies": ["off"],

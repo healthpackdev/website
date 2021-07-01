@@ -1,21 +1,17 @@
 import type { IBlogPostMatter } from '@lib/mdx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-import css from './Blog.module.css';
-import BlogPost from './blog-post';
 import { Section } from '@components/section';
 import { AnimatePresence } from 'framer-motion';
-import useSWR from 'swr';
-
-const fetcher = async () => {
-  const res = await fetch('/api/views');
-  return res.json();
-};
+import { useAPI } from '@lib/fetch';
+import css from './Blog.module.css';
+import BlogPost from './blog-post';
 
 const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
   const [searchValue, setSearchValue] = useState<string>(null);
   let searchInputRef: HTMLInputElement;
-  const { data: res } = useSWR('e', fetcher);
+  const { res } = useAPI('views');
+
   res
     ?.filter(({ page }) => page.startsWith('/blog/'))
     .forEach(({ page, visitors }) => {
