@@ -2,7 +2,6 @@ import type { IBlogPostMatter } from '@lib/mdx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { Section } from '@components/section';
-import { AnimatePresence } from 'framer-motion';
 import { useAPI } from '@lib/fetch';
 import css from './Blog.module.css';
 import BlogPost from './blog-post';
@@ -71,15 +70,13 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
           </>
         )}
         <Section header="Tüm makaleler" id="all-posts">
-          <AnimatePresence>
-            {filteredPosts.length >= 1 ? (
-              filteredPosts.map((post, i) => <BlogPost post={post} key={i.toString()} />)
-            ) : searchValue ? (
-              <h3 className="text-primary text-2xl">Üzgünüm aradığın şeyi bulamadık :{'('}</h3>
-            ) : (
-              allPosts.map((post, i) => <BlogPost post={post} key={i.toString()} />)
-            )}
-          </AnimatePresence>
+          {filteredPosts.length >= 1 ? (
+            filteredPosts.map((post, i) => <BlogPost post={post} key={i.toString()} />)
+          ) : searchValue ? (
+            <h3 className="text-primary text-2xl">Üzgünüm aradığın şeyi bulamadık :{'('}</h3>
+          ) : (
+            allPosts.map((post, i) => <BlogPost post={post} key={i.toString()} />)
+          )}
         </Section>
       </div>
     </>
