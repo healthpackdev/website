@@ -82,6 +82,11 @@ const About: Page = () => {
     </>
   );
 };
-About.layoutProps = { title: 'About', description: 'Learn More About Me in this page.' };
+About.layoutProps = {
+  title: 'About',
+  description: `Hi my name is Yasin Kadir. I was born in Turkey/Istanbul. I&apos;m currently a student in middle school. 1
+year ago I started programming with <b>Node.js</b> for write web apps. I mostly use Javascript and Typescript
+these are my favourites.`,
+};
 
 export default About;
