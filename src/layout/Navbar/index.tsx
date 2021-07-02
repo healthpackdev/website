@@ -1,4 +1,3 @@
-import { useMedia } from 'react-use';
 import { useState } from 'react';
 import { NavbarMobileToggle, NavbarMobile } from '@layout/Navbar/navbar-mobile';
 import NavbarLinks from '@layout/Navbar/navbar-links';
@@ -8,7 +7,6 @@ import ThemeToggle from '@components/theme-toggle';
 import pkg from 'package.json';
 
 const Navbar: React.FC = () => {
-  const isSmall = useMedia('(max-width: 500px)');
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
@@ -19,15 +17,15 @@ const Navbar: React.FC = () => {
       </div>
       <div className="border-b py-2 flex justify-between">
         <div className="flex items-center">
-          {isSmall && <NavbarMobileToggle onClick={() => setIsNavOpen(!isNavOpen)} isNavOpen={isNavOpen} />}
-          {!isSmall && <NavbarLinks />}
+          <NavbarMobileToggle onClick={() => setIsNavOpen(!isNavOpen)} isNavOpen={isNavOpen} />
+          <NavbarLinks className="hidden md:block" />
         </div>
         <div className="flex items-center">
           <NavbarGithub />
           <ThemeToggle />
         </div>
       </div>
-      {isSmall && isNavOpen && <NavbarMobile />}
+      {isNavOpen && <NavbarMobile />}
     </header>
   );
 };
