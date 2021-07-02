@@ -1,10 +1,8 @@
 import { readContentFiles, IBlogPost, getBySlug } from '@lib/mdx';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import author from '@config/author-meta.json';
-import site from '@config/site-config.json';
 import Image from 'next/image';
 import dayjs from 'dayjs';
-import useSWR from 'swr';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MDX from '@components/mdx';
 
@@ -16,9 +14,8 @@ const fetcher = async (...args) => {
   return res.json();
 };
 
-const BlogPost: Page<BlogPostProps> = ({ post: { data, mdxSource, slug } }) => {
+const BlogPost: Page<BlogPostProps> = ({ post: { data, mdxSource } }) => {
   const date = dayjs(data.publishedAt);
-  data.views = useSWR(slug, fetcher).data?.views;
 
   return (
     <>
@@ -31,10 +28,6 @@ const BlogPost: Page<BlogPostProps> = ({ post: { data, mdxSource, slug } }) => {
           <div className="bg-primary rounded-md py-1 px-3 inline-block border m-2">
             <FontAwesomeIcon icon={['fas', 'book-reader']} /> {data.minRead} okuma
           </div>
-          <div className="bg-primary rounded-md py-1 px-3 inline-block border m-2">
-            <FontAwesomeIcon icon={['fas', 'eye']} /> {data.views ?? '0'} görüntülenme
-          </div>
-
           {/* {data.image && <Image src={require(`public/images/${data.image}`)} alt={data.title} />} */}
         </div>
         <MDX mdxSource={mdxSource} />

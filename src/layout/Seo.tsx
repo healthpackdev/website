@@ -3,12 +3,10 @@ import Head from 'next/head';
 import siteConfig from '@config/site-config.json';
 import fonts from '@config/fonts.json';
 import author from '@config/author-meta.json';
-import Script from 'next/script';
 
 const authorTwitter = author.socials.find((social) => social.icon[1] == 'twitter')?.href.split('/')[3];
 
 export interface SeoProps {
-  analytics?: boolean;
   description: string;
   title: string;
   openGraph?: {
@@ -20,7 +18,7 @@ export interface SeoProps {
   };
 }
 
-const Seo: React.FC<SeoProps> = ({ description, title, openGraph = {}, analytics = true }) => {
+const Seo: React.FC<SeoProps> = ({ description, title, openGraph = {} }) => {
   const router = useRouter();
   const url = `https://${siteConfig.hostName}`;
   const path = url + router.asPath;
@@ -62,8 +60,6 @@ const Seo: React.FC<SeoProps> = ({ description, title, openGraph = {}, analytics
       <link rel="stylesheet" href={fonts.sans.url} />
       <link rel="stylesheet" href={fonts.comic.url} />
       <link rel="stylesheet" href={fonts.mono.url} />
-
-      {analytics && <Script data-domain={siteConfig.hostName} src="https://plausible.io/js/plausible.js" />}
     </Head>
   );
 };

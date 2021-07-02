@@ -12,12 +12,9 @@ const BlogPost: React.FC<{ post: IBlogPostMatter }> = ({ post: { data, slug } })
       </a>
     </Link>
     <p className="m-0">{data.description}</p>
-    <div className="mt-2 text-primary space-x-4">
+    <div className="mt-2 text-primary">
       <span className="hover:text-secondary">
         <FontAwesomeIcon icon={['fas', 'clock']} /> {dayjs(data.publishedAt).fromNow()}
-      </span>
-      <span className="hover:text-secondary">
-        <FontAwesomeIcon icon={['fas', 'eye']} /> {data.views ?? '0'} görüntülenme
       </span>
     </div>
   </article>
