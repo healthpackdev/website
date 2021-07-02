@@ -1,5 +1,4 @@
 import type { AppProps } from 'next/app';
-import { ThemeProvider } from 'next-themes';
 import '@lib/font-awesome';
 import '@lib/dayjs';
 import '@theme/main.css';
@@ -11,11 +10,9 @@ const App = ({ Component, pageProps }: AppProps) => {
   if (typeof layoutProps === 'function') layoutProps = layoutProps(pageProps);
 
   return (
-    <ThemeProvider attribute="class">
-      <Layout {...layoutProps}>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+    <Layout {...layoutProps}>
+      <Component {...pageProps} />
+    </Layout>
   );
 };
 
