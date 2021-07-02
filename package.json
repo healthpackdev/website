@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS=\"--max_old_space_size=2048\" next dev",
+    "dev": "next dev",
     "build": "next build",
     "analyze": "ANALYZE=true next build",
     "export": "next export",
@@ -19,7 +19,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@octokit/request": "^5.6.0",
     "dayjs": "^1.10.5",
-    "firebase-admin": "^9.9.0",
+    "firebase": "^8.7.0",
     "gray-matter": "^4.0.3",
     "next": "11.0.0",
     "next-mdx-remote": "^3.0.2",
