@@ -3,7 +3,7 @@ import Techs from '@components/Techs';
 import Repos from '@components/Repos';
 import Contact from '@components/Contact';
 import { GetStaticProps } from 'next';
-import request from '@lib/octokit';
+import { request } from '@lib/github';
 
 import author from '@config/author-meta.json';
 
