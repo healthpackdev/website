@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
-import type { AdminPostInputs } from 'src/pages/admin';
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { rehypePlugins, remarkPlugins } from '@components/mdx';
@@ -82,12 +81,15 @@ export const getBlogPostMatters = () => {
   }, []);
 };
 
-export const MDXTemplate = (body: AdminPostInputs, imageName: string) =>
+/*
+ const MDXTemplate = (body: Omit<AdminPostInputs, 'image'>, imageName: string) =>
   `---
 title: ${body.title}
-${imageName ? `image: ${imageName}` : ''}
+image: ${imageName}
 description: ${body.description}
 publishedAt: ${Number(new Date())}
 ---
 
 ${body.content}`;
+
+*/
