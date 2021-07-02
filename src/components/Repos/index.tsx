@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { ErrorOrRepo } from '../../pages/index';
 import Image from 'next/image';
 import css from './Repos.module.css';
-import { motion } from 'framer-motion';
 
 interface RepositoriesProps {
   readonly repos: ErrorOrRepo;
@@ -15,9 +14,9 @@ const Repositories: React.FC<RepositoriesProps> = ({ repos }) => (
     <div className={css.repos}>
       {typeof repos !== 'string' ? (
         repos.map((proj, index) => (
-          <motion.div whileHover={{ y: -2 }} className={css.repoCard} key={index.toString()}>
+          <div className={css.repoCard} key={index.toString()}>
             <Link href={proj.link}>
-              <a className="no-link">
+              <a>
                 <div className={css.repoCardInner}>
                   <div className={css.repoCardField}>
                     <h3 className={css.repoCardHeader}>{proj.name}</h3>
@@ -46,7 +45,7 @@ const Repositories: React.FC<RepositoriesProps> = ({ repos }) => (
                 </div>
               </a>
             </Link>
-          </motion.div>
+          </div>
         ))
       ) : (
         <div className="text-center">{repos}</div>
