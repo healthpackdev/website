@@ -1,11 +1,15 @@
 import Prism from 'prismjs';
 import visit from 'unist-util-visit';
-import bytes from 'bytes';
 
 // import prism languages
 import '@config/prism-languages';
 
-export function code() {
+function highlight(code, language) {
+  language = language.replace('language-', '');
+  return Prism.highlight(code, Prism.languages[language], language);
+}
+
+export function remarkCodeTitle() {
   return (tree) =>
     visit(tree, 'code', (node, index) => {
       const nodeLang = node.lang || '';
@@ -20,43 +24,41 @@ export function code() {
       } else {
         language = nodeLang.replace('language-', '');
       }
+      if (!title) return;
 
-      // higlight code with prismjs
-      const higlight = language ? Prism.highlight(node.value, Prism.languages[language], language) : node.value;
-      // get readable size of nodeValue
-      const sizeOfCode = bytes(Buffer.from(node.value).length, { unitSeperator: ' ' });
-
-      // insert new node
+      // create new node
       const titleNode = {
         type: 'html',
-        value: `<div data-title><div>${title}</div><div>${sizeOfCode} - ${
-          higlight.split('\n').length /* */
-        } satır</div></div>`,
+        value: `<div data-title>${title}</div>`,
       };
 
-      if (title) tree.children.splice(index, 0, titleNode); // insert code title
-      node.higlight = higlight;
-      node.value = `
-      <pre className="language-${language}">
-      <button className="copy-button">Kopyala</button>
-      <code className="language-${language}">${higlight}</code>
-      </pre>`; // replace higlighted code
+      tree.children.splice(index, 0, titleNode); // insert code title
+      node.lang = language;
     });
 }
 
-export function inlineCode() {
-  return (tree) =>
-    visit(tree, 'inlineCode', (node) => {
-      const seperated = node.value.split('//', 2);
-      if (seperated.length < 2) return;
-      const language = seperated[0];
-      node.value = seperated[1];
+export const inlineCode = ({ children, ...props }) => {
+  const seperated = children.split('//', 2);
+  if (seperated.length < 2) return <code>{children}</code>;
+  const lang = seperated[0];
+  children = seperated[1];
 
-      let higlight;
-      if (language)
-        higlight = Prism.highlight(node.value.trim(), Prism.languages[language], language).replace('\n', '');
-      else return;
+  const higlightedCode = highlight(children, lang);
+  return (
+    <code
+      className={`language-${lang}`}
+      dangerouslySetInnerHTML={{ __html: higlightedCode.replace('\n', '') }} // inject higlighted code and remove lines.
+      {...props}
+    />
+  );
+};
 
-      node.value = `<code className="language-${language}" inline-higlight>${higlight}</code>`;
-    });
-}
+export const code = ({ className, children, ...props }) => {
+  const higlightedCode = highlight(children, className);
+
+  return (
+    <code dangerouslySetInnerHTML={{ __html: higlightedCode }} /* inject higlighted code */ className={className} />
+  );
+};
+
+export const pre = ({ ...props }) => <pre {...props} />;

@@ -1,26 +1,21 @@
-import { code, inlineCode } from './Code';
 import img from './Image';
 import { MDXRemote } from 'next-mdx-remote';
-import { useEffect } from 'react';
+import { remarkCodeTitle, code, pre, inlineCode } from './Code';
+import a from './Link';
 
 export const remarkPlugins = [
   require('remark-slug'),
-  require('remark-autolink-headings'),
-  require('remark-gfm'),
-  code,
-  inlineCode,
+  [require('remark-autolink-headings'), { linkProperties: { className: ['anchor'] } }],
+  remarkCodeTitle,
 ];
 export const rehypePlugins = [];
 
-function Code({ ...p }) {
-  useEffect(() => {
-    console.log(p);
-  }, []);
-  return <></>;
-}
 const components = {
   img,
-  code: Code,
+  code,
+  pre,
+  inlineCode,
+  a,
 };
 export default function Markdown({ mdxSource }) {
   return <MDXRemote components={components} {...mdxSource} />;

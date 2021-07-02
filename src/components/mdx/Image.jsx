@@ -9,7 +9,7 @@ export default function img({ src, alt }) {
 
     const size = urlWithSize[1];
 
-    if (!size) throw new Error('Size is undefined: ![Alt](/file.svg|200x500)');
+    if (!size) throw new Error('Size is incorrect:', src);
 
     const w = size.split('x')[0];
     const h = size.split('x')[1];
