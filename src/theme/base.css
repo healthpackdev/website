@@ -69,11 +69,3 @@ h6 {
 .prose .task-list-item::before {
   display: none;
 }
-
-.prose code[inline-higlight]::after,
-.prose code[inline-higlight]::before {
-  display: none;
-}
-.prose code[inline-higlight] {
-  font-weight: 500;
-}
