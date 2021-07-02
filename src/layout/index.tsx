@@ -9,7 +9,7 @@ const Layout: React.FC<LayoutProps> = ({ children, ...props }) => (
   <>
     <Seo {...props} />
     <Navbar />
-    <main className="max-w-content">{children}</main>
+    <main className="max-w-content my-5">{children}</main>
     <ScrollTop />
     <Footer />
   </>
