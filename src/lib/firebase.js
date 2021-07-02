@@ -1,14 +1,18 @@
-import firebase from 'firebase-admin';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
-if (!firebase.apps.length) {
+export const app =
+  firebase.apps[0] ||
   firebase.initializeApp({
-    credential: admin.credential.cert({
-      project_id: 'yasin-kadir-website',
-      private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-      client_email: process.env.FIREBASE_CLIENT_EMAIL,
-    }),
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: 'yasin-kadir-website.firebaseapp.com',
     databaseURL: 'https://yasin-kadir-website-default-rtdb.firebaseio.com',
+    projectId: 'yasin-kadir-website',
+    appId: '1:710921044065:web:1eca26e50fb206f8cb6a20',
   });
-}
+export const auth = app.auth();
 
-export default firebase.database();
+export const githubAuth = new firebase.auth.GithubAuthProvider();
+githubAuth.setCustomParameters({
+  allow_signup: false,
+});
