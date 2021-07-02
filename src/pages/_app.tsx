@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
-import '@lib/add-icons';
+import '@lib/font-awesome';
 import '@lib/dayjs';
 import '@theme/main.css';
 import Layout from '@layout/index';
