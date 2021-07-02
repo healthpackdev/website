@@ -1,7 +1,7 @@
-import admin from 'firebase-admin';
+import firebase from 'firebase-admin';
 
-if (!admin.apps.length) {
-  admin.initializeApp({
+if (!firebase.apps.length) {
+  firebase.initializeApp({
     credential: admin.credential.cert({
       project_id: 'yasin-kadir-website',
       private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
@@ -11,4 +11,4 @@ if (!admin.apps.length) {
   });
 }
 
-export default admin.database();
+export default firebase.database();
