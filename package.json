@@ -23,7 +23,6 @@
     "gray-matter": "^4.0.3",
     "next": "11.0.0",
     "next-mdx-remote": "^3.0.2",
-    "next-themes": "^0.0.14",
     "preact": "^10.5.13",
     "prismjs": "^1.23.0",
     "react": "17.0.2",

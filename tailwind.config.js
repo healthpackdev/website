@@ -23,6 +23,7 @@ module.exports = {
               textDecoration: 'none',
               color: theme('colors.blue.600'),
               '&:hover': {
+                textDecoration: 'underline',
                 color: theme('colors.blue.800'),
               },
             },
@@ -55,6 +56,30 @@ module.exports = {
             blockquote: {
               color: 'var(--colors-text-primary)',
             },
+            thead: {
+              border: `1px solid var(--colors-border-primary)`,
+              borderRadius: theme('borderRadius.md'),
+              backgroundColor: 'var(--colors-bg-primary)',
+              'th:first-child': false,
+              th: {
+                padding: `${theme('padding.3')} ${theme('padding.6')}`,
+                letterSpacing: '.05em',
+                textTransform: 'uppercase',
+              },
+            },
+            table: {
+              borderCollapse: 'collapse',
+              overflow: 'hidden',
+              border: '1px solid var(--colors-border-primary)',
+              borderRadius: theme('borderRadius.sm'),
+
+              'th:first-child': false,
+              'th:last-child': false,
+
+              td: {
+                padding: '.5rem .75rem',
+              },
+            },
             'blockquote p:first-of-type::before': false,
             'blockquote p:last-of-type::after': false,
             'h1,h2,h3,h4,h5': {
@@ -64,6 +89,9 @@ module.exports = {
         },
         dark: {
           css: {
+            // thead: {
+            //   backgroundColor: theme('colors.gray.900'),
+            // },
             a: {
               color: theme('colors.blue.500'),
               '&:hover': {
