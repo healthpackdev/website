@@ -1,12 +1,12 @@
 import type { IBlogPostMatter } from '@lib/mdx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Section } from '@components/section';
 import css from './Blog.module.css';
 import BlogPost from './blog-post';
 
 const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
-  const [searchValue, setSearchValue] = useState<string>(null);
+  const [searchValue, setSearchValue] = useState<string>();
   let searchInputRef: HTMLInputElement;
 
   const sortedByDate = posts.sort(
@@ -19,8 +19,9 @@ const BlogBody: React.FC<{ posts: IBlogPostMatter[] }> = ({ posts }) => {
     );
   });
 
+  useEffect(() => console.log(posts, sortedByDate, filteredPosts));
   const recentPosts = sortedByDate.slice(0, 3);
-  const allPosts = sortedByDate.slice(3);
+  const allPosts = posts.slice(3);
 
   return (
     <>
