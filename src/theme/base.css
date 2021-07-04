@@ -67,5 +67,11 @@ h6 {
   @apply pl-2;
 }
 .prose .task-list-item::before {
-  display: none;
+  @apply hidden;
+}
+
+.prose h3 .anchor,
+.prose h4 .anchor,
+.prose h5 .anchor {
+  @apply hidden;
 }
