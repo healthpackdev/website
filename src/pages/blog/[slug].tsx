@@ -15,13 +15,14 @@ const BlogPost: Page<BlogPostProps> = ({ post: { data, mdxSource } }) => {
   return (
     <>
       <article className="prose dark:prose-dark mx-auto my-2">
-        <h1 className="!text-5xl !my-2">{data.title}</h1>
-        <div className="mb-5">
-          <div className="bg-primary rounded-md py-1 px-3 inline-block border m-2">
+        <h1 className="!m-0">{data.title}</h1>
+        <p>{data.description}</p>
+        <div className="space-x-4 mt-2 mb-10">
+          <div className="bg-primary rounded-md py-1 px-3 inline-block border">
             <FontAwesomeIcon icon={['fas', 'clock']} /> {date.format('MMMM D[,] YYYY')}
           </div>
-          <div className="bg-primary rounded-md py-1 px-3 inline-block border m-2">
-            <FontAwesomeIcon icon={['fas', 'book-reader']} /> {data.minRead} okuma
+          <div className="bg-primary rounded-md py-1 px-3 inline-block border">
+            <FontAwesomeIcon icon={['fas', 'hourglass']} /> {data.minRead} okuma
           </div>
         </div>
         <MDX mdxSource={mdxSource} />
@@ -32,7 +33,7 @@ const BlogPost: Page<BlogPostProps> = ({ post: { data, mdxSource } }) => {
 
 BlogPost.layoutProps = ({ post: { data } }) => ({
   title: data.title,
-  description: data.description,
+  description: `${data.description} - ${data.minRead} okuma süresi`,
   openGraph: {
     type: 'article',
     article: {
