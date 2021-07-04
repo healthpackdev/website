@@ -1,0 +1,46 @@
+---
+title: Neden siteyi baştan aşağı yeniledim?
+image: blured-preview.png
+description: Neden burayı baştan aşağı yenilip 1 ay sonunda blog sayfasınıda yapıp yayınladım? sorusuna cevap veren makale.
+publishedAt: 1625241454563
+---
+
+## Ne zaman başladım?
+
+Yaklaşık 2 ay önce Youtube'da gezinirken gördüğüm bir videoda kullanılan [Chakra UI](https://chakra-ui.com) oldukça ilgimi çekmişti.
+Hemen denemek istemiştim. Denediğimde aklıma oldukça güzel fikirler gelmişti.
+Benimde aklıma her seferinde yapmaya çalışıp sonradan aman diyip pes ettiğim **Blog sayfası olan bir site yapmak**.
+
+Önceden yapmaya çalıştıklarım genelde anlık bir heves olup 2 günde bitmesi gerekirken 3-4 günde zor bitirdiğim projelerdi.
+Bu sefer başardım mı? **Hayır**, bu seferde daha ana sayfayı yapıp [Fresh UI](https://github.com/fui-org/fresh-ui) adı altında **Chakra ui**'den daha hızlı bir **ui library** geliştirmeye çalıştım.
+fakat yapamadım.
+
+bir süre ara verdikten sonra `build` çıktısının boyutunun yüksek olmasından ve [fouc](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) hissetmem yüzünden içimden
+[TailwindCSS](https://tailwindcss.com) geçirmek geldi ve 3 gün içinde ana sayfayı bitirip **Tailwindcss** geçirdim.
+
+Sonrada **blog** zamanı geldi dediğimde tunar'ın söylediği gibi bir eksik vardı, hissettiriyordu ama ne olduğunu söylemiyordu.
+Ben de baştan aşağı siteyi yenilemeye çalıştım şuanda içerik olarak eksiklik hissetsemde zamanla gelişeceğine eminim.
+
+## Nasıl yaptım?
+
+[React](https://reactjs.org) kullanmaya başladıktan sonra [Next.js](https://nextjs.org) kullanmamak için o kadar dirensemde en sonunda **tamam şimdilik idare etsin** dedim ve bir daha bırakasım gelmedi.
+İlk başta Chakra ui kullandım fakat sonradan Tailwindcss geçirdim.
+
+Blog sayfasına başladıktan sonra çoğunlukla https://leerob.io sayfasından esinlenmeye başladım.
+
+Markdown'ı zero-runtime ile render edebilmek ve React'a uygun halde kullanabilmek için [mdx-js](https://github.com/mdx-js/mdx) ve [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) kullandım.
+
+sitenin kaynak koduna https://github.com/healthpackdev/website adresinden ulaşabilirsiniz.
+
+## Daha neler Gelecek?
+
+Bırakayım şuraya yapacaklarımı:
+
+1. Firebase ile yorumlar sistemi yap.
+2. Spotify'da dinlenen müziği siteye yansıt.
+3. Yaratıcı sayfalar geliştirmeye çalış.
+4. Link bırak sayfası yap.
+
+### Öneride bulunmak
+
+Her türlü öneriye ve eleştiriye açığım. bana ulaşabileceğiniz adresler sitenin alt kısmında ikonlar ile bulunuyor, tıklayarak profile ulaşabilirsiniz.
