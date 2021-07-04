@@ -14,13 +14,13 @@ import {
   faUser,
   faClock,
   faBookReader,
-  faEye,
+  faHourglass,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
   faClock,
+  faHourglass,
   faBookReader,
-  faEye,
   faHome,
   faUser,
   faPencilAlt,
