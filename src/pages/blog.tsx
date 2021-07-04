@@ -8,11 +8,9 @@ interface BlogProps {
 }
 
 const Blog: Page<BlogProps> = ({ posts }) => (
-  <>
-    <Section header="Blog">
-      <BlogBody posts={posts} />
-    </Section>
-  </>
+  <Section header="Blog">
+    <BlogBody posts={posts} />
+  </Section>
 );
 
 Blog.layoutProps = (ctx) => ({
