@@ -1,5 +1,4 @@
 import formUrlEncode from 'querystring';
-import author from '@config/author-meta.json';
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -8,7 +7,7 @@ const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
 const BasicKey = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
 
 const getAccessToken = async () => {
-  return fetch(`https://accounts.spotify.com/api/token?username=${author.spotifyUsername}`, {
+  return fetch(`https://accounts.spotify.com/api/token`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
