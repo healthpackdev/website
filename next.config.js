@@ -3,7 +3,6 @@ const author = require('./config/author-meta.json');
  * @type import('next/dist/next-server/server/config-shared').NextConfig
  */
 module.exports = {
-  distDir: 'build',
   webpack(config, { isServer, dev }) {
     if (isServer) {
       require('./src/lib/sitemap.js');
