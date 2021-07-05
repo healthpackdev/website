@@ -2,7 +2,6 @@
   "name": "healthpackdev",
   "github": "healthpackdev",
   "contactEmail": "healthpackdev@gmail.com",
-  "discordId": "573054368568311808",
   "socials": [
     { "href": "https://discord.com/users/573054368568311808", "icon": ["fab", "discord"], "color": "#738ADB" },
     { "href": "https://github.com/healthpackdev", "icon": ["fab", "github"], "color": "#718096" },

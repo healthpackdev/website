@@ -5,13 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useRouter } from 'next/router';
 
-const Navigate: React.FC<React.HTMLProps<HTMLDivElement>> = ({ ...props }) => {
+export const Links: React.FC<React.HTMLProps<HTMLDivElement>> = ({ className }) => {
   const { asPath } = useRouter();
   const isActive = (href) => asPath === href;
 
   return (
-    <nav {...props}>
-      <ul className="flex">
+    <nav>
+      <ul className={className ? className : `hidden md:flex`}>
         {links.map((link, index) => (
           <li key={index.toString()}>
             <Link href={link.href} passHref>
@@ -28,5 +28,13 @@ const Navigate: React.FC<React.HTMLProps<HTMLDivElement>> = ({ ...props }) => {
     </nav>
   );
 };
+const Navigate: React.FC<{ isNavOpen: boolean; onClick: any }> = ({ isNavOpen, onClick }) => (
+  <div className="flex items-center">
+    <button onClick={onClick} className="icon-button inline-block md:hidden" aria-label="open menu" type="button">
+      <FontAwesomeIcon icon={!isNavOpen ? ['fas', 'bars'] : ['fas', 'times']} />
+    </button>
+    <Links />
+  </div>
+);
 
 export default Navigate;
