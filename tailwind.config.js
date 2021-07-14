@@ -31,6 +31,8 @@ module.exports = {
               border: '1px solid var(--colors-border-primary)',
               backgroundColor: 'var(--colors-bg-primary)',
               color: 'var(--colors-text-primary)',
+              fontSize: '13.6px',
+              lineHeight: '1.4rem',
             },
             code: {
               border: '1px solid var(--colors-border-primary)',
