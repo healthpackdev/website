@@ -1,8 +1,10 @@
-.token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
   @apply text-gray-700 dark:text-gray-300;
+}
+.token.comment {
+  @apply text-gray-400 dark:text-gray-600;
 }
 
 .token.punctuation {
