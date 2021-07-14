@@ -1,0 +1,80 @@
+---
+title: React ile server-side rendering
+image: server-side-rendering.png
+description: server-side rendering'in ne olduğu ve React ile server-side rendering'in nasıl yapıldığını anlatan makale.
+publishedAt: 1626282237642
+---
+
+## Server Side Rendering ve Client Side rendering Nedir?
+
+Dertli başların derdi [SEO](https://developers.google.com/search/docs/beginner/do-i-need-seo?hl=tr) diğer adıyla arama motoru optimizasyonu.
+Meta etiketleri her ne kadar önemli olsa da bir o kadar da sitenin içerik kısmı yani **body** de çok önemlidir.
+
+Eğer Bir Vue, React veya angular gibi tarayıcı kısmında **render** edilen bir framework kullanıyorsanız (merak etmeyin sadece tarayıcıda olmak zorunda değil) Seo dertli başınıza dert açar.
+
+- `Server-side rendering` Server kısmında render edilerek bir raw html çıktısı aldığınız işlemdir.
+- `Client-side rendering` Tarayıcı kısmında Javascript ile render edilip DOM'a yerleştirilen işlemdir.
+
+Daha detaylı kaynaklardan araştırabilirsiniz kısaca diyebileceklerim bunlar.
+
+## React ile server side rendering nasıl yapılır?
+
+Bu konuda eskide olsa da Github'da bulabileceğiniz bir çok proje var fakat bunları kullanmak yerine kesinlikle Next.js veya Gatsby (Sadece static üretebilir) kullanmalısınz fakat kısaca anlatmak gerekirse başlayalım.
+
+[Reactify](https://github.com/healthpackdev/reactify) yarım kalmış projem ile de birkaç kapsamlı fikir alabilirsiniz.
+
+### renderToString
+
+`js//const ReactDOMServer = require('react-dom/server')` paketinin sağladığı `renderToString` fonksiyonu ile Server'da React'ı render edebilirsiniz.
+
+```jsx
+const ReactDOMServer = require('react-dom/server');
+const http = require('http');
+
+const server = http
+  .createServer((req, res) => {
+    // Dikkat JSX yazmak için Babel'i ve @babel/preset-react'ı kurmanız gerekmektedir şuanlık küçük bir örnek ve çalışmayacaktır.
+    const html = ReactDOMServer.renderToString(<div className="bg-gray-500">Hello World</div>); // <div class="bg-gray-500">Hello World</div>
+    res.send(`<DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+    </head>
+     <body>${html}</body>
+     </html>
+     `);
+  })
+  .listen(3000);
+```
+
+Seklinde kullanıcıya tam html göndeririz fakat `jsx//<body>${html}</body>` şeklinde göndermek zorunda değiliz React ile tüm sayfayı da render edebiliriz.
+
+### renderToStaticMarkup
+
+`renderToStaticMarkup` fonksiyonu ise sadece Static HTML render eder yani **useEffect** gibi hooklar çalışmaz.
+React bileşenlerini html'e çevirmek için birebirdir.
+
+```jsx
+const ReactDOMServer = require('react-dom/server');
+
+function convertToHTML(component) {
+  return ReactDOMServer.renderToStaticMarkup(component);
+}
+
+console.log(
+  convertToHTML(
+    <div className="react-ozel-propslar" onClick={(e) => console.log('yehuu', e)}>
+      naber
+    </div>
+  )
+);
+// <div class="react-ozel-propslar" onClick="undefined">naber</div>
+```
+
+**NOT**: `renderToString` ve `renderToStaticMarkup` fonksiyonları tarayıcıda da çalışabilir.
+
+## Sonuç
+
+Server Side rendering işi o kadar kolay değil ve çok temel örnekler o yüzden diğer makalaler gibi express ile server side rendering yapmayı göstermeyeceğim.
+
+[Reactify](https://github.com/healthpackdev/reactify) Deposunu inceleyip bir fikir edinebilirsiniz veya Kısa iş yapmak istiyorum derseniz Next.js veya Gatsby sizin için en iyisidir.
