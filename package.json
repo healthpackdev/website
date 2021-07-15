@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "analyze": "ANALYZE=true next build",
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write --check './{src,lib}/**/*.{js,ts,tsx,jsx}'"
+    "format": "prettier --write --check './{src}/**/*.{js,ts,tsx,jsx}'"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
+    "@statoscope/webpack-plugin": "^5.5.1",
     "@tailwindcss/line-clamp": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
     "@types/prismjs": "^1.16.5",
