@@ -4,6 +4,10 @@ import '@lib/dayjs';
 import '@theme/main.css';
 import Layout from '@layout/index';
 
+if (process.env.NODE_ENV !== 'production') {
+  import('preact/debug');
+}
+
 const App = ({ Component, pageProps }: AppProps) => {
   let layoutProps = (Component as Page).layoutProps;
 
