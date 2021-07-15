@@ -9,7 +9,7 @@ module.exports = {
     fontFamily: {
       sans: [fonts.sans.name, ...fontFamily.sans],
       comic: [fonts.comic.name, ...fontFamily.sans],
-      mono: [fonts.mono.name, ...fontFamily.mono],
+      mono: fontFamily.mono,
     },
     extend: {
       borderRadius: {

@@ -57,9 +57,9 @@ const Seo: React.FC<SeoProps> = ({ description, title, openGraph = {} }) => {
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link rel="stylesheet" href={fonts.sans.url} />
-      <link rel="stylesheet" href={fonts.comic.url} />
-      <link rel="stylesheet" href={fonts.mono.url} />
+      {Object.keys(fonts).map((font) => (
+        <link rel="stylesheet" href={fonts[font].url} key={font} />
+      ))}
     </Head>
   );
 };
