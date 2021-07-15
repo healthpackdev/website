@@ -1,0 +1,104 @@
+---
+title: Next.js Nedir? Ne için kullanılır?
+image: nextjs.png
+description: Next.js'in tam olarak ne olduğu ve özelliklerinin ne olduğunu anlatan makale.
+publishedAt: 1626349549918
+---
+
+> Next.js Vercel tarafından yapılmış gerçek uygulamalarda çalışmak için hazırlanmış bir React framework'dur.
+
+[Önceki](/blog/react-ile-server-side-rendering) makalemde kısaca anlattığım server side rendering konusu
+aslında gerçek bir uygulamada çalışabilecek duruma getirmek oldukça zahmetli bir iştir.
+Next.js ise size çok kısa bir sürede **production-ready** olarak yapmanıza olanak sağlıyor.
+
+## Next.js'in sunduğu özellikler nelerdir?
+
+### Routing
+
+Next.js Routing için dosya sistemi yapısı ve next/router'ı kullanır next/router history ile hızlıca sayfayı yenilemeden sayfalar arası geçiş yapabilir.
+
+`src/pages` ve `pages` klasörlerinde sayfalarınızı iç içe yazarsanız örneğin
+
+- `pages/users.js` -> `/users`
+- `pages/users/[id].js` -> `/users/:id`
+- `pages/users/[id]/settings` -> `/users/:id/settings`
+
+Şeklinde sayfa oluşturur.
+
+### CSS Desteği ve Optimizasyonu
+
+React ile stillendirme konusunda bir çok çözüm ve yöntem vardır.
+Next.js size css dosyalarınızı `pages/_app.js` sayfasından kolayca import etmenizi sağlar ve optimize eder.
+
+`js//import '../styles/stillerim.css'` şeklinde eklediğiniz CSS dosyaları Next.js tarafından **PostCSS** ile işlendikten sonra parçalara bölünür.
+Sitenize gelen kullanıcıda ise `html//<style>` etiketi içerisinde css kodları bulunur.
+
+Next.js Sass destekler ve kullanmak için `npm install sass` demeniz ve bir `.scss` veya `.sass` dosyası eklemeniz yeterlidir.
+
+Next.js Component-level css eklemek için size [CSS Modules](https://github.com/css-modules/css-modules) ve [Styled JSX](https://github.com/vercel/styled-jsx) sunar.
+
+#### CSS Modules
+
+eklediğiniz `.module.css` uzantalı dosyaların class adlarını benzersiz yapar örneğin.
+`Button.module.css` adlı dosyasında bulunan `css//.maviRenkliButton` class'ı `Button_maviRenkliButton_[hash]`'e çevirilir ve class adlarının çakışmasını önlersiniz.
+
+#### Styled JSX
+
+Yüksek performanslı JSX içinde css yazmanıza ve benzersiz class adı oluşturmaya olanak sağlar.
+
+```jsx
+<style jsx>{`
+  .class-adi {
+    width: ${5 / 2.5};
+  }
+`}</style>
+```
+
+Yazıp kullanabilirsiniz ve class adlarınız ve id'leriniz benzersiz olur.
+
+### Image Optimizasyonu
+
+Websitelerin en büyük veri kısmı resimlerdir ve optimizasyonları çok önemlidir.
+`next/image` bileşenini kullanarak resimlerinizi Next.js ile optimize hale getirebiliyorsunuz.
+Bunu nasıl yapıldığı https://nextjs.org/docs/basic-features/image-optimization sayfasında anlatılıyor.
+
+### Incremental Static Regeneration
+
+https://vercel.com/docs/next.js/incremental-static-regeneration adresinden tam olarak ne olduğunu okuyabilirsiniz fakat kısaca anlatmak gerekirse.
+
+SSG'den farklı olarak ISR Çok hızlı bir şekilde belirli aralıklarla veriler ile statik bir html sayfası oluşturmanıza ve her istekte yeniden oluşturmaya gerek kalmamasını sağlar.
+
+[Next.js E-commerce](https://github.com/vercel/commerce) Özellikle ISR kullanır ve `pages/product/[slug].tsx` sayfası her **200** saniyede bir yeniden oluşturulur düşünsenize 10.000'den fazla ürününüz var ve bunların hepsini tekrar oluşturmak zorunda kalırsanız bu işlem biraz zaman alacaktır.
+ISR ise Cache'ye alıp hızlıca hepsini yeniden oluşturabiliyor. Ayrıca herhangi bir hata alınca da işlem devam edebiliyor.
+
+### getStaticProps ve getServerSideProps
+
+#### getStaticProps
+
+Statik bir veri göndermek için bu fonksiyonu oluşturup export edebilirsiniz.
+Bu şekilde Next.js bunu çalıştırıp Home sayfanıza texts verisini gönderir
+ve statik bir html sayfası oluşur.
+
+```jsx:pages/index.js
+
+export default function Home({ texts }){
+  return texts.map((text) => { return <p>{text}</p> })
+}
+
+export async function getStaticProps () {
+  return {
+    props: {texts: await getTextsFromServer()}
+  };
+}
+```
+
+Eğer düzenli aralıklarla yeniden oluşturmak istersek `return` içine
+`js//revalidate: 200 /* 200 saniye */` değerini ekleyebiliriz.
+
+#### getServerSideProps
+
+`getStaticProps`'dan farklı olarak her istekte çalışır ve sayfayı sunucuya gelen her istekte yeniden oluşturulur.
+
+## Sonuç
+
+Next.js'i kesinlikle denemeniz ve kullanmanız gerekmektedir. Umarım eksik bir bilgi vermemişimdir :)
