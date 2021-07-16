@@ -1,10 +1,11 @@
 const author = require('./config/author-meta.json');
 const StatoscopeWebpackPlugin = require('@statoscope/webpack-plugin').default;
+const Prefresh = require('@prefresh/next');
 
 /**
  * @type import('next/dist/next-server/server/config-shared').NextConfig
  */
-module.exports = {
+const config = {
   webpack(config, { isServer, dev }) {
     if (isServer) {
       require('./src/lib/sitemap.js');
@@ -41,3 +42,4 @@ module.exports = {
     });
   },
 };
+module.exports = Prefresh(config);
