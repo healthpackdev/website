@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     .then(({ data }) => {
       repos = data
         .sort((a, b) => b.stargazers_count - a.stargazers_count)
-        .filter((project) => project.name !== author.github && !project.archived)
+        .filter((project) => project.name !== author.github && !project.archived && !project.fork)
         .slice(0, 12) // Get 12 max repo
         .map((project) => ({
           fork_count: project.forks_count,
