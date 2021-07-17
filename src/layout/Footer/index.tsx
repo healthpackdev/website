@@ -23,6 +23,7 @@ const Footer: React.FC = () => {
             <Link href={`/${social.icon[1]}`} key={index.toString()}>
               <a style={{ color: social.color }}>
                 <FontAwesomeIcon icon={social.icon as IconProp} />
+                <span className="hidden">{social.icon[2]}</span> {/* Links do not have a discernible name */}
               </a>
             </Link>
           ))}
