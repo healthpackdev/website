@@ -23,19 +23,3 @@ a.link {
 .btn {
   @apply text-white cursor-pointer bg-blue-500 hover:bg-blue-600 active:bg-blue-700 rounded-md p-2 transition-all;
 }
-
-.status-dnd {
-  @apply bg-red-500;
-}
-
-.status-online {
-  @apply bg-green-500;
-}
-
-.status-offline {
-  @apply bg-gray-500;
-}
-
-.status-idle {
-  @apply bg-yellow-500;
-}
