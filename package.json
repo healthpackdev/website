@@ -37,7 +37,6 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
-    "@prefresh/next": "^1.4.6",
     "@statoscope/webpack-plugin": "^5.5.1",
     "@tailwindcss/line-clamp": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
