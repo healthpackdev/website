@@ -1,5 +1,5 @@
 import img from './Image';
-import { MDXRemote } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { remarkCodeTitle, code, pre, inlineCode } from './Code';
 import a from './Link';
 
@@ -17,6 +17,11 @@ const components = {
   inlineCode,
   a,
 };
-export default function Markdown({ mdxSource }) {
-  return <MDXRemote components={components} {...mdxSource} />;
+
+interface MarkdownProps {
+  mdxSource: MDXRemoteSerializeResult;
 }
+
+const Markdown: React.FC<MarkdownProps> = ({ mdxSource }) => <MDXRemote components={components} {...mdxSource} />;
+
+export default Markdown;
