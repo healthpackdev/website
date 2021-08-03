@@ -40,7 +40,7 @@ module.exports = {
               backgroundColor: 'var(--colors-bg-primary)',
               color: 'var(--colors-text-primary)',
             },
-            'div[data-title] + pre': {
+            'div[data-title] + div pre': {
               marginTop: '0',
               borderRadius: `0 0 .375rem .375rem`,
             },
