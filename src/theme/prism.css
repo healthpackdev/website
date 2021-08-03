@@ -55,10 +55,7 @@
   @apply text-yellow-500;
 }
 
-.prose code[class*='language']::after,
-.prose code[class*='language']::before {
-  display: none;
-}
-.prose code[class*='language'] {
-  font-weight: 500;
+.prose code::after,
+.prose code::before {
+  @apply hidden;
 }

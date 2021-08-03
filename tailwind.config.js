@@ -20,11 +20,10 @@ module.exports = {
           css: {
             color: 'var(--colors-text-primary)',
             a: {
-              textDecoration: 'none',
-              color: theme('colors.blue.600'),
+              color: theme('colors.blue.500'),
+              textDecoration: 'underline',
               '&:hover': {
-                textDecoration: 'underline',
-                color: theme('colors.blue.800'),
+                color: theme('colors.blue.600'),
               },
             },
             pre: {
@@ -35,6 +34,8 @@ module.exports = {
               lineHeight: '1.4rem',
             },
             code: {
+              borderRadius: theme('borderRadius.md'),
+              padding: '2px 4px',
               border: '1px solid var(--colors-border-primary)',
               backgroundColor: 'var(--colors-bg-primary)',
               color: 'var(--colors-text-primary)',
@@ -97,7 +98,7 @@ module.exports = {
             a: {
               color: theme('colors.blue.500'),
               '&:hover': {
-                color: theme('colors.blue.600'),
+                color: theme('colors.blue.400'),
               },
             },
             blockquote: {
