@@ -60,5 +60,3 @@ export const code = ({ className, children, ...props }) => {
     <code dangerouslySetInnerHTML={{ __html: higlightedCode }} /* inject higlighted code */ className={className} />
   );
 };
-
-export const pre = ({ ...props }) => <pre {...props} />;

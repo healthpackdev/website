@@ -1,6 +1,7 @@
 import img from './Image';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { remarkCodeTitle, code, pre, inlineCode } from './Code';
+import { remarkCodeTitle, code, inlineCode } from './Code';
+import pre from './Pre';
 import a from './Link';
 
 export const remarkPlugins = [

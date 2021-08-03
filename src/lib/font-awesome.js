@@ -15,6 +15,8 @@ import {
   faClock,
   faBookReader,
   faHourglass,
+  faClipboard,
+  faClipboardCheck,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -35,5 +37,7 @@ library.add(
   faStar,
   faBars,
   faCodeBranch,
-  faTimes
+  faTimes,
+  faClipboard,
+  faClipboardCheck
 );
