@@ -1,4 +1,7 @@
+import MDX from '@components/mdx';
 import { Section } from '@components/section';
+import { getByPath } from '@lib/mdx';
+import type { GetStaticProps } from 'next';
 
 const extensions = [
   {
@@ -49,44 +52,28 @@ const extensions = [
   },
 ];
 
-const About: Page = () => {
-  return (
-    <>
-      <Section header="About Me">
-        <p className="prose dark:prose-dark">
-          Hi my name is Yasin Kadir. I was born in Turkey/Istanbul. I&apos;m currently a student in middle school. 1
-          year ago I started programming with <b>Node.js</b> for write web apps. I mostly use Javascript and Typescript
-          these are my favourites. after I learn Typescript I started learn React. For starting I was hate Next.js
-          because at that time it was boring. at now I love <b>React</b> and <b>Next.js</b>, thanks for reading good
-          bye.
-        </p>
-      </Section>
-      <Section header="My Editor">
-        <p className="prose dark:prose-dark">
-          I&apos;m using{' '}
-          <b>
-            <a href="https://code.visualstudio.com">Visual Studio Code</a>
-          </b>{' '}
-          with this {extensions.length} extensions:
-          <ul>
-            {extensions.sort().map((ext) => (
-              <li key={ext.item}>
-                <a href={`https://marketplace.visualstudio.com/items?itemName=${ext.item}`}>{ext.name}</a>
-              </li>
-            ))}
-          </ul>
-          I&apos;m using <b>{extensions.find((ext) => ext.colorTheme).name}</b> as a color theme also{' '}
-          <b>{extensions.find((ext) => ext.iconTheme).name}</b> as a icon theme.
-        </p>
-      </Section>
-    </>
-  );
+interface AboutProps {
+  about: Record<string, any>;
+}
+
+const About: Page<AboutProps> = ({ about }) => {
+  return <MDX scope={{ extensions }} components={{ Section }} mdxSource={about.mdxSource} />;
 };
+
 About.layoutProps = {
   title: 'About',
   description: `Hi my name is Yasin Kadir. I was born in Turkey/Istanbul. I&apos;m currently a student in middle school. 1
 year ago I started programming with <b>Node.js</b> for write web apps. I mostly use Javascript and Typescript
 these are my favourites.`,
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const about = await getByPath('about');
+  return {
+    props: {
+      about,
+    },
+  };
 };
 
 export default About;
