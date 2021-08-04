@@ -102,6 +102,6 @@ export const getMatters = (type: string) => {
 
     const result = matters[type](source, currentSlug);
 
-    return [result, ...AllSlugs];
+    return [{ ...result, slug: currentSlug }, ...AllSlugs];
   }, []);
 };
