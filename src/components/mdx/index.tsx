@@ -11,7 +11,7 @@ export const remarkPlugins = [
 ];
 export const rehypePlugins = [];
 
-const components = {
+const defaultComponents = {
   img,
   code,
   pre,
@@ -19,10 +19,14 @@ const components = {
   a,
 };
 
-interface MarkdownProps {
+interface MDXProps {
   mdxSource: MDXRemoteSerializeResult;
+  scope?: Record<string, any>;
+  components?: Record<string, React.ReactNode>;
 }
 
-const Markdown: React.FC<MarkdownProps> = ({ mdxSource }) => <MDXRemote components={components} {...mdxSource} />;
+const MDX: React.FC<MDXProps> = ({ mdxSource, components, ...props }) => (
+  <MDXRemote components={{ ...defaultComponents, ...components }} {...mdxSource} {...props} />
+);
 
-export default Markdown;
+export default MDX;
