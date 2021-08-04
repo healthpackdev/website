@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next';
-import { getBlogPostMatters, IBlogPostMatter } from '@lib/mdx';
+import { getMatters, IBlogPostMatter } from '@lib/mdx';
 import { Section } from '@components/section';
 import BlogBody from '@components/Blog';
 
@@ -19,7 +19,7 @@ Blog.layoutProps = (ctx) => ({
 });
 
 export const getStaticProps: GetStaticProps<BlogProps> = () => {
-  const posts = getBlogPostMatters();
+  const posts = getMatters('blog');
 
   return {
     props: {

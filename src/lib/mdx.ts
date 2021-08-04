@@ -5,10 +5,12 @@ import readingTime from 'reading-time';
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { rehypePlugins, remarkPlugins } from '@components/mdx';
+import fg from 'fast-glob';
 
 import dayjs from 'dayjs';
 
 const processRoot = process.cwd();
+const contentDir = path.join(processRoot, 'content');
 
 export interface IBlogPost {
   data: {
@@ -24,71 +26,82 @@ export interface IBlogPost {
 
 export type IBlogPostMatter = Omit<IBlogPost, 'mdxSource'>;
 
-const generateBlogPostMatter = (source: string, slug: string): IBlogPostMatter => {
-  let { data, content } = matter(source);
-  const minReadDuration = dayjs.duration(readingTime(content).time);
+const map = fg.sync('**.mdx', { cwd: contentDir }).map((f) => f.replace(path.extname(f), ''));
 
-  data = {
-    ...data,
-    minRead:
-      minReadDuration.asSeconds() > 60
-        ? `${minReadDuration.asMinutes().toFixed()} dakika`
-        : `${minReadDuration.asSeconds().toFixed()} saniye`,
-    publishedAt: data.publishedAt || null,
-  };
+const matters = {
+  blog(source: string) {
+    let { data, content } = matter(source);
+    const minReadDuration = dayjs.duration(readingTime(content).time);
 
-  return {
-    data: data as IBlogPost['data'],
-    slug,
-  };
+    data = {
+      ...data,
+      minRead:
+        minReadDuration.asSeconds() > 60
+          ? `${minReadDuration.asMinutes().toFixed()} dakika`
+          : `${minReadDuration.asSeconds().toFixed()} saniye`,
+      publishedAt: data.publishedAt || null,
+    };
+
+    return {
+      data: data as IBlogPost['data'],
+      content,
+    };
+  },
+  default(source: string) {
+    const rest = matter(source);
+
+    return rest;
+  },
 };
 
-const generateBlogPost = async (source: string, slug: string) => {
-  let { data } = generateBlogPostMatter(source, slug);
+const generators = {
+  async blog(source: string, slug: string) {
+    const { data, content } = matters.blog(source);
 
-  const { content } = matter(source);
+    const mdxSource = await serialize(content, { mdxOptions: { remarkPlugins, rehypePlugins } });
 
-  const mdxSource = await serialize(content, { mdxOptions: { remarkPlugins, rehypePlugins } });
+    return {
+      data,
+      mdxSource,
+      slug,
+    };
+  },
 
-  return {
-    data,
-    mdxSource,
-    slug,
-  };
+  async default(source: string, slug: string) {
+    const { data, content } = matters.default(source);
+    const mdxSource = await serialize(content, { mdxOptions: { remarkPlugins, rehypePlugins } });
+
+    return { data, mdxSource, slug };
+  },
 };
 
-export const readContentFiles = (type: string) => {
-  const fileNames = fs.readdirSync(path.join(processRoot, 'content', type));
-  return fileNames;
+export const getParams = (type: string) => {
+  const slugs = map
+    .filter((fileName) => {
+      return fileName.split('/')[0] === type;
+    })
+    .map((fileName) => fileName.replace(`${type}/`, ''));
+
+  return slugs;
 };
 
-export const getBySlug = async (type: string, slug: any) => {
-  const fileSource = fs.readFileSync(path.join(processRoot, 'content', type, `${slug}.mdx`), 'utf-8');
-  return await generateBlogPost(fileSource, slug);
+export const getByPath = async (type: string, ...pathname: string[]) => {
+  const full = path.join(type, ...pathname);
+
+  const slug = map.find((f) => f === full);
+  const fileSource = fs.readFileSync(path.join(contentDir, `${slug}.mdx`), 'utf8');
+
+  return await (generators[type] ? generators[type] : generators.default)(fileSource, slug);
 };
 
-export const getBlogPostMatters = () => {
-  const fileNames = readContentFiles('blog');
+export const getMatters = (type: string) => {
+  const slugs = getParams(type);
 
-  return fileNames.reduce((allPosts, currentPost) => {
-    const source = fs.readFileSync(path.join(processRoot, 'content', 'blog', currentPost), 'utf-8');
-    const slug = currentPost.replace('.mdx', '');
+  return slugs.reduce((AllSlugs, currentSlug) => {
+    const source = fs.readFileSync(path.join(contentDir, type, `${currentSlug}.mdx`), 'utf-8');
 
-    const post = generateBlogPostMatter(source, slug);
+    const result = matters[type](source, currentSlug);
 
-    return [post, ...allPosts];
+    return [result, ...AllSlugs];
   }, []);
 };
-
-/*
- const MDXTemplate = (body: Omit<AdminPostInputs, 'image'>, imageName: string) =>
-  `---
-title: ${body.title}
-image: ${imageName}
-description: ${body.description}
-publishedAt: ${Number(new Date())}
----
-
-${body.content}`;
-
-*/

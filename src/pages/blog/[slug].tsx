@@ -1,4 +1,4 @@
-import { readContentFiles, IBlogPost, getBySlug } from '@lib/mdx';
+import { IBlogPost, getByPath, getParams } from '@lib/mdx';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import author from '@config/author-meta.json';
 import dayjs from 'dayjs';
@@ -47,12 +47,12 @@ BlogPost.layoutProps = ({ post: { data } }) => ({
 export default BlogPost;
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const posts = readContentFiles('blog');
+  const posts = getParams('blog');
 
   return {
-    paths: posts.map((p) => ({
+    paths: posts.map((slug) => ({
       params: {
-        slug: p.replace(/\.mdx/, ''),
+        slug,
       },
     })),
     fallback: false,
@@ -60,7 +60,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 };
 
 export const getStaticProps: GetStaticProps<BlogPostProps> = async ({ params }) => {
-  const post = await getBySlug('blog', params.slug);
+  const post = await getByPath('blog', params.slug as string);
 
   return { props: { post } };
 };
