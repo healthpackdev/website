@@ -97,11 +97,11 @@ export const getByPath = async (type: string, ...pathname: string[]) => {
 export const getMatters = (type: string) => {
   const slugs = getParams(type);
 
-  return slugs.reduce((AllSlugs, currentSlug) => {
-    const source = fs.readFileSync(path.join(contentDir, type, `${currentSlug}.mdx`), 'utf-8');
+  return slugs.map((slug) => {
+    const source = fs.readFileSync(path.join(contentDir, type, `${slug}.mdx`), 'utf-8');
 
-    const result = matters[type](source, currentSlug);
+    const data = matters[type](source, slug);
 
-    return [{ ...result, slug: currentSlug }, ...AllSlugs];
+    return { ...data, slug };
   }, []);
 };
