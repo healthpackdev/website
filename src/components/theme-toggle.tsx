@@ -1,31 +1,19 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
+import { useEffect } from 'react';
 
 const ThemeToggle: React.FC = ({ ...props }) => {
-  const [themeState, setThemeState] = useState(null);
-
-  const isDark = themeState === 'dark';
-
-  useEffect(() => {
-    const html = document.documentElement;
-
-    const theme = localStorage.getItem('theme') || 'light';
-    if (theme) html.classList.remove('hidden');
-
-    if (theme === 'light') {
-      html.classList.remove('dark');
-    } else {
-      html.classList.remove('light');
-    }
-    html.classList.add(theme);
-    html.style['color-scheme'] = theme;
-    setThemeState(theme);
-  }, [themeState]);
+  const { setTheme, resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === 'dark';
 
   const toggleTheme = () => {
-    localStorage.setItem('theme', isDark ? 'light' : 'dark');
-    setThemeState(isDark ? 'light' : 'dark');
+    setTheme(isDark ? 'light' : 'dark');
   };
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.remove('hidden');
+  }, []);
 
   return (
     <button

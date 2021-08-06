@@ -20,19 +20,19 @@ const rehypePlugins = [];
 const processRoot = process.cwd();
 const contentDir = path.join(processRoot, 'content');
 
-export interface IBlogPost {
+export interface BlogPost {
   data: {
     title: string;
     image: string;
     description: string;
-    publishedAt: Date;
+    publishedAt: number;
     minRead: string;
   };
   mdxSource: MDXRemoteSerializeResult;
   slug: string;
 }
 
-export type IBlogPostMatter = Omit<IBlogPost, 'mdxSource'>;
+export type BlogPostMatter = Omit<BlogPost, 'mdxSource'>;
 
 const map = fg.sync('**.mdx', { cwd: contentDir }).map((f) => f.replace(path.extname(f), ''));
 

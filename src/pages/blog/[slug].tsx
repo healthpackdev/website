@@ -1,12 +1,13 @@
-import { BlogPost, getByPath, getParams } from '@lib/mdx';
+import { BlogPost as IBlogPost, getByPath, getParams } from '@lib/mdx';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import author from '@config/author-meta.json';
 import dayjs from 'dayjs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MDX from '@components/mdx';
+import BlogComments from '@components/blog-comments';
 
 interface BlogPostProps {
-  post: BlogPost;
+  post: IBlogPost;
 }
 
 const BlogPost: Page<BlogPostProps> = ({ post: { data, mdxSource } }) => {
@@ -25,6 +26,7 @@ const BlogPost: Page<BlogPostProps> = ({ post: { data, mdxSource } }) => {
         </div>
       </div>
       <MDX mdxSource={mdxSource} />
+      <BlogComments />
     </article>
   );
 };

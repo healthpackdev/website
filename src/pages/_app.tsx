@@ -1,13 +1,10 @@
 import type { AppProps } from 'next/app';
+import type { NextPage } from 'next';
+import Layout from '@layout/index';
+import { ThemeProvider } from 'next-themes';
 import '@lib/font-awesome';
 import '@lib/dayjs';
 import '@theme/main.css';
-import Layout from '@layout/index';
-import type { NextPage } from 'next';
-
-if (process.env.NODE_ENV !== 'production') {
-  import('preact/debug');
-}
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   let layoutProps = (Component as Page).layoutProps;
@@ -15,9 +12,11 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   if (typeof layoutProps === 'function') layoutProps = layoutProps(pageProps);
 
   return (
-    <Layout {...layoutProps}>
-      <Component {...pageProps} />
-    </Layout>
+    <ThemeProvider attribute="class">
+      <Layout {...layoutProps}>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   );
 };
 
