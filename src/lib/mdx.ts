@@ -33,12 +33,12 @@ const matters = {
     let { data: frontmatter, content } = matter(source);
     const minReadDuration = dayjs.duration(readingTime(content).time);
 
+    const seconds = minReadDuration.asSeconds();
+    const isMinute = seconds > 60;
+
     const data = {
       ...frontmatter,
-      minRead:
-        minReadDuration.asSeconds() > 60
-          ? `${minReadDuration.asMinutes().toFixed()} dakika`
-          : `${minReadDuration.asSeconds().toFixed()} saniye`,
+      minRead: isMinute ? `${minReadDuration.asMinutes().toFixed()} dakika` : `${seconds.toFixed()} saniye`,
       publishedAt: frontmatter.publishedAt || null,
     };
 
