@@ -4,10 +4,18 @@ import matter from 'gray-matter';
 import readingTime from 'reading-time';
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import { rehypePlugins, remarkPlugins } from '@components/mdx';
 import fg from 'fast-glob';
-
 import dayjs from 'dayjs';
+
+import remarkCodeTitle from './remark-code-title';
+
+const remarkPlugins = [
+  require('remark-slug'),
+  [require('remark-autolink-headings'), { linkProperties: { className: ['anchor'] } }],
+  remarkCodeTitle,
+];
+
+const rehypePlugins = [];
 
 const processRoot = process.cwd();
 const contentDir = path.join(processRoot, 'content');

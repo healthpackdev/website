@@ -1,15 +1,12 @@
-import img from './Image';
+import img from './image';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { remarkCodeTitle, code, inlineCode } from './Code';
-import pre from './Pre';
-import a from './Link';
+import inlineCode from './inline-code';
+import pre from './pre';
+import a from './link';
+import code from './code';
 
-export const remarkPlugins = [
-  require('remark-slug'),
-  [require('remark-autolink-headings'), { linkProperties: { className: ['anchor'] } }],
-  remarkCodeTitle,
-];
-export const rehypePlugins = [];
+// import prism language
+import '@config/prism-languages';
 
 const defaultComponents = {
   img,

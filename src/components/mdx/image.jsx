@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 
-export default function img({ src, alt }) {
+const Img = ({ src, alt }) => {
   if (src.startsWith('https://') || src.startsWith('http://')) {
     return <img alt={alt} src={src}></img>;
   } else if (src.startsWith('/')) {
@@ -17,4 +17,6 @@ export default function img({ src, alt }) {
   } else {
     throw new Error("url doesn't correct");
   }
-}
+};
+
+export default Img;

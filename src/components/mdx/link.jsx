@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHashtag } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 
-export default function a({ className, children, href, ...p }) {
+const a = ({ className, children, href, ...p }) => {
   // if element has anchor class transform it hashtag
   if (className?.includes('anchor')) {
     return (
@@ -26,4 +26,6 @@ export default function a({ className, children, href, ...p }) {
       {children}
     </a>
   );
-}
+};
+
+export default a;
