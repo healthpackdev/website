@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CopyButton = ({ visible, text }) => {
   const [copied, setCopied] = useState(false);
@@ -13,12 +12,8 @@ const CopyButton = ({ visible, text }) => {
   };
 
   return (
-    <button onClick={onCopy} className={`invisible absolute right-5 top-2 ${visible ? '!visible' : ''}`}>
-      <FontAwesomeIcon
-        icon={['fas', copied ? 'clipboard-check' : 'clipboard']}
-        className="!w-6 !h-6"
-        color={copied ? 'rgb(52, 211, 153)' : null}
-      />
+    <button onClick={onCopy} className={`btn py-0 px-4 invisible absolute right-2 top-2 ${visible ? '!visible' : ''}`}>
+      <span className="font-mono">{!copied ? 'copy' : 'copied'}</span>
     </button>
   );
 };
