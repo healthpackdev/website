@@ -1,4 +1,4 @@
-import { IBlogPost, getByPath, getParams } from '@lib/mdx';
+import { BlogPost, getByPath, getParams } from '@lib/mdx';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import author from '@config/author-meta.json';
 import dayjs from 'dayjs';
@@ -6,28 +6,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MDX from '@components/mdx';
 
 interface BlogPostProps {
-  post: IBlogPost;
+  post: BlogPost;
 }
 
 const BlogPost: Page<BlogPostProps> = ({ post: { data, mdxSource } }) => {
   const date = dayjs(data.publishedAt);
 
   return (
-    <>
-      <article className="prose dark:prose-dark mx-auto my-2">
-        <h1 className="!m-0">{data.title}</h1>
-        <p>{data.description}</p>
-        <div className="space-x-4 mt-2 mb-10">
-          <div className="bg-primary rounded-md py-1 px-3 inline-block border">
-            <FontAwesomeIcon icon={['fas', 'clock']} /> {date.format('MMMM D[,] YYYY')}
-          </div>
-          <div className="bg-primary rounded-md py-1 px-3 inline-block border">
-            <FontAwesomeIcon icon={['fas', 'hourglass']} /> {data.minRead} okuma
-          </div>
+    <article className="prose dark:prose-dark mx-auto my-2">
+      <h1 className="!m-0">{data.title}</h1>
+      <p>{data.description}</p>
+      <div className="space-x-4 mt-2 mb-10">
+        <div className="bg-primary rounded-md py-1 px-3 inline-block border">
+          <FontAwesomeIcon icon={['fas', 'clock']} /> {date.format('MMMM D[,] YYYY')}
         </div>
-        <MDX mdxSource={mdxSource} />
-      </article>
-    </>
+        <div className="bg-primary rounded-md py-1 px-3 inline-block border">
+          <FontAwesomeIcon icon={['fas', 'hourglass']} /> {data.minRead} okuma
+        </div>
+      </div>
+      <MDX mdxSource={mdxSource} />
+    </article>
   );
 };
 
