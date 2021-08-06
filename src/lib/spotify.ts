@@ -2,20 +2,21 @@ import formUrlEncode from 'querystring';
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
-const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
 
-const BasicKey = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
+const Basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
 
+// get spotify access token with client_id and client_secret
 const getAccessToken = async () => {
   return fetch(`https://accounts.spotify.com/api/token`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: `Basic ${BasicKey}`,
+      Authorization: `Basic ${Basic}`,
     },
     body: formUrlEncode.stringify({
-      grant_type: 'refresh_token',
-      refresh_token,
+      grant_type: 'client_credentials',
+      client_id,
+      client_secret,
     }),
   }).then((res) => res.json());
 };
