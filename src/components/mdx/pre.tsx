@@ -13,7 +13,7 @@ const CopyButton = ({ visible, text }) => {
 
   return (
     <button onClick={onCopy} className={`btn py-0 px-4 invisible absolute right-2 top-2 ${visible ? '!visible' : ''}`}>
-      <span className="font-mono">{!copied ? 'copy' : 'copied'}</span>
+      <span className="font-mono">{!copied ? 'Kopyala' : 'Kopyalandı'}</span>
     </button>
   );
 };
