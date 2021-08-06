@@ -1,3 +1,5 @@
 {
-  "hostName": "healthpackdev.cf"
+  "hostName": "healthpackdev.cf",
+  "publicRepoName": "website",
+  "giscusRepoId": "MDEwOlJlcG9zaXRvcnkzNjYzODg5ODk="
 }
