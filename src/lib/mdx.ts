@@ -30,20 +30,20 @@ const map = fg.sync('**.mdx', { cwd: contentDir }).map((f) => f.replace(path.ext
 
 const matters = {
   blog(source: string) {
-    let { data, content } = matter(source);
+    let { data: frontmatter, content } = matter(source);
     const minReadDuration = dayjs.duration(readingTime(content).time);
 
-    data = {
-      ...data,
+    const data = {
+      ...frontmatter,
       minRead:
         minReadDuration.asSeconds() > 60
           ? `${minReadDuration.asMinutes().toFixed()} dakika`
           : `${minReadDuration.asSeconds().toFixed()} saniye`,
-      publishedAt: data.publishedAt || null,
+      publishedAt: frontmatter.publishedAt || null,
     };
 
     return {
-      data: data as IBlogPost['data'],
+      data,
       content,
     };
   },
