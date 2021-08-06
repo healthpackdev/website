@@ -1,9 +1,9 @@
 import author from '@config/author-meta.json';
 import { Section } from '@components/section';
 import Image from 'next/image';
-import css from './Techs.module.css';
+import css from './css/Techs.module.css';
 
-const index: React.FC = () => (
+const Techs: React.FC = () => (
   <Section id="technologies" header="Technologies I use">
     <div className={css.techs}>
       {author.techs.map((tech, index) => (
@@ -21,4 +21,4 @@ const index: React.FC = () => (
   </Section>
 );
 
-export default index;
+export default Techs;

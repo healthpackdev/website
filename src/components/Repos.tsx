@@ -1,9 +1,9 @@
+import type { ErrorOrRepo } from 'src/pages/index';
 import Link from 'next/link';
 import { Section } from '@components/section';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import type { ErrorOrRepo } from '../../pages/index';
 import Image from 'next/image';
-import css from './Repos.module.css';
+import css from './css/Repos.module.css';
 
 interface RepositoriesProps {
   readonly repos: ErrorOrRepo;
