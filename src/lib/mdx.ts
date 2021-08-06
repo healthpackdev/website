@@ -90,8 +90,9 @@ export const getByPath = async (type: string, ...pathname: string[]) => {
 
   const slug = map.find((f) => f === full);
   const fileSource = fs.readFileSync(path.join(contentDir, `${slug}.mdx`), 'utf8');
+  const fn = generators[type] ? generators[type] : generators.default;
 
-  return await (generators[type] ? generators[type] : generators.default)(fileSource, slug);
+  return await fn(fileSource, slug);
 };
 
 export const getMatters = (type: string) => {
