@@ -31,11 +31,13 @@ Your personal Github access token [see](https://docs.github.com/en/github/authen
 
 - `SPOTIFY_CLIENT_ID` and `SPOTIFY_CLIENT_SECRET`
 
-Your Spotify client credentials with callback your website [see](https://developer.spotify.com/documentation/general/guides/app-settings/)
+Your Spotify client credentials [see](https://developer.spotify.com/documentation/general/guides/app-settings/)
 
 - `SPOTIFY_REFRESH_TOKEN`
 
 Your Spotify user refresh token [see](https://benwiz.com/blog/create-spotify-refresh-token)
+
+add `user-read-currently-playing` scope
 
 ### Running Locally
 
