@@ -21,11 +21,11 @@ const NavbarHead = () => {
             <div className="space-x-2">
               <FontAwesomeIcon
                 icon={['fab', 'spotify']}
-                color={author.socials.find((s) => s.icon[1] === 'spotify').color}
+                color={author.socials.find((s) => s.icon === 'spotify').color as string}
               />
               <span
                 style={{
-                  color: data.songName ? author.socials.find((s) => s.icon[1] === 'spotify').color : 'inherit',
+                  color: data.songName ? (author.socials.find((s) => s.icon === 'spotify').color as string) : 'inherit',
                 }}
                 className="font-comic text-lg">
                 {data.songName ? data.songName : 'Not Playing'}

@@ -33,7 +33,7 @@ module.exports = {
   },
   async redirects() {
     return author.socials.map((social) => {
-      const source = `/${social.icon[1]}`; // ['fab','discord']
+      const source = `/${social.icon}`; // 'name'
       const redirect = social.href;
       return {
         source: source,

@@ -3,8 +3,8 @@ import { useTheme } from 'next-themes';
 import { useEffect } from 'react';
 
 const ThemeToggle: React.FC = ({ ...props }) => {
-  const { setTheme, resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === 'dark';
+  const { setTheme, theme } = useTheme();
+  const isDark = theme === 'dark';
 
   const toggleTheme = () => {
     setTheme(isDark ? 'light' : 'dark');

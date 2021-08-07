@@ -5,5 +5,5 @@
 }
 .social:hover {
   background-color: var(--social-color);
-  color: white;
+  color: var(--social-color-hover);
 }

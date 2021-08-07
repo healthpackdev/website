@@ -1,4 +1,4 @@
-import Navbar from 'src/layout/Navbar';
+import Navbar from '@layout/Navbar';
 import Footer from '@layout/Footer';
 import ScrollTop from '@layout/scroll-top';
 import Seo, { SeoProps } from '@layout/Seo';

@@ -1,10 +1,14 @@
+import type { IconName } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import author from '@config/author-meta.json';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import Link from 'next/link';
+import { getColor } from '@lib/theme';
+import { useTheme } from 'next-themes';
 
 const Footer: React.FC = () => {
+  const { theme } = useTheme();
+
   return (
     <footer className="max-w-content my-10">
       <div className="flex border-t py-2 justify-between items-center flex-col lg:flex-row text-center lg:text-left">
@@ -20,10 +24,10 @@ const Footer: React.FC = () => {
         </p>
         <div className="flex justify-center space-x-4 my-1">
           {author.socials.map((social, index) => (
-            <Link href={`/${social.icon[1]}`} key={index.toString()}>
-              <a style={{ color: social.color }}>
-                <FontAwesomeIcon icon={social.icon as IconProp} />
-                <span className="hidden">{social.icon[1]}</span> {/* Links do not have a discernible name */}
+            <Link href={`/${social.icon}`} key={index.toString()}>
+              <a style={{ color: getColor(social.color, theme) }}>
+                <FontAwesomeIcon icon={['fab', social.icon as IconName]} />
+                <span className="hidden">{social.icon}</span> {/* Links do not have a discernible name */}
               </a>
             </Link>
           ))}
