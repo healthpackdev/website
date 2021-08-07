@@ -35,6 +35,11 @@ see https://docs.github.com/en/github/authenticating-to-github/keeping-your-acco
 Your Spotify client credentials with callback your website
 see https://developer.spotify.com/documentation/general/guides/app-settings/
 
+- `SPOTIFY_REFRESH_TOKEN`
+
+Your Spotify user refresh_token
+see how to get a refresh_token https://benwiz.com/blog/create-spotify-refresh-token/
+
 ### Running Locally
 
 ```shell
