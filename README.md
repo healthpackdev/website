@@ -49,3 +49,7 @@ $ cd website
 $ npm install
 $ npm run dev
 ```
+
+# LISENCE
+
+[MIT](https://github.com/healthpackdev/website/blob/main/LISENCE)
