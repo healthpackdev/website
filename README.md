@@ -13,7 +13,7 @@
 
 # Overview
 
-In a week, I build a personal website for me. It has fully static pages so you can host it anywhere. It is written in typescript and it uses React as a front-end library for ssr uses Next.js.
+In a week, I build a personal website for me. It is written in Typescript, using Next.js.
 
 # Getting Started
 
