@@ -8,7 +8,6 @@
  <img src="https://img.shields.io/github/forks/healthpackdev/website?label=Forks&logo=github&style=flat-square">
  <img src="https://img.shields.io/github/stars/healthpackdev/website?label=Stars&logo=github&style=flat-square"><br>
  <a href="https://vercel.com/new/git/external?repository-url=https://github.com/healthpackdev/website"><img alt="deploy with vercel" src="https://vercel.com/button"></a>
- <a href="https://app.netlify.com/start/deploy?repository=https://github.com/healthpackdev/website"><img alt="deploy with netlify" src="https://www.netlify.com/img/deploy/button.svg"></a>
 </p>
 
 # Overview
