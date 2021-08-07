@@ -7,7 +7,7 @@ import { getUserRepositories } from '@lib/github';
 
 import author from '@config/author-meta.json';
 
-interface Repo {
+export interface Repo {
   fork_count: number;
   lang: string;
   link: string;
