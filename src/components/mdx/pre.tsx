@@ -21,16 +21,20 @@ const CopyButton = ({ visible, text }) => {
 const Pre = ({ children, ...props }) => {
   const [hover, setHover] = useState(false);
   const code = children.props.children;
+  const title = children.props.title;
 
   const onHoverEvent = () => {
     setHover(!hover);
   };
 
   return (
-    <div className="relative" onMouseEnter={onHoverEvent} onMouseLeave={onHoverEvent}>
-      <CopyButton visible={hover} text={code} />
-      <pre {...props}>{children}</pre>
-    </div>
+    <>
+      {title && <div data-title>{title}</div>}
+      <div className="relative" onMouseEnter={onHoverEvent} onMouseLeave={onHoverEvent}>
+        <CopyButton visible={hover} text={code} />
+        <pre {...props}>{children}</pre>
+      </div>
+    </>
   );
 };
 export default Pre;

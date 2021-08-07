@@ -79,15 +79,16 @@ Statik bir veri göndermek için bu fonksiyonu oluşturup export edebilirsiniz.
 Bu şekilde Next.js bunu çalıştırıp Home sayfanıza texts verisini gönderir
 ve statik bir html sayfası oluşur.
 
-```jsx:pages/index.js
-
-export default function Home({ texts }){
-  return texts.map((text) => { return <p>{text}</p> })
+```jsx title=pages/index.js
+export default function Home({ texts }) {
+  return texts.map((text) => {
+    return <p>{text}</p>;
+  });
 }
 
-export async function getStaticProps () {
+export async function getStaticProps() {
   return {
-    props: {texts: await getTextsFromServer()}
+    props: { texts: await getTextsFromServer() },
   };
 }
 ```
