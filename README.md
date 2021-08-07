@@ -21,7 +21,6 @@ In a week, I build a personal website for me. It has fully static pages so you c
 
 - Node.js
 - Git or Download repository as ZIP
-- **Recommended**: pnpm faster than **yarn** and **npm**
 
 ### Enviroment variables
 
@@ -44,7 +43,9 @@ add `user-read-currently-playing` scope
 ```shell
 $ git clone https://github.com/healthpackdev/website
 # or download as ZIP and extract it
+
 $ cd website
+
+$ npm install
 $ npm run dev
-# pnpm dev
 ```
