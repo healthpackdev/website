@@ -27,18 +27,15 @@ In a week, I build a personal website for me. It has fully static pages so you c
 
 - `GITHUB_ACCESS_TOKEN`
 
-Your personal Github access token<br>
-[see](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+Your personal Github access token [see](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
 - `SPOTIFY_CLIENT_ID` and `SPOTIFY_CLIENT_SECRET`
 
-Your Spotify client credentials with callback your website<br>
-[see](https://developer.spotify.com/documentation/general/guides/app-settings/)
+Your Spotify client credentials with callback your website [see](https://developer.spotify.com/documentation/general/guides/app-settings/)
 
 - `SPOTIFY_REFRESH_TOKEN`
 
-Your Spotify user refresh_token<br>
-[see](https://benwiz.com/blog/create-spotify-refresh-token)
+Your Spotify user refresh token [see](https://benwiz.com/blog/create-spotify-refresh-token)
 
 ### Running Locally
 
