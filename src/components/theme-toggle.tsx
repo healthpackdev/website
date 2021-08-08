@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useTheme } from 'next-themes';
+import { useReactiveTheme } from '@lib/theme';
 import { useEffect } from 'react';
 
 const ThemeToggle: React.FC = ({ ...props }) => {
-  const { setTheme, theme } = useTheme();
+  const { setTheme, theme } = useReactiveTheme();
   const isDark = theme === 'dark';
 
   const toggleTheme = () => {
@@ -11,9 +11,11 @@ const ThemeToggle: React.FC = ({ ...props }) => {
   };
 
   useEffect(() => {
-    const root = document.documentElement;
-    root.classList.remove('hidden');
-  }, []);
+    if (theme) {
+      const root = document.documentElement;
+      root.classList.remove('hidden');
+    }
+  }, [theme]);
 
   return (
     <button

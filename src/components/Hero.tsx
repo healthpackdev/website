@@ -4,18 +4,12 @@ import author from '@config/author-meta.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import css from './css/Hero.module.css';
 import Link from 'next/link';
-import { useTheme } from 'next-themes';
+import { getColor, useReactiveTheme } from '@lib/theme';
 
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
-const getColor = (color: string[] | string, theme: string) => {
-  if (!Array.isArray(color)) return color;
-
-  return theme === 'dark' ? color[1] : color[0];
-};
-
 const Hero: React.FC = () => {
-  const { theme } = useTheme();
+  const { theme } = useReactiveTheme();
 
   return (
     <Section header="Hi I'm Yasin Kadir" id="hero">

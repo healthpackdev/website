@@ -3,11 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import author from '@config/author-meta.json';
 import Link from 'next/link';
-import { getColor } from '@lib/theme';
-import { useTheme } from 'next-themes';
+import { getColor, useReactiveTheme } from '@lib/theme';
 
 const Footer: React.FC = () => {
-  const { theme } = useTheme();
+  const { theme } = useReactiveTheme();
 
   return (
     <footer className="max-w-content my-10">

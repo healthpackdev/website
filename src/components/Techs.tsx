@@ -1,12 +1,11 @@
-import author from '@config/author-meta.json';
 import { Section } from '@components/section';
+import { getTechUrl, useReactiveTheme } from '@lib/theme';
+import author from '@config/author-meta.json';
 import Image from 'next/image';
 import css from './css/Techs.module.css';
-import { useTheme } from 'next-themes';
-import { getTechUrl } from '@lib/theme';
 
 const Techs: React.FC = () => {
-  const { theme } = useTheme();
+  const { theme } = useReactiveTheme();
 
   return (
     <Section id="technologies" header="Technologies I use">
