@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import author from '@config/author-meta.json';
 import ThemeToggle from '@components/theme-toggle';
+
+import author from '@config/author-meta.json';
 
 const NavbarGithub: React.FC = () => (
   <div className="flex items-center">

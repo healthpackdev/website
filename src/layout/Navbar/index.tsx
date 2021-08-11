@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import { NavbarLeftItems, Links } from './navbar-left-items';
 import NavbarRightItems from './navbar-right-items';
 import NavbarHead from './navbar-head';

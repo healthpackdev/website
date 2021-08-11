@@ -1,9 +1,10 @@
-import links from '@config/nav-links.json';
-import Link from 'next/link';
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import React from 'react';
+
+import links from '@config/nav-links.json';
 
 export const Links: React.FC<React.HTMLProps<HTMLDivElement>> = ({ className }) => {
   const { asPath } = useRouter();

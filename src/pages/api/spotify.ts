@@ -13,9 +13,12 @@ const spotify: NextApiHandler = async (_, res) => {
   if (song.item === null) {
     return res.status(200).json({ isPlaying: false });
   }
+
   res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=30');
+
   return res.status(200).json({
     songName: song.item.name,
+    artists: song.item.artists.map((art) => art.name),
     isPlaying: true,
   });
 };
