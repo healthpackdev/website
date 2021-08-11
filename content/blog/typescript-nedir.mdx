@@ -1,0 +1,112 @@
+---
+title: Typescript nedir? Neden kullanmalısınız?
+image: is-typescript-awesome.png
+description: Typescript nedir? Hangi durumlarda Typescript kullanmalısınız?
+publishedAt: 1628688387795
+---
+
+Kullanmayı sevdiğim bir programlama dil olan [TypeScript](https://www.typescriptlang.org/)'in ne olduğunu anlatma zamanı geldi.
+
+## Typescript nedir?
+
+**Typescript**, Javascript'ten farklı olarak `strongly-typed` bir programlama dilidir.
+Typescript C#'ı tasarlayan ve Delph'i yapan **Anders Hejlsberg** tarafından tasarlanmıştır.
+**2012** yılında ilk sürümü çıkmıştır.
+
+Javascript'in sunucu tarafı çalışmasıyla daha büyük uygulamalarda kullanılmasından dolayı uygulamanın ölçeklendirilmesi önemli olmuştur.
+Bu gereksinim `type-safety` bir dil istenmesine sebep olmuştu ve **Microsoft** bu sorunu çözmek için **Typescript**'i oluşturmuştur.
+
+**Typescript**, Javascript'e derlenir ve Javascript kodu Typescript içinde çalışabilir.
+
+## Neden Typescript kullanmalısınız?
+
+### Derleme sürecine sahiptir.
+
+Javascript yorumlanan bir dildir ve kod çalışmadığı sürece hataların ne olduğunu anlayamazsınız.
+Typescript ise Javascript'e derleme sürecine sahiptir, derlenme sırasında olası hataları size söyler.
+
+### Güçlü tipler
+
+Javascript'te `statik` tipler yoktur. Tipler çalışma zamanı sırasında `dinamik` olarak belirlenir.
+Typescript'te ise değişkenlerinize `statik` bir tip verebilirsiniz eğer bir uyumsuzluk varsa derlenme süresinde size hata olarak bildirilir.
+
+### IDE Desteği
+
+Verdiğiniz tipler sayesinde `IDE`'ler size otomatik tamamlamayı daha iyi sağlayabilir ve hataları size bildirebilir fakat
+alternatif olarak sadece otomatik tamamlama istiyorsanız [JSDoc](https://jsdoc.app/) kullanabilirsiniz.
+
+### Okunabilirlik
+
+Javascript'te `statik` bir tip belirtemediğiniz için kodu okuyan bir kişi burada ne olacağını anlamayabilir örnek:
+
+```js
+function saveUser(user) {
+  // ...
+}
+```
+
+Bu fonksiyondaki `user` parametresi ne olabilir nelere sahip? Bunu Typescript'te kolayca belirtebilirsiniz:
+
+```ts
+interface User {
+  name: string;
+  age: number;
+}
+
+function saveUser(user: User) {
+  // ...
+}
+```
+
+Bu sayede **open-source** projelerinizi daha okunabilir yapabilirsiniz.
+
+## Typescript'e Giriş
+
+Typescript'i tarayıcı için basitçe nasıl derleneceğine bakalım.
+
+`Typescript` derleyicisini indirelim
+
+```shell
+$ npm install -g typescript
+```
+
+Bu bize `tsc` komutunu heryerde kullanmamıza olanak sağlayacaktır tabi ki bunu<br />
+`shell//$ npx tsc` komutunu kullanarak indirmeden kullanabilirsiniz.
+
+Bir **Typescript** dosyası oluşturalım typescript dosyaları `.ts` uzantısına sahiptir.
+`index.ts` dosyasını açalım.
+
+```ts title=index.ts
+function say(message: string) {
+  console.log(message);
+}
+
+// Eğer bir sayı yazsaydık bize bir hata verirdi.
+say('Hello World!');
+```
+
+Bir `tsconfig.json` dosyası oluşturalım bu Typescript'e nasıl derlenmek istediğinizi söylemek içindir.
+`tsconfig` dosyasında yorum satırları yazabilirsiniz.
+
+```json title=tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es5", // çıktının es5 olmasını söyleyelim
+    "outFile": "index.js" // index.js dosyasına çıkarmasını söyleyelim
+  },
+  "include": ["index.ts"] // sadece index.ts dosyasını derlemesini söyleyelim
+}
+```
+
+Ve şu komutu yazalım.
+
+```shell
+$ tsc
+```
+
+**Mükemmel**! size bir `index.js` dosyası oluşturacaktır bunu istediğiniz gibi kullanabilirsiniz.
+
+## Sonuç
+
+Typescript'in ne kadar güzel birşey olduğunu 4 satırda açıkladım.
+Typescript `open-source` projeleriniz için mükemmel bir seçim olacaktır fakat gerekmedikçe Typescript kullanmak derleme hızına etki edebilir.
