@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 const Img = ({ src, alt }) => {
   if (src.startsWith('https://') || src.startsWith('http://')) {
+    // eslint-disable-next-line @next/next/no-img-element
     return <img alt={alt} src={src}></img>;
   } else if (src.startsWith('/')) {
     const urlWithSize = decodeURIComponent(src).split('|');
