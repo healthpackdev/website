@@ -1,24 +1,13 @@
 import Hero from '@components/Hero';
 import Techs from '@components/Techs';
-import Repos from '@components/Repos';
+import { Repos, ReposProps } from '@components/Repos';
 import Contact from '@components/Contact';
 import { GetStaticProps } from 'next';
 import { getUserRepositories } from '@lib/github';
 
 import author from '@config/author-meta.json';
 
-export interface Repo {
-  fork_count: number;
-  lang: string;
-  link: string;
-  name: string;
-  star: number;
-  desc: string;
-}
-
-interface HomeProps {
-  repos: Repo[];
-}
+interface HomeProps extends ReposProps {}
 
 const Home: Page<HomeProps> = ({ repos }) => (
   <>

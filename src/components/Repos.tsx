@@ -1,15 +1,23 @@
-import type { Repo } from 'src/pages/index';
 import Link from 'next/link';
 import { Section } from '@components/section';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import css from './css/Repos.module.css';
 
-interface RepositoriesProps {
-  readonly repos: Repo[];
+interface Repo {
+  fork_count: number;
+  lang: string;
+  link: string;
+  name: string;
+  star: number;
+  desc: string;
 }
 
-const Repositories: React.FC<RepositoriesProps> = ({ repos }) => (
+export interface ReposProps {
+  repos: Repo[];
+}
+
+export const Repos: React.FC<ReposProps> = ({ repos }) => (
   <Section id="projects" header="My Github Repositories">
     <div className={css.repos}>
       {repos.map((proj, index) => (
@@ -49,5 +57,3 @@ const Repositories: React.FC<RepositoriesProps> = ({ repos }) => (
     </div>
   </Section>
 );
-
-export default Repositories;
