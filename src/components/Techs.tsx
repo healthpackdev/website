@@ -13,7 +13,6 @@ const Techs: React.FC = () => {
       <div className={css.techs}>
         {author.techs.map((tech, index) => (
           <div className={css.techCard} key={index.toString()}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <Image src={getTechUrl(tech, theme)} alt={tech.name.toLowerCase()} width={18} height={18} />
             <span className={css.techName}>{tech.name}</span>
           </div>
