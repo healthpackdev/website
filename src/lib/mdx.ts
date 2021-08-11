@@ -1,9 +1,9 @@
+import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
-import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
 import fg from 'fast-glob';
 import dayjs from 'dayjs';
 

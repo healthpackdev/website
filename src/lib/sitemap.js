@@ -1,6 +1,7 @@
 const fg = require('fast-glob');
 const fs = require('fs');
 const prettier = require('prettier');
+
 const siteConfig = require('../../config/site-config.json');
 
 const pages = fg.sync([

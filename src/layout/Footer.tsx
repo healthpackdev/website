@@ -1,9 +1,10 @@
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import author from '@config/author-meta.json';
-import Link from 'next/link';
 import { getColor, useReactiveTheme } from '@lib/theme';
+import Link from 'next/link';
+
+import author from '@config/author-meta.json';
 
 const Footer: React.FC = () => {
   const { theme } = useReactiveTheme();

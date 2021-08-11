@@ -1,8 +1,9 @@
 import { Section } from '@components/section';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
-import author from '@config/author-meta.json';
+
 import css from './css/Contact.module.css';
+import author from '@config/author-meta.json';
 
 interface Inputs {
   email: string;

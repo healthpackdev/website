@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+
 import siteConfig from '@config/site-config.json';
 import fonts from '@config/fonts.json';
 import author from '@config/author-meta.json';
@@ -18,7 +19,7 @@ export interface SeoProps {
   };
 }
 
-const Seo: React.FC<SeoProps> = ({ description, title, openGraph = {} }) => {
+export const Seo: React.FC<SeoProps> = ({ description, title, openGraph = {} }) => {
   const router = useRouter();
   const url = `https://${siteConfig.hostName}`;
   const path = url + router.asPath;
@@ -63,5 +64,3 @@ const Seo: React.FC<SeoProps> = ({ description, title, openGraph = {} }) => {
     </Head>
   );
 };
-
-export default Seo;

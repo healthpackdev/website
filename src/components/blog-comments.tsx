@@ -1,7 +1,8 @@
 import { Giscus } from '@giscus/react';
+import { useTheme } from 'next-themes';
+
 import siteConfig from '@config/site-config.json';
 import author from '@config/author-meta.json';
-import { useTheme } from 'next-themes';
 
 const BlogComments = () => {
   const isDark = useTheme().theme === 'dark';

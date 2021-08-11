@@ -28,7 +28,7 @@ export const Links: React.FC<React.HTMLProps<HTMLDivElement>> = ({ className }) 
     </nav>
   );
 };
-const Navigate: React.FC<{ isNavOpen: boolean; onClick: any }> = ({ isNavOpen, onClick }) => (
+export const NavbarLeftItems: React.FC<{ isNavOpen: boolean; onClick: any }> = ({ isNavOpen, onClick }) => (
   <div className="flex items-center">
     <button onClick={onClick} className="icon-button inline-block md:hidden" aria-label="open menu" type="button">
       <FontAwesomeIcon icon={!isNavOpen ? ['fas', 'bars'] : ['fas', 'times']} />
@@ -36,5 +36,3 @@ const Navigate: React.FC<{ isNavOpen: boolean; onClick: any }> = ({ isNavOpen, o
     <Links />
   </div>
 );
-
-export default Navigate;

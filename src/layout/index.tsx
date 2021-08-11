@@ -1,7 +1,7 @@
+import { Seo, SeoProps } from '@layout/Seo';
 import Navbar from '@layout/Navbar';
 import Footer from '@layout/Footer';
 import ScrollTop from '@layout/scroll-top';
-import Seo, { SeoProps } from '@layout/Seo';
 
 export type LayoutProps = SeoProps;
 

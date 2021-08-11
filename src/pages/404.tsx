@@ -16,4 +16,5 @@ const Error: Page = () => {
 };
 
 Error.layoutProps = { title: '404', description: 'Not found page' };
+
 export default Error;

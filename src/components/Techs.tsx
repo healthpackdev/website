@@ -1,7 +1,8 @@
 import { Section } from '@components/section';
 import { getTechUrl, useReactiveTheme } from '@lib/theme';
-import author from '@config/author-meta.json';
 import Image from 'next/image';
+
+import author from '@config/author-meta.json';
 import css from './css/Techs.module.css';
 
 const Techs: React.FC = () => {

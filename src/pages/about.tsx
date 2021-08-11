@@ -1,7 +1,8 @@
-import MDX from '@components/mdx';
+import type { GetStaticProps } from 'next';
 import { Section } from '@components/section';
 import { getByPath } from '@lib/mdx';
-import type { GetStaticProps } from 'next';
+
+import MDX from '@components/mdx';
 
 const extensions = [
   {

@@ -1,10 +1,11 @@
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
 import { Section } from '@components/section';
-import author from '@config/author-meta.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import css from './css/Hero.module.css';
-import Link from 'next/link';
 import { getColor, useReactiveTheme } from '@lib/theme';
+import Link from 'next/link';
+
+import author from '@config/author-meta.json';
+import css from './css/Hero.module.css';
 
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 

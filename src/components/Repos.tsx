@@ -1,7 +1,8 @@
-import Link from 'next/link';
 import { Section } from '@components/section';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 import Image from 'next/image';
+
 import css from './css/Repos.module.css';
 
 interface Repo {

@@ -1,5 +1,6 @@
-import img from './image';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+
+import img from './image';
 import inlineCode from './inline-code';
 import pre from './pre';
 import a from './link';

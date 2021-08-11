@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import NavbarLeftItems, { Links } from '@layout/Navbar/navbar-left-items';
-import NavbarRightItems from '@layout/Navbar/navbar-right-items';
-import NavbarHead from '@layout/Navbar/navbar-head';
+
+import { NavbarLeftItems, Links } from './navbar-left-items';
+import NavbarRightItems from './navbar-right-items';
+import NavbarHead from './navbar-head';
 
 const Navbar: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);

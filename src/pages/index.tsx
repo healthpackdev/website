@@ -1,9 +1,10 @@
+import { GetStaticProps } from 'next';
+import { getUserRepositories } from '@lib/github';
+
 import Hero from '@components/Hero';
 import Techs from '@components/Techs';
 import { Repos, ReposProps } from '@components/Repos';
 import Contact from '@components/Contact';
-import { GetStaticProps } from 'next';
-import { getUserRepositories } from '@lib/github';
 
 import author from '@config/author-meta.json';
 

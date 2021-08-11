@@ -1,10 +1,12 @@
+import type { GetStaticProps, GetStaticPaths } from 'next';
 import { BlogPost as IBlogPost, getByPath, getParams } from '@lib/mdx';
-import { GetStaticProps, GetStaticPaths } from 'next';
-import author from '@config/author-meta.json';
-import dayjs from 'dayjs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import dayjs from 'dayjs';
 import MDX from '@components/mdx';
 import BlogComments from '@components/blog-comments';
+
+import author from '@config/author-meta.json';
 
 interface BlogPostProps {
   post: IBlogPost;

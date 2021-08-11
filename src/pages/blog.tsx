@@ -3,9 +3,11 @@ import { getMatters, BlogPostMatter } from '@lib/mdx';
 import { Section } from '@components/section';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-import css from '@components/css/Blog.module.css';
+
 import Link from 'next/link';
 import dayjs from 'dayjs';
+
+import css from '@components/css/Blog.module.css';
 
 interface BlogProps {
   posts: BlogPostMatter[];

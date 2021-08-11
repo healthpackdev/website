@@ -1,4 +1,4 @@
-import { NextApiHandler } from 'next';
+import type { NextApiHandler } from 'next';
 import { getNowPlaying } from '@lib/spotify';
 
 const spotify: NextApiHandler = async (req, res) => {
