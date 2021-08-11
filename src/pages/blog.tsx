@@ -1,9 +1,8 @@
-import { GetStaticProps } from 'next';
+import type { GetStaticProps } from 'next';
 import { getMatters, BlogPostMatter } from '@lib/mdx';
 import { Section } from '@components/section';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
-
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import dayjs from 'dayjs';
 
@@ -31,7 +30,7 @@ const BlogPostCard: React.FC<{ post: BlogPostMatter }> = ({ post: { data, slug }
 
 const Blog: Page<BlogProps> = ({ posts }) => {
   const [searchValue, setSearchValue] = useState<string>();
-  let searchInputRef: HTMLInputElement;
+  const searchInputRef = useRef<HTMLInputElement>();
 
   const sortedByDate = posts.sort((a, b) => b.data.publishedAt - a.data.publishedAt);
 
@@ -53,14 +52,12 @@ const Blog: Page<BlogProps> = ({ posts }) => {
         <b>{posts.length}</b> tane makale yazdım. Bir makale aramak için aşağıdaki kutucuğa yazı yaz.
       </p>
       <div className={css.search}>
-        <span className={css.searchButton} onClick={() => searchInputRef.focus()}>
+        <span className={css.searchButton} onClick={() => searchInputRef.current.focus()}>
           <FontAwesomeIcon icon={['fas', 'search']} />
         </span>
         <input
-          ref={(input) => {
-            searchInputRef = input;
-          }}
-          onChange={() => setSearchValue(searchInputRef.value.length >= 1 ? searchInputRef.value.toLowerCase() : null)}
+          ref={searchInputRef}
+          onChange={(e) => setSearchValue(e.target.value.length >= 1 ? e.target.value.toLowerCase() : null)}
           type="text"
           className={css.searchInput}
           placeholder="Başlığa veya açıklamaya göre aramak için yaz."
