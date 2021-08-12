@@ -9,7 +9,7 @@ const ScrollTop: React.FC = () => {
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) setTop(false);
       else setTop(true);
     });
-  });
+  }, []);
 
   const onClickScroll = () => {
     document.body.scrollTop = 0;
