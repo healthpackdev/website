@@ -1,14 +1,14 @@
 import { apiFetch } from '@lib/fetch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useMemo } from 'react';
 import Link from 'next/link';
 import useSWR from 'swr';
 
 import author from '@config/author-meta.json';
 
+const color = author.socials.find((s) => s.icon === 'spotify').color as string;
+
 const NavbarHead = () => {
   const { data } = useSWR('/spotify', apiFetch);
-  const color = useMemo(() => author.socials.find((s) => s.icon === 'spotify'), []).color as string;
 
   return (
     <div className="flex items-center justify-between">
