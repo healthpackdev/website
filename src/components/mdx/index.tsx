@@ -1,19 +1,12 @@
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 import img from './image';
-import inlineCode from './inline-code';
 import pre from './pre';
 import a from './link';
-import code from './code';
-
-// import prism language
-import '@config/prism-languages';
 
 const defaultComponents = {
   img,
-  code,
   pre,
-  inlineCode,
   a,
 };
 

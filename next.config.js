@@ -5,6 +5,7 @@ const StatoscopeWebpackPlugin = require('@statoscope/webpack-plugin').default;
  * @type import('next/dist/next-server/server/config-shared').NextConfig
  */
 module.exports = {
+  experimental: { esmExternals: true },
   webpack(config, { isServer, dev }) {
     if (isServer) {
       require('./src/lib/sitemap.js');

@@ -20,8 +20,9 @@ const CopyButton = ({ visible, text }) => {
 
 const Pre = ({ children, ...props }) => {
   const [hover, setHover] = useState(false);
-  const code = children.props.children;
+
   const title = children.props.title;
+  const code = children.props.code;
 
   const onHoverEvent = () => {
     setHover(!hover);

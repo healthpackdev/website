@@ -7,12 +7,14 @@ import readingTime from 'reading-time';
 import fg from 'fast-glob';
 import dayjs from 'dayjs';
 
+import { rehypeSyntaxHighlight } from './mdx-plugins';
+
 const remarkPlugins = [
   require('remark-slug'),
   [require('remark-autolink-headings'), { linkProperties: { className: ['anchor'] } }],
 ];
 
-const rehypePlugins = [];
+const rehypePlugins = [rehypeSyntaxHighlight];
 
 const processRoot = process.cwd();
 const contentDir = path.join(processRoot, 'content');
