@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/*
 Disallow: /admin/*
-sitemap: https://healthpackdev.cf/sitemap.xml
+Sitemap: https://healthpackdev.cf/sitemap.xml
