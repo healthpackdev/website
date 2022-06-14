@@ -1,19 +1,15 @@
-import visit from 'unist-util-visit';
+import { visit } from 'unist-util-visit';
 import { refractor } from 'refractor';
 import jsx from 'refractor/lang/jsx';
 
 refractor.register(jsx);
-
-interface Tree extends Record<string, any> {
-  type: 'element';
-}
 
 const highlight = (code: string, className: string) => {
   return refractor.highlight(code, className.replace('language-', ''));
 };
 
 export const rehypeSyntaxHighlight = () => (tree) => {
-  return visit<Tree>(tree, 'element', (node) => {
+  return visit(tree, 'element', (node) => {
     if (node.tagName !== 'code' && node.tagName !== 'inlineCode') return;
 
     const value = node.children[0].value;

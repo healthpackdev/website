@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 import siteConfig from '@config/site-config.json';
-import fonts from '@config/fonts.json';
 import author from '@config/author-meta.json';
 
 const authorTwitter = author.socials.find((social) => social.icon[1] == 'twitter')?.href.split('/')[3];
@@ -17,9 +16,14 @@ export interface SeoProps {
       publishedTime: string;
     };
   };
+  children?: any;
 }
 
-export const Seo: React.FC<SeoProps> = ({ description, title, openGraph = {} }) => {
+export const Seo: React.FC<SeoProps> = ({
+  description,
+  title,
+  openGraph = { type: undefined, image: undefined, article: undefined },
+}) => {
   const router = useRouter();
   const url = `https://${siteConfig.hostName}`;
   const path = url + router.asPath;
@@ -40,7 +44,7 @@ export const Seo: React.FC<SeoProps> = ({ description, title, openGraph = {} }) 
       <meta property="og:url" content={url} />
       <meta property="og:locale" content="en_IE" />
       <meta property="og:site_name" content={siteConfig.hostName} />
-      <meta property="og:image" content={`${url}/${openGraph.image}`} />
+      {openGraph.image ? <meta property="og:image" content={`${url}/${openGraph.image}`} /> : <></>}
       {openGraph.article && <meta property="article:published_time" content={openGraph.article.publishedTime} />}
 
       {/* Twitter */}
@@ -58,9 +62,6 @@ export const Seo: React.FC<SeoProps> = ({ description, title, openGraph = {} }) 
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
-      {Object.keys(fonts).map((font) => (
-        <link rel="stylesheet" href={fonts[font].url} key={font} />
-      ))}
     </Head>
   );
 };

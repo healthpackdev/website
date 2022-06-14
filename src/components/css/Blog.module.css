@@ -16,7 +16,7 @@
 }
 
 .searchButton:hover {
-  @apply border-secondary;
+  @apply border-secondary cursor-pointer;
 }
 
 .article {
