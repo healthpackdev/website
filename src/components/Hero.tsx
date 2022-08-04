@@ -6,12 +6,17 @@ import Link from 'next/link';
 
 import author from '@config/author-meta.json';
 import css from './css/Hero.module.css';
+import { useEffect } from 'react';
 
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
 const Hero: React.FC = () => {
-  const { theme } = useReactiveTheme();
-
+  const { theme, systemTheme, setTheme } = useReactiveTheme();
+  useEffect(() => {
+    if (theme === 'system') {
+      setTheme(systemTheme);
+    }
+  });
   return (
     <Section header="Hi I'm Yasin Kadir" id="hero">
       <p className="prose dark:prose-dark">
