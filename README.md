@@ -1,4 +1,4 @@
-# [healthpack.vercel.app](https://healthpackdev.cf)
+# [yasinkadir.dev](yasinkadir.dev)
 
 <p align="center">
   <img src=".github/preview.png" />
