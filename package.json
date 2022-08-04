@@ -23,7 +23,7 @@
     "dayjs": "^1.11.3",
     "fast-glob": "^3.2.11",
     "gray-matter": "^4.0.3",
-    "next": "12.1.7-canary.32",
+    "next": "12.2.4",
     "next-mdx-remote": "3.0.2",
     "next-themes": "^0.2.0",
     "preact": "^10.7.3",
