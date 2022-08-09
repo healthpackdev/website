@@ -1,11 +1,74 @@
 const fonts = require('./config/fonts.json');
 const { fontFamily } = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   mode: 'jit',
   content: ['./src/**/*.{tsx,jsx,js}'],
   darkMode: 'class',
   theme: {
+    colors: {
+      ...colors,
+      light: {
+        1: '#fbfcfd',
+        2: '#f8f9fa',
+        3: '#f1f3f5',
+        4: '#eceef0',
+        5: '#e6e8eb',
+        6: '#dfe3e6',
+        7: '#d7dbdf',
+        8: '#c1c8cd',
+        9: '#889096',
+        10: '#7e868c',
+        11: '#687076',
+        12: '#11181c',
+        typography: '#11181c',
+        blue: {
+          1: '#fbfdff',
+          2: '#f5faff',
+          3: '#edf6ff',
+          4: '#e1f0ff',
+          5: '#cee7fe',
+          6: '#b7d9f8',
+          7: '#96c7f2',
+          8: '#5eb0ef',
+          9: '#0091ff',
+          10: '#0081f1',
+          11: '#006adc',
+          12: '#00254d',
+        },
+      },
+      dark: {
+        1: '#151718',
+        2: '#1a1d1e',
+        3: '#202425',
+        4: '#26292b',
+        5: '#2b2f31',
+        6: '#313538',
+        7: '#3a3f42',
+        8: '#4c5155',
+        9: '#697177',
+        10: '#787f85',
+        11: '#9ba1a6',
+        12: '#ecedee',
+
+        blue: {
+          1: '#000000',
+          2: '#0f5afc',
+          3: '#1677fe',
+          4: '#1476fe',
+          5: '#0f7bfe',
+          6: '#097cff',
+          7: '#047dff',
+          8: '#057eff',
+          9: '#0095ff',
+          10: '#37a1ff',
+          11: '#53acff',
+          12: '#effbff',
+        },
+        typography: 'rgba(236, 237, 238, 0.8)',
+      },
+    },
     fontFamily: {
       sans: [fonts.sans.name, ...fontFamily.sans],
       comic: [fonts.comic.name, ...fontFamily.sans],
@@ -18,12 +81,12 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: 'var(--colors-text-primary)',
+            color: 'var(--colors-text-typography)',
             a: {
-              color: theme('colors.blue.500'),
+              color: 'var(--colors-text-link)',
               textDecoration: 'underline',
               '&:hover': {
-                color: theme('colors.blue.600'),
+                color: 'var(--colors-text-link-hover)',
               },
             },
             pre: {
@@ -57,7 +120,7 @@ module.exports = {
               color: 'var(--colors-text-primary)',
             },
             blockquote: {
-              color: 'var(--colors-text-primary)',
+              borderLeftColor: 'var(--colors-border-primary)',
             },
             thead: {
               border: `1px solid var(--colors-border-primary)`,
@@ -86,38 +149,28 @@ module.exports = {
             'blockquote p:first-of-type::before': false,
             'blockquote p:last-of-type::after': false,
             'h1,h2,h3,h4,h5': {
-              color: 'var(--colors-text-secondary)',
-            },
-          },
-        },
-        dark: {
-          css: {
-            // thead: {
-            //   backgroundColor: theme('colors.gray.900'),
-            // },
-            a: {
-              color: theme('colors.blue.500'),
-              '&:hover': {
-                color: theme('colors.blue.400'),
-              },
-            },
-            blockquote: {
-              borderLeftColor: theme('colors.gray.700'),
+              color: 'var(--colors-text-primary)',
             },
           },
         },
       }),
       borderColor: {
         DEFAULT: 'var(--colors-border-primary)',
-        secondary: 'var(--colors-border-secondary)',
+        hover: 'var(--colors-border-hover)',
       },
       backgroundColor: {
         primary: 'var(--colors-bg-primary)',
-        secondary: 'var(--colors-bg-secondary)',
+        hover: 'var(--colors-bg-hover)',
+        active: 'var(--colors-bg-active)',
+        'blue-primary': 'var(--colors-bg-blue-primary)',
+        'blue-hover': 'var(--colors-bg-blue-hover)',
+        'blue-active': 'var(--colors-bg-blue-active)',
       },
       textColor: {
         primary: 'var(--colors-text-primary)',
         secondary: 'var(--colors-text-secondary)',
+        link: 'var(--colors-text-link)',
+        'link-hover': 'var(--colors-text-link-hover)',
       },
       container: {
         center: true,

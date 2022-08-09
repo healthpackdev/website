@@ -16,7 +16,7 @@
   @apply flex items-center justify-between;
 }
 .repoCardHeader {
-  @apply text-xl text-blue-500 font-medium;
+  @apply text-xl text-link font-medium;
 }
 .repoCardDescription {
   @apply text-primary line-clamp-2;

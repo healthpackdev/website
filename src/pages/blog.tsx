@@ -16,12 +16,12 @@ const BlogPostCard: React.FC<{ post: BlogPostMatter }> = ({ post: { data, slug }
   <article className={css.article}>
     <Link href={`/blog/${slug}`}>
       <a>
-        <h2 className="text-blue-500 hover:underline text-3xl">{data.title}</h2>
+        <h2 className="text-link hover:underline text-3xl">{data.title}</h2>
       </a>
     </Link>
     <p className="m-0">{data.description}</p>
-    <div className="mt-2 text-primary">
-      <span className="hover:text-secondary">
+    <div className="mt-2 text-secondary">
+      <span className="hover:text-primary">
         <FontAwesomeIcon icon={['fas', 'clock']} /> {dayjs(data.publishedAt).fromNow()}
       </span>
     </div>
@@ -76,7 +76,7 @@ const Blog: Page<BlogProps> = ({ posts }) => {
           {filteredPosts.length >= 1 ? (
             filteredPosts.map((post, i) => <BlogPostCard post={post} key={i.toString()} />)
           ) : searchValue ? (
-            <h3 className="text-primary text-2xl">Üzgünüm aradığın şeyi bulamadık :{'('}</h3>
+            <h3 className="text-secondary text-2xl">Üzgünüm aradığın şeyi bulamadık :{'('}</h3>
           ) : (
             allPosts.map((post, i) => <BlogPostCard post={post} key={i.toString()} />)
           )}

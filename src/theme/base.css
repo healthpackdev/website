@@ -1,27 +1,44 @@
 :root {
-  --colors-body-background: white;
+  --colors-body-background: theme('colors.light.1');
 
-  --colors-text-primary: theme('colors.gray.700'); /* Typography */
-  --colors-text-secondary: theme('colors.gray.900');
+  --colors-text-primary: theme('colors.light.12');
+  --colors-text-secondary: theme('colors.light.11');
+  --colors-text-typography: theme('colors.light.typography');
+  --colors-text-link: theme('colors.light.blue.11');
+  --colors-text-link-hover: theme('colors.light.blue.12');
 
-  --colors-border-primary: theme('colors.gray.200');
-  --colors-border-secondary: theme('colors.gray.600');
+  --colors-border-primary: theme('colors.light.6');
+  --colors-border-hover: theme('colors.light.8');
 
-  --colors-bg-primary: rgba(229, 231, 235, 0.25); /* colors.gray.200 */
-  --colors-bg-secondary: theme('colors.gray.100');
+  --colors-bg-primary: rgb(236, 238, 240, 0.25);
+  --colors-bg-hover: theme('colors.light.4');
+  --colors-bg-active: theme('colors.light.5');
+
+  --colors-bg-blue-primary: theme('colors.light.blue.9');
+  --colors-bg-blue-hover: theme('colors.light.blue.11');
+  --colors-bg-blue-active: theme('colors.light.blue.12');
 }
 
+/* slate dark */
 .dark {
-  --colors-body-background: theme('colors.gray.900');
+  --colors-body-background: theme('colors.dark.1');
 
-  --colors-text-primary: theme('colors.gray.300'); /* Typography */
-  --colors-text-secondary: theme('colors.gray.100');
+  --colors-text-primary: theme('colors.dark.12');
+  --colors-text-secondary: theme('colors.dark.11');
+  --colors-text-typography: theme('colors.dark.typography');
+  --colors-text-link: theme('colors.dark.blue.11');
+  --colors-text-link-hover: theme('colors.dark.blue.12');
 
-  --colors-border-primary: theme('colors.gray.800');
-  --colors-border-secondary: theme('colors.gray.400');
+  --colors-border-primary: theme('colors.dark.6');
+  --colors-border-hover: theme('colors.dark.8');
 
-  --colors-bg-primary: rgba(31, 41, 55, 0.25); /* colors.gray.800 */
-  --colors-bg-secondary: rgba(31, 41, 55, 0.5); /* colors.gray.800 */
+  --colors-bg-primary: rgba(32, 36, 37, 0.25);
+  --colors-bg-hover: theme('colors.dark.4');
+  --colors-bg-active: theme('colors.dark.5');
+
+  --colors-bg-blue-primary: theme('colors.dark.blue.8');
+  --colors-bg-blue-hover: theme('colors.dark.blue.9');
+  --colors-bg-blue-active: theme('colors.dark.blue.10');
 }
 
 body {
@@ -60,7 +77,7 @@ h6 {
 }
 
 .prose div[data-title] {
-  @apply py-3 px-5 font-semibold font-mono text-secondary bg-secondary border rounded-t-md text-sm;
+  @apply py-3 px-5 font-semibold font-mono text-primary bg-hover border rounded-t-md text-sm;
 }
 
 .prose .task-list-item {

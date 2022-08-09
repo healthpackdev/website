@@ -1,5 +1,5 @@
 a.link {
-  @apply underline text-blue-500 hover:text-blue-700 active:text-blue-900;
+  @apply underline text-link hover:text-blue-700 active:text-blue-900;
 }
 
 .max-w-content {
@@ -10,7 +10,7 @@ a.link {
 }
 
 .icon-button {
-  @apply hover:bg-secondary w-10 h-10 flex items-center justify-center rounded-md !outline-none focus:ring-2 ring-blue-500;
+  @apply hover:bg-hover w-10 h-10 flex items-center justify-center rounded-md !outline-none focus:ring-2 ring-blue-500;
 }
 
 .input {
@@ -22,5 +22,5 @@ a.link {
 
 .btn {
   @apply text-white cursor-pointer rounded-md p-2 transition-all;
-  @apply bg-blue-500 hover:bg-blue-600 active:bg-blue-700 !important;
+  @apply bg-blue-primary hover:bg-blue-hover active:bg-blue-active !important;
 }

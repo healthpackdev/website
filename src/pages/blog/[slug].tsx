@@ -18,7 +18,7 @@ const BlogPost: Page<BlogPostProps> = ({ post: { data, mdxSource } }) => {
   return (
     <article className="prose dark:prose-dark mx-auto my-2">
       <h1 className="!m-0">{data.title}</h1>
-      <p>{data.description}</p>
+      <p className="text-secondary">{data.description}</p>
       <div className="space-x-4 mt-2 mb-10">
         <div className="bg-primary rounded-md py-1 px-3 inline-block border">
           <FontAwesomeIcon icon={['fas', 'clock']} /> {date.format('MMMM D[,] YYYY')}
