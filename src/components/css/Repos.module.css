@@ -10,7 +10,7 @@
 }
 
 .repoCardInner {
-  @apply flex flex-col py-2 px-4 justify-between;
+  @apply flex flex-col py-2 px-4 justify-between h-full;
 }
 .repoCardField {
   @apply flex items-center justify-between;
