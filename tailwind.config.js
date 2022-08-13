@@ -120,6 +120,7 @@ module.exports = {
               color: 'var(--colors-text-primary)',
             },
             blockquote: {
+              color: 'var(--colors-text-primary)',
               borderLeftColor: 'var(--colors-border-primary)',
             },
             thead: {
