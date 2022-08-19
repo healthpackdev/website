@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="max-w-content my-10">
       <div className="flex border-t py-2 justify-between items-center flex-col lg:flex-row text-center lg:text-left">
-        <p className="text-gray-700 dark:text-gray-200 text-md order-1 lg:order-[-1]">
+        <p className="text-secondary text-md order-1 lg:order-[-1]">
           Made with <FontAwesomeIcon icon={faHeart} color="red" /> by{' '}
           <a href="/github" className="link">
             healthpack

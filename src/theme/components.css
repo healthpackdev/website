@@ -1,5 +1,5 @@
 a.link {
-  @apply underline text-link hover:text-blue-700 active:text-blue-900;
+  @apply text-link hover:text-link-hover underline;
 }
 
 .max-w-content {
