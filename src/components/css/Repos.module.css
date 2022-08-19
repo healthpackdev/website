@@ -6,7 +6,7 @@
   @apply cursor-pointer rounded-md border;
 }
 .repoCard:hover {
-  @apply shadow-lg transition-shadow;
+  @apply border-hover;
 }
 
 .repoCardInner {

@@ -5,7 +5,7 @@
   @apply border flex my-2 items-center py-2 px-6 select-none cursor-pointer rounded-md;
 }
 .techCard:hover {
-  @apply shadow-md transition-shadow;
+  @apply border-hover;
 }
 
 .techName {
