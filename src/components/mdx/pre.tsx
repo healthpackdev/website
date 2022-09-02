@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const CopyButton = ({ visible, text }) => {
+const CopyButton = ({ visible, text, isOneLine = false }) => {
   const [copied, setCopied] = useState(false);
 
   const onCopy = async () => {
@@ -12,7 +12,11 @@ const CopyButton = ({ visible, text }) => {
   };
 
   return (
-    <button onClick={onCopy} className={`btn py-0 px-4 invisible absolute right-2 top-2 ${visible ? '!visible' : ''}`}>
+    <button
+      onClick={onCopy}
+      className={`btn py-0 px-4 invisible absolute right-2 ${isOneLine ? ' bottom-0 top-0 h-[28px] m-auto' : 'top-2'} ${
+        visible ? '!visible' : ''
+      }`}>
       <span className="font-mono">{!copied ? 'Kopyala' : 'Kopyalandı'}</span>
     </button>
   );
@@ -27,12 +31,15 @@ const Pre = ({ children, ...props }) => {
   const onHoverEvent = () => {
     setHover(!hover);
   };
+  const removedLastLine = code.replace(/\n$/, '');
+
+  const isOneline = removedLastLine.includes('\n') ? false : true;
 
   return (
     <>
       {title && <div data-title>{title}</div>}
       <div className="relative" onMouseEnter={onHoverEvent} onMouseLeave={onHoverEvent}>
-        <CopyButton visible={hover} text={code} />
+        <CopyButton visible={hover} text={code} isOneLine={isOneline} />
         <pre {...props}>{children}</pre>
       </div>
     </>
