@@ -14,8 +14,8 @@ const CopyButton = ({ visible, text, isOneLine = false }) => {
   return (
     <button
       onClick={onCopy}
-      className={`btn py-0 px-4 invisible absolute right-2 ${isOneLine ? ' bottom-0 top-0 h-[28px] m-auto' : 'top-2'} ${
-        visible ? '!visible' : ''
+      className={`btn py-0 px-4 absolute right-2 ${isOneLine ? ' bottom-0 top-0 h-[28px] m-auto' : 'top-2'} ${
+        visible ? 'visible' : 'invisible'
       }`}>
       <span className="font-mono">{!copied ? 'Kopyala' : 'Kopyalandı'}</span>
     </button>
