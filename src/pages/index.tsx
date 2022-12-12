@@ -21,7 +21,7 @@ const Home: Page<HomeProps> = ({ repos }) => (
 
 Home.layoutProps = {
   title: `Home`,
-  description: `I'mm a Web Developer and student. I have about 1 years experience in Javascript. I love Next.js and React with Typescript. I currently develop this website and trying to learn Golang - visit website and learn more about me`,
+  description: `I'm a Web Developer and student. I have about 1 years experience in Javascript. I love Next.js and React with Typescript. I currently develop this website and trying to learn Golang - visit website and learn more about me`,
 };
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
