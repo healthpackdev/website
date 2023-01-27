@@ -9,6 +9,7 @@ specifiers:
   '@fortawesome/free-solid-svg-icons': ^6.1.1
   '@fortawesome/react-fontawesome': ^0.1.18
   '@giscus/react': ^2.0.5
+  '@next/font': ^13.1.5
   '@octokit/request': ^6.2.3
   '@statoscope/webpack-plugin': ^5.20.1
   '@tailwindcss/line-clamp': ^0.4.2
@@ -57,6 +58,7 @@ dependencies:
   '@fortawesome/free-solid-svg-icons': 6.1.1
   '@fortawesome/react-fontawesome': 0.1.18_sdfg7szeivrzzj63kiqxwaxkwu
   '@giscus/react': 2.0.5_biqbaboplfbrettd7655fr4n2y
+  '@next/font': 13.1.5
   '@octokit/request': 6.2.3
   dayjs: 1.11.3
   fast-glob: 3.2.11
@@ -741,6 +743,10 @@ packages:
     dependencies:
       glob: 7.1.7
     dev: true
+
+  /@next/font/13.1.5:
+    resolution: {integrity: sha512-6M5R6yC3JkdJiqo/YJxDp6+0vDn0smXOAzl8uHt4qmDS2u53ji/19K0HM51d+5kg8xntDi+N2hw7YjaU9inkNA==}
+    dev: false
 
   /@next/swc-android-arm-eabi/13.1.5:
     resolution: {integrity: sha512-QAEf3YM9U0qWVQTxgF3Tsh4OeCN1i9Smsf6cVlwZsPzoLyj2nQ879joCoN+ONqDknkBgG6OG/ajefywL3jw9Cg==}

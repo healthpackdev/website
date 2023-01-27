@@ -19,6 +19,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@giscus/react": "^2.0.5",
+    "@next/font": "^13.1.5",
     "@octokit/request": "^6.2.3",
     "dayjs": "^1.11.3",
     "fast-glob": "^3.2.11",

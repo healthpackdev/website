@@ -77,8 +77,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: [fonts.sans.name, ...fontFamily.sans],
-      comic: [fonts.comic.name, ...fontFamily.sans],
+      sans: ["var(--font-rubik)", ...fontFamily.sans],
+      comic: ["var(--font-baloo_2)", ...fontFamily.sans],
       mono: fontFamily.mono,
     },
     extend: {
