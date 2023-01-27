@@ -12,9 +12,10 @@ const BlogComments = () => {
       repo={`${author.github}/${siteConfig.publicRepoName}`}
       repoId={siteConfig.giscusRepoId}
       category="General"
-      categoryId="DIC_kwDOFdam_c4B-lDT"
+      categoryId={siteConfig.giscusCategoryId}
       theme={isDark ? 'transparent_dark' : 'light'}
       emitMetadata="0"
+      lang="tr"
       reactionsEnabled="1"
       mapping="pathname"
     />
