@@ -20,7 +20,7 @@ const ThemeToggle: React.FC = ({ ...props }) => {
   return (
     <button
       onClick={toggleTheme}
-      className="icon-button"
+      className="icon-button transition-colors"
       aria-label={`Toggle ${isDark ? 'light' : 'dark'} mode`}
       {...props}
       type="button">
