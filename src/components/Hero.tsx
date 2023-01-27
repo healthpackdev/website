@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
       <p className="prose dark:prose-dark">
         I&apos;m a Web Developer and student. I have about 1 years experience in Javascript. I love <b>Next.js</b> and{' '}
         <b>React</b> with <b>Typescript</b>. I currently develop <Link href="/">this website</Link> and{' '}
-        <b> trying to learn Golang</b> - <Link href="/about">learn more about me</Link>
+        <b> trying to learn Python</b> - <Link href="/about">learn more about me</Link>
       </p>
 
       <div className="mt-5 grid lg:block grid-cols-2">

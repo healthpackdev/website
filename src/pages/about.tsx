@@ -6,8 +6,9 @@ import MDX from '@components/mdx';
 
 const extensions = [
   {
-    name: 'Bracket Pair Colorizer 2',
-    item: 'CoenraadS.bracket-pair-colorizer-2',
+    name: 'Darcula Theme',
+    item: 'rokoroku.vscode-theme-darcula',
+    colorTheme: true,
   },
   {
     name: 'Eslint',
@@ -22,8 +23,8 @@ const extensions = [
     item: 'eamodio.gitlens',
   },
   {
-    name: 'Golang',
-    item: 'golang.go',
+    name: 'GitHub Copilot',
+    item: 'GitHub.copilot',
   },
   {
     name: 'Material Icon Theme',
@@ -31,21 +32,32 @@ const extensions = [
     iconTheme: true,
   },
   {
-    name: 'Night Owl',
-    item: 'sdras.night-owl',
-    colorTheme: true,
-  },
-  {
     name: 'Prettier - Code formatter',
     item: 'esbenp.prettier-vscode',
+  },
+  {
+    name: 'MDX',
+    item: 'unifiedjs.vscode-mdx',
   },
   {
     name: 'Remote - Containers',
     item: 'ms-vscode-remote.remote-containers',
   },
   {
+    name: 'Python',
+    item: 'ms-python.python',
+  },
+  {
     name: 'Tailwind CSS IntelliSense',
     item: 'bradlc.vscode-tailwindcss',
+  },
+  {
+    name: 'IntelliCode API Usage Examples',
+    item: 'VisualStudioExptTeam.intellicode-api-usage-examples',
+  },
+  {
+    name: 'Jupyter',
+    item: 'ms-toolsai.jupyter',
   },
   {
     name: 'Visual Studio IntelliCode',
@@ -63,9 +75,7 @@ const About: Page<AboutProps> = ({ about }) => {
 
 About.layoutProps = {
   title: 'About',
-  description: `Hi my name is Yasin Kadir. I was born in Turkey/Istanbul. I&apos;m currently a student in middle school. 1
-year ago I started programming with <b>Node.js</b> for write web apps. I mostly use Javascript and Typescript
-these are my favourites.`,
+  description: `Hi there! I'm Yasin Kadir, a software engineer based in Turkey. I'm a full-stack developer with a passion for building web applications. I'm student at highschool. I have 2 years experience in web development. Here is my website`,
 };
 
 export const getStaticProps: GetStaticProps = async () => {
