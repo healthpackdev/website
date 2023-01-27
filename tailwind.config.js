@@ -2,6 +2,13 @@ const fonts = require('./config/fonts.json');
 const { fontFamily } = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
+// exclude deprecated colors to avoid warnings (it disturbs me)
+delete colors.coolGray;
+delete colors.blueGray;
+delete colors.warmGray;
+delete colors.trueGray;
+delete colors.lightBlue;
+
 module.exports = {
   mode: 'jit',
   content: ['./src/**/*.{tsx,jsx,js}'],
