@@ -24,11 +24,9 @@ const Footer: React.FC = () => {
         </p>
         <div className="flex justify-center space-x-4 my-1">
           {author.socials.map((social, index) => (
-            <Link href={`/${social.icon}`} key={index.toString()}>
-              <a style={{ color: getColor(social.color, theme) }}>
-                <FontAwesomeIcon icon={['fab', social.icon as IconName]} />
-                <span className="hidden">{social.icon}</span> {/* Links do not have a discernible name */}
-              </a>
+            <Link href={`/${social.icon}`} key={index.toString()} style={{ color: getColor(social.color, theme) }}>
+              <FontAwesomeIcon icon={['fab', social.icon as IconName]} />
+              <span className="hidden">{social.icon}</span> {/* Links do not have a discernible name */}
             </Link>
           ))}
         </div>

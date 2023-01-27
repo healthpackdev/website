@@ -13,10 +13,8 @@ const a = ({ className, children, href, ...p }) => {
   }
   if (href.startsWith('/')) {
     return (
-      <Link href={href}>
-        <a {...p} className={className}>
-          {children}
-        </a>
+      <Link href={href} {...p} className={className}>
+        {children}
       </Link>
     );
   }

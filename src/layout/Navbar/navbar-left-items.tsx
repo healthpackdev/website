@@ -15,13 +15,13 @@ export const Links: React.FC<React.HTMLProps<HTMLDivElement>> = ({ className }) 
       <ul className={className ? className : `hidden md:flex`}>
         {links.map((link, index) => (
           <li key={index.toString()}>
-            <Link href={link.href} passHref>
-              <a
-                className={`${
-                  isActive(link.href) ? 'font-bold' : ''
-                } font-sans mr-1 px-4 py-2 rounded-md select-none border border-none hover:bg-hover`}>
-                <FontAwesomeIcon icon={['fas', link.icon] as IconProp} className="mr-2" /> {link.title}
-              </a>
+            <Link
+              href={link.href}
+              className={`${
+                isActive(link.href) ? 'font-bold' : ''
+              } font-sans mr-1 px-4 py-2 rounded-md select-none border border-none hover:bg-hover`}
+              passHref>
+              <FontAwesomeIcon icon={['fas', link.icon] as IconProp} className="mr-2" /> {link.title}
             </Link>
           </li>
         ))}

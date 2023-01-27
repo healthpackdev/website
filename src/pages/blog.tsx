@@ -15,9 +15,7 @@ interface BlogProps {
 const BlogPostCard: React.FC<{ post: BlogPostMatter }> = ({ post: { data, slug } }) => (
   <article className={css.article}>
     <Link href={`/blog/${slug}`}>
-      <a>
-        <h2 className="text-link hover:underline text-3xl">{data.title}</h2>
-      </a>
+      <h2 className="text-link hover:underline text-3xl">{data.title}</h2>
     </Link>
     <p className="m-0">{data.description}</p>
     <div className="mt-2 text-secondary">
