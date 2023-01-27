@@ -11,12 +11,12 @@ import '@theme/main.css';
 import { Rubik, Baloo_2 } from '@next/font/google';
 
 const rubik = Rubik({
-  weight: ['400', '700'],
+  weight: ['400', '600', '700'],
   subsets: ['latin'],
 });
 
 const baloo_2 = Baloo_2({
-  weight: ['400', '700'],
+  weight: ['400', '600', '700'],
   subsets: ['latin'],
 });
 
