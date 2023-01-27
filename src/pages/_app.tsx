@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import type { NextPage } from 'next';
 import { ThemeProvider } from 'next-themes';
+import { Analytics } from '@vercel/analytics/react';
 import Layout from '@layout/index';
 
 import '@lib/font-awesome';
@@ -26,6 +27,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <ThemeProvider attribute="class">
+      <Analytics mode={process.env.NODE_ENV === 'production' ? 'production' : 'development'} />
       <style jsx global>
         {`
           :root {

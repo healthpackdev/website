@@ -21,6 +21,7 @@
     "@giscus/react": "^2.0.5",
     "@next/font": "^13.1.5",
     "@octokit/request": "^6.2.3",
+    "@vercel/analytics": "^0.1.8",
     "dayjs": "^1.11.3",
     "fast-glob": "^3.2.11",
     "gray-matter": "^4.0.3",
