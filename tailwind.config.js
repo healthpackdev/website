@@ -1,4 +1,3 @@
-const fonts = require('./config/fonts.json');
 const { fontFamily } = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
@@ -77,8 +76,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["var(--font-rubik)", ...fontFamily.sans],
-      comic: ["var(--font-baloo_2)", ...fontFamily.sans],
+      sans: ['var(--font-rubik)', ...fontFamily.sans],
+      comic: ['var(--font-baloo_2)', ...fontFamily.sans],
       mono: fontFamily.mono,
     },
     extend: {
